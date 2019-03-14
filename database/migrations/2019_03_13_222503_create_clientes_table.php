@@ -19,7 +19,7 @@ class CreateClientesTable extends Migration
             $table->string('direccion');
             $table->string('pais');
             $table->boolean('sexo');
-            $table->string('type');
+            $table->enum('tipo', ['propietario', 'cliente']);
             $table->string('email')->unique()->nullable();
             $table->string('telefono')->unique()->nullable();
             $table->string('celular')->unique()->nullable();
