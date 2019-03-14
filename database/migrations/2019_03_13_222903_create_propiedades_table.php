@@ -18,7 +18,7 @@ class CreatePropiedadesTable extends Migration
         Schema::create('propiedades', function (Blueprint $table) {
             $table->increments('id');
             /*Enums*/
-            $table->enum('tipo_propiedad', ['casa', 'apartamento', 'oficina', 'tienda comercial', 'bodega', 'estacionamiento', 'terreno']);
+            $table->enum('tipo_propiedad', ['casa', 'apartamento', 'oficina', 'tienda_comercial', 'bodega', 'estacionamiento', 'terreno']);
             /* Booleans*/
             $table->boolean('amoblado')->nullable();
             $table->boolean('habitacion')->nullable(); // Casa o habitación (?)
@@ -27,7 +27,7 @@ class CreatePropiedadesTable extends Migration
             $table->boolean('living_comedor')->nullable(); // Living comedor, junto = true
             $table->boolean('estacionamiento')->nullable();
             $table->boolean('estacionamiento_visita')->nullable();
-            $table->boolean('oficina _secretaria')->nullable();
+            $table->boolean('oficina_secretaria')->nullable();
             $table->boolean('sala_reunion')->nullable();
             $table->boolean('planta_libre')->nullable(); // planta libre de edificios
             $table->boolean('aire_acondicionado')->nullable();
@@ -38,9 +38,9 @@ class CreatePropiedadesTable extends Migration
             $table->boolean('conexion_trifasica')->nullable();
             $table->boolean('logia')->nullable();
             $table->boolean('terraza')->nullable();
-            $table->boolean('baño_visita')->nullable();
+            $table->boolean('bano_visita')->nullable();
             $table->boolean('dormitorio_visita')->nullable();
-            $table->boolean('pasicina')->nullable();
+            $table->boolean('piscina')->nullable();
             $table->boolean('gimnasio')->nullable();
             $table->boolean('sala_evento')->nullable();
             $table->boolean('sauna')->nullable();
@@ -64,9 +64,9 @@ class CreatePropiedadesTable extends Migration
             $table->integer('suite')->nullable();
             $table->integer('walking_closet')->nullable();
             $table->integer('closet')->nullable();
-            $table->integer('baño')->nullable();
+            $table->integer('bano')->nullable();
             $table->integer('living')->nullable();
-            $table->integer('escritori')->nullable();
+            $table->integer('escritorio')->nullable();
             $table->integer('gastos_comunes')->nullable();
             $table->integer('salta_privada')->nullable();
             /* Alfanuméricos */
@@ -81,9 +81,9 @@ class CreatePropiedadesTable extends Migration
             $table->string('tipo_agua_caliente')->nullable();
             $table->string('tipo_piso')->nullable();
             $table->string('calefaccion')->nullable();
-            $table->string('comment', 2000)->nullable();
-            $table->string('foto');
-            $table->string('galeria');
+            $table->string('comentario', 2000)->nullable();
+            $table->string('foto')->nullable();
+            $table->string('galeria')->nullable();
             /*Foreign keys*/
 
             $table->integer('cliente_id')->unsigned()->nullable();
