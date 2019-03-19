@@ -20,7 +20,7 @@ class Propiedad extends Model
 
     }
 
-    public function propetario()
+    public function propietario()
     {
         return $this->belongsTo('App\Cliente', 'propietario_id');
     }
@@ -33,6 +33,11 @@ class Propiedad extends Model
     public function barrio()
     {
         return $this->belongsTo('App\Barrio');
+    }
+
+    public function scopeOferta($query)
+    {
+        return $query->where('oferta', true);
     }
 
     protected $dates = ['deleted_at'];

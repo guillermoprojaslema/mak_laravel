@@ -17,6 +17,7 @@ class PropiedadesController extends Controller
     {
         $data['paginas'] = Pagina::all();
         $data['propiedades'] = Propiedad::all();
+        $data['ofertas'] = Propiedad::oferta()->get();
         return view('propiedades.index', $data);
     }
 
@@ -50,7 +51,7 @@ class PropiedadesController extends Controller
     public function show($id)
     {
         $data['paginas'] = Pagina::all();
-        $data['propiedades'] = Propiedad::findOrFail($id);
+        $data['propiedad'] = Propiedad::findOrFail($id);
         return view('propiedades.show', $data);
 
     }
