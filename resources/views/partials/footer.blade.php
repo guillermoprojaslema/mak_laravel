@@ -7,17 +7,16 @@
                     <img class="logo-footer" src="{{asset('images/logos/logo_200x100.png')}}" alt="logo-footer"
                          data-at2x="assets/img/logo.png">
                     <p>
-                        Lorem ipsum dolor sit amet
+                        {{ setting('site.description')}}
                     </p>
-                    <p><a href="#">Our Team</a></p>
                 </div>
                 <div class="col-md-4 col-lg-4 offset-lg-1">
                     <br>
                     <h3>Contact</h3>
-                    <p><i class="fa fa-map-marker-alt"></i> Via Rossini 10, 10136 Turin Italy</p>
-                    <p><i class="fa fa-phone"></i> Phone: (0039) 333 12 68 347</p>
-                    <p><i class="fa fa-envelope"></i> Email: <a href="mailto:hello@domain.com">hello@domain.com</a></p>
-                    <p><i class="fa fa-skype"></i> Skype: you_online</p>
+                    <p><i class="fa fa-map-marker-alt"></i>Dirección: {{setting('site.direccion')}}</p>
+                    <p><i class="fa fa-phone"></i> Teléfono: {{setting('site.telefono')}}</p>
+                    <p><i class="fa fa-envelope"></i> Email: <a
+                                href="mailto:{{setting('site.correo')}}">{{setting('site.correo')}}</a></p>
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <br>

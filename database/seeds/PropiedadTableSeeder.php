@@ -86,6 +86,17 @@ class PropiedadTableSeeder extends Seeder
             $property->tipo_piso = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
             $property->tipo_agua_caliente = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
 
+
+            $galeria = [];
+
+            for ($j=0; $j<5; $j++){
+
+                array_push($galeria, 'https://via.placeholder.com/1280x720');
+
+            }
+            $property->galeria = json_encode($galeria);
+            $property->foto = 'https://via.placeholder.com/1280x720';
+
             $has_client = $faker->randomElement([true, false]);
             if ($has_client) {
                 $property->cliente_id = $faker->numberBetween($min = 1, $max = 15); // done

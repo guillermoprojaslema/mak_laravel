@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Comuna;
+use App\Http\Requests\BusquedaPropiedadRequest;
 use App\Pagina;
 use App\Propiedad;
 use Illuminate\Http\Request;
@@ -16,8 +18,9 @@ class PropiedadesController extends Controller
     public function index()
     {
         $data['paginas'] = Pagina::all();
-        $data['propiedades'] = Propiedad::all();
+        $data['propiedades'] = Propiedad::orderBy('updated_at','asc')->take(4)->get();
         $data['ofertas'] = Propiedad::oferta()->get();
+        $data['comunas'] = Comuna::all();
         return view('propiedades.index', $data);
     }
 
@@ -88,5 +91,10 @@ class PropiedadesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function busqueda (Request $request)
+    {
+        dd($request->all());
     }
 }

@@ -21,6 +21,6 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('/', 'PropiedadesController@index')->name('propiedades.index');
-Route::get('/propiedades/{id}', 'PropiedadesController@index')->name('propiedades.show');
-
+Route::post('/', 'PropiedadesController@busqueda')->name('propiedades.busqueda');
+Route::get('/propiedades/{id}', 'PropiedadesController@show')->name('propiedades.show');
 Route::get('/{pagina}', 'PaginasController@show')->name('paginas.show');
