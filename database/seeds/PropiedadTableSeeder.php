@@ -47,6 +47,7 @@ class PropiedadTableSeeder extends Seeder
             $property->casillero = $faker->randomElement([true, false]);                   // done
             $property->bodega = $faker->randomElement([true, false]);
             $property->oferta = $faker->randomElement([true, false]);
+            $property->destacado = $faker->randomElement([true, false]);
             $property->venta = $faker->randomElement([true, false]);
             $property->arriendo = $faker->randomElement([true, false]);
 
@@ -55,6 +56,7 @@ class PropiedadTableSeeder extends Seeder
                 $property->arriendo = $faker->randomElement([true, false]);
             }
 
+            $property->numero = $faker->numberBetween(0, 20200);              // done
             $property->precio = $faker->numberBetween(0, 100000);              // done
             $property->ano_construccion = $faker->year;                                       // done
             $property->metros_cuadrados = $faker->numberBetween(15, 1000);                 // done
@@ -72,11 +74,12 @@ class PropiedadTableSeeder extends Seeder
             $property->living = $faker->numberBetween(0, 10);                       // done
             $property->escritorio = $faker->numberBetween(0, 10);                             // done
             $property->gastos_comunes = $faker->numberBetween(0, 100000);              // done
-            $property->salta_privada = $faker->numberBetween(0, 10);                     // done
+            $property->sala_privada = $faker->numberBetween(0, 10);                     // done
             $property->direccion = $faker->streetName . ' # ' . $faker->buildingNumber;                                 // done
             $property->direcciion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
+            $property->descripcion_breve= $faker->text(200);
             $property->orientacion = $faker->randomElement(['Norte', 'Nororiente', 'Oriente', 'Suroriente', 'Sur', 'Surponiente', 'Poniente', 'Norponiente']); //done
             $property->tipo_casa = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
             $property->tipo_oficina = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done

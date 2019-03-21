@@ -198,10 +198,9 @@
                                     <td class="text-left">Estacionamiento</td>
                                     <td class="text-right">
                                         @if($propiedad->estacionamiento )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred;" class="fa fa-times"></i>
                                         @endif
                                     </td>
                                 </tr>
@@ -210,10 +209,10 @@
                                     <td class="text-left">Estacionamiento de visita</td>
                                     <td class="text-right">
                                         @if($propiedad->estacionamiento_visitas )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -222,10 +221,10 @@
                                     <td class="text-left">Planta Libre</td>
                                     <td class="text-right">
                                         @if($propiedad->planta_libre )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif</td>
                                 </tr>
 
@@ -233,10 +232,9 @@
                                     <td class="text-left">Logia</td>
                                     <td class="text-right">
                                         @if($propiedad->logia )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
                                         @endif</td>
                                 </tr>
 
@@ -244,10 +242,10 @@
                                     <td class="text-left">Terraza</td>
                                     <td class="text-right">
                                         @if($propiedad->terraza )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif</td>
                                 </tr>
 
@@ -255,10 +253,10 @@
                                     <td class="text-left">Lavandería</td>
                                     <td class="text-right">
                                         @if($propiedad->lavanderia )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif</td>
                                 </tr>
 
@@ -266,10 +264,10 @@
                                     <td class="text-left">Piscina</td>
                                     <td class="text-right">
                                         @if($propiedad->piscina )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif</td>
                                 </tr>
 
@@ -277,10 +275,10 @@
                                     <td class="text-left">Gimnasio</td>
                                     <td class="text-right">
                                         @if($propiedad->gimnasio )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif</td>
                                 </tr>
 
@@ -288,10 +286,10 @@
                                     <td class="text-left">Sala de eventos</td>
                                     <td class="text-right">
                                         @if($propiedad->sala_eventos )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif</td>
                                 </tr>
 
@@ -299,10 +297,10 @@
                                     <td class="text-left">Casilleros</td>
                                     <td class="text-right">
                                         @if($propiedad->casilleros )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif</td>
                                 </tr>
 
@@ -310,10 +308,9 @@
                                     <td class="text-left">Bodega</td>
                                     <td class="text-right">
                                         @if($propiedad->bodega )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
                                         @endif
                                     </td>
                                 </tr>
@@ -331,10 +328,10 @@
                                     <td class="text-left">Amoblada</td>
                                     <td class="text-right">
                                         @if($propiedad->amoblada )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -344,10 +341,10 @@
                                     <td class="text-left">Sala</td>
                                     <td class="text-right">
                                         @if($propiedad->sala )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
 
@@ -358,10 +355,10 @@
 
                                     <td class="text-right">
                                         @if($propiedad->hall )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -370,10 +367,10 @@
                                     <td class="text-left">Living-Comedor (juntos)</td>
                                     <td class="text-right">
                                         @if($propiedad->living_comedor )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -382,10 +379,10 @@
                                     <td class="text-left">Oficina secretaria</td>
                                     <td class="text-right">
                                         @if($propiedad->oficina_secretaria )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -394,10 +391,10 @@
                                     <td class="text-left">Sala de reunión</td>
                                     <td class="text-right">
                                         @if($propiedad->sala_reunion )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
 
@@ -407,10 +404,10 @@
                                     <td class="text-left">Baño de visitas</td>
                                     <td class="text-right">
                                         @if($propiedad->bano_visitas )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                     @endif
                                 </tr>
 
@@ -418,10 +415,10 @@
                                     <td class="text-left">Dormitorio de visitas</td>
                                     <td class="text-right">
                                         @if($propiedad->dormitorio_visitas )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
 
@@ -430,10 +427,10 @@
                                 <tr>
                                     <td class="text-left">Aire acondicionado</td>
                                     <td class="text-right">@if($propiedad->air_conditioning )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
 
@@ -443,10 +440,10 @@
                                     <td class="text-left">Red de computadores</td>
                                     <td class="text-right">
                                         @if($propiedad->red_computadora )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
 
@@ -456,10 +453,10 @@
                                     <td class="text-left">Sauna</td>
                                     <td class="text-right">
                                         @if($propiedad->sauna )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -468,10 +465,10 @@
                                     <td class="text-left">Instalación trifásica</td>
                                     <td class="text-right">
                                         @if($propiedad->instalacion_trifasica )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -480,10 +477,10 @@
                                     <td class="text-left">Alarma contra incendios</td>
                                     <td class="text-right">
                                         @if($propiedad->alarma_incendio )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -492,10 +489,10 @@
                                     <td class="text-left">Alarma</td>
                                     <td class="text-right">
                                         @if($propiedad->alarma )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -504,10 +501,10 @@
                                     <td class="text-left">Iluminación</td>
                                     <td class="text-right">
                                         @if($propiedad->iluminacion )
-                                            <span style="color:green" class="glyphicon glyphicon-ok"></span>
+                                            <i style="color:darkgreen" class="fa fa-check"></i>
                                         @else
-                                            <span style="color:red"
-                                                  class="glyphicon glyphicon-remove"></span>
+                                            <i style="color:darkred" class="fa fa-times"></i>
+
                                         @endif
                                     </td>
                                 </tr>

@@ -8,132 +8,85 @@
 @endpush
 
 @section('content')
+    {{$errors}}
+
     <div class="row">
         <div class="col-md-9 col-sm-12">
+            <h3>Nuestras ofertas</h3>
             <div class="owl-carousel owl-theme">
                 @forelse($ofertas as $oferta)
-                    <div>
+                    <div class="foto-carrusel">
                         <img src="{{  $oferta->foto  }}" alt="{{$oferta->direccion}}">
+                        <div>
+                            <p>{{$oferta->descripcion_breve}}</p>
+                            {{$oferta->tipo_propiedad }}
+                            {{$oferta->dormitorio}} <i class="fa fa-bed"></i>
+                            {{$oferta->bano}} <i class="fas fa-bath"></i>
+                            <b>Sup: </b>{{$oferta->metros_cuadrados}} m<sup>2</sup>
+                            <b>Cons: </b>{{$oferta->metros_cuadrados_construidos}} m<sup>2</sup>
+                            <i class="fa fa-dollar"></i> {{number_format($oferta->precio, 0, ',', '.')}}
+                        </div>
                     </div>
                 @empty
-                    Hola
+                    No hay propiedades para mostrar
                 @endforelse
             </div>
         </div>
 
         <div class="col-md-3 col-sm-12">
-            <form method="POST" action="{{route('propiedades.busqueda')}}">
-                {!! csrf_field() !!}
-                <div class="form-group  {{ $errors->has('comuna') ? 'has-error' : ''}}">
-                    <label for="comuna">Comuna</label>
-                    <select class="form-control" name="comuna" id="comuna" data-required>
-                        <option value="">Seleccione una Comuna</option>
-                        @foreach($comunas as $comunas)
-                            <option value="{{ $comunas->id }}"{{ old('comuna') == $comunas->id ? ' selected' : '' }}>{{ $comunas->nombre }}</option>
-                        @endforeach
-                    </select>
-                    {!! $errors->first('comuna', '<p class="help-block">:message</p>') !!}
-                </div>
-                <div class="form-group  {{ $errors->has('tipo_propiedad') ? 'has-error' : ''}}">
-                    <label for="tipo_propiedad">Clase de propiedad</label>
-                    <select class="form-control tipo_propiedad" name="tipo_propiedad"
-                            id="tipo_propiedad"
-                            data-required>
-                        <option value="">Seleccione una opción</option>
-                        <option value="house" {{ old('tipo_propiedad') == 'casa' ? ' selected' : '' }}>Casa</option>
-                        <option value="flat" {{ old('tipo_propiedad') == 'apartamento'? ' selected' : '' }}>Apartamento
-                        </option>
-                        <option value="office" {{ old('tipo_propiedad') == 'oficina' ? ' selected' : '' }}>Oficina
-                        </option>
-                        <option value="shop" {{ old('tipo_propiedad') == 'tienda_comercial' ? ' selected' : '' }}>Local
-                            Comercial
-                        </option>
-                        <option value="warehouse" {{ old('tipo_propiedad') == 'bodega'? ' selected' : '' }}>Bodega
-                        </option>
-                        <option value="land" {{ old('tipo_propiedad') == 'terreno' ? ' selected' : '' }}>Terreno
-                        </option>
-                        <option value="parking" {{ old('tipo_propiedad') == 'estacionamiento' ? ' selected' : '' }}>
-                            Estacionamiento
-                        </option>
-                    </select>
-                    {!! $errors->first('tipo_propiedad', '<p class="help-block">:message</p>') !!}
-                </div>
-                <div class="form-group  {{ $errors->has('divisa') ? 'has-error' : ''}} ">
-                    <label for="divisa">Divisa:</label>
-                    <select class="form-control" name="divisa" id="divisa" data-required>
 
-                        <option value="">Seleccione una divisa</option>
-                        <option value="UF" {{ old('divisa') == 'UF' ? ' selected' : '' }}> UF</option>
-                        <option value="CLP" {{ old('divisa') == 'CLP'? ' selected' : '' }}> CLP
-                        </option>
-                        <option value="USD" {{ old('divisa') == 'USD'? ' selected' : '' }}> USD
-                        </option>
-                        <option value="EUR" {{ old('divisa') == 'USD' ? ' selected' : '' }}> EUR
-                        </option>
-                    </select>
-                    {!! $errors->first('divisa', '<p class="help-block">:message</p>') !!}
-                </div>
-
-
-                <div class="form-group {{ $errors->has('venta') ? 'has-error' : ''}} {{ $errors->has('arriendo') ? 'has-error' : ''}}">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" value="" id="venta"
-                               name="venta" data-required>Venta</label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" value="true" id="arriendo"
-                               name="arriendo" data-required checked>Arriendo</label>
-                    {{ $errors->first('venta', '<p class="help-block">:message</p>') }}
-                    {{ $errors->first('arriendo', '<p class="help-block">:message</p>') }}
-                </div>
-
-                <br><br>
-                <div class="form-group {{ $errors->has('precio') ? 'has-error' : ''}}">
-                    <label for="precio">Precio</label>
-                    <br><br>
-                    <input name="precio" type="hidden" class="range-slider" value="100000"/>
-                    {{ $errors->first('precio', '<p class="help-block">:message</p>') }}
-                </div>
-                <br><br>
-                <button type="submit" class="btn btn-primary">Buscar</button>
-            </form>
+            @include('partials.busqueda')
         </div>
     </div>
 
-
+    <br><br>
     <div class="row">
-        @forelse($propiedades as $propiedad)
-            <div class="col-sm-12 col-md-4 col-lg-3">
+        <div class="col-md-12">
+            <h3>Destacados</h3>
+        </div>
+    </div>
+    <div class="row">
+        @forelse($destacados as $destacado)
+            <div class="col-sm-12 col-md-6">
                 <figure class="card card-product">
-                    <div class="img-wrap"><img src="{{$propiedad->foto}}"></div>
+                    <div class="img-wrap img-thumbnail"><img src="{{$destacado->foto}}"></div>
                     <figcaption class="info-wrap">
-                        <h4 class="title">{{$propiedad->direccion}}</h4>
+                        <h4 class="title">{{$destacado->direccion}}</h4>
 
-                        @if($propiedad->edificio_id)
-                            <p class="desc">{{$propiedad->edificio()->first()->barrio()->first()->nombre}}</p>
+                        @if($destacado->edificio_id)
+                            <p class="desc">{{$destacado->edificio()->first()->barrio()->first()->nombre}}</p>
                         @else
-                            <p class="desc">{{$propiedad->barrio()->first()->nombre}}</p>
+                            <p class="desc">{{$destacado->barrio()->first()->nombre}}</p>
                         @endif
                         <p class="desc">
-                            @if($propiedad->venta)
-                                <span class="badge badge-primary">Venta</span></h1>
+                            @if($destacado->venta)
+                                <span class="badge badge-secondary">Venta</span>
                             @endif
 
-                            @if($propiedad->arriendo)
-                                <span class="badge badge-primary">Arriendo</span></h1>
+                            @if($destacado->arriendo)
+                                <span class="badge badge-secondary">Arriendo</span>
                             @endif
 
                         </p>
 
                         <div class="rating-wrap">
-                            <div class="label-rating">{{$propiedad->metros_cuadrados}} m<sup>2</sup></div>
-                            <div class="label-rating">{{$propiedad->bano}} Baños</div>
+                            <div class="label-rating">{{$destacado->descripcion_breve}}</div>
+                            <div class="label-rating">{{$destacado->tipo_propiedad }}</div>
+                            <div class="label-rating">{{$destacado->dormitorio}}<i class="fa fa-bed"></i></div>
+                            <div class="label-rating">{{$destacado->bano}}<i class="fas fa-bath"></i></div>
+                            <div class="label-rating"><b>Sup: </b>{{$destacado->metros_cuadrados}} m<sup>2</sup></div>
+                            <div class="label-rating"><b>Cons: </b>{{$destacado->metros_cuadrados_construidos}}
+                                m<sup>2</sup></div>
+                            <div class="label-rating"><i
+                                        class="fa fa-dollar"></i> {{number_format($oferta->precio, 0, ',', '.')}}</div>
                         </div> <!-- rating-wrap.// -->
                     </figcaption>
                     <div class="bottom-wrap">
-                        <a href="{{route('propiedades.show', $propiedad->id)}}" class="btn btn-sm btn-primary float-right">Detalles</a>
+                        <a href="{{route('propiedades.show', $destacado->id)}}"
+                           class="btn btn-sm btn-danger float-right">Detalles</a>
                         <div class="price-wrap h5">
-                            <span class="price-new">${{$propiedad->precio}}</span>
-                            <del class="price-old">${{$propiedad->precio}}</del>
+                            <span class="price-new">${{$destacado->precio}}</span>
+                            <del class="price-old">${{$destacado->precio}}</del>
                         </div> <!-- price-wrap.// -->
                     </div> <!-- bottom-wrap.// -->
                 </figure>
@@ -168,7 +121,7 @@
                 from: 0,
                 to: 100000,
                 step: 1,
-                scale: [0, 25, 50, 75, 100],
+                scale: [0, 100000],
                 format: '%s',
                 width: 300,
                 showLabels: true,

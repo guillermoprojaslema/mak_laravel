@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class BusquedaPropiedadRequest extends FormRequest
 {
@@ -26,7 +27,7 @@ class BusquedaPropiedadRequest extends FormRequest
         return [
             'arriendo' => 'required_without_all:venta',
             'precio' => 'required',
-            'comuna' => 'required|integer',
+            'comuna_id' => 'required|integer',
             'divisa' => 'required',
             'tipo_propiedad' => 'required', Rule::in(['casa', 'apartamento' , 'oficina' , 'local_comercial', 'bodega' , 'terreno' , 'estacionamiento']),
         ];

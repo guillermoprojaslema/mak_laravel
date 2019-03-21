@@ -20,13 +20,13 @@
                 </div>
                 <div class="col-md-4 col-lg-3">
                     <br>
-                    <h3>Follow us</h3>
+                    <h3>Síguenos</h3>
                     <p>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus-g"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="{{setting('site.facebook')}}"><i class="fa fa-facebook"></i></a>
+                        <a href="{{setting('site.twitter')}}"><i class="fa fa-twitter"></i></a>
+                        <a href="{{setting('site.google')}}"><i class="fa fa-google-plus-g"></i></a>
+                        <a href="{{setting('site.instagram')}}"><i class="fa fa-instagram"></i></a>
+                        <a href="{{setting('site.pinterest')}}"><i class="fa fa-pinterest"></i></a>
                     </p>
                 </div>
             </div>

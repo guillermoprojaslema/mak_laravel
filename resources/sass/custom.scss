@@ -32,3 +32,14 @@
 .card-product .price-old {
   color: #999;
 }
+
+
+.foto-carrusel > div {
+  position: absolute;
+  bottom: 0px;
+  color: #fff;
+  background-color: #000;
+  padding: 2px 10px;
+  opacity: 0.5;
+  font-weight: bold;
+}

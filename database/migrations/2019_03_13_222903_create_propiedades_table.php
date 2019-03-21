@@ -48,9 +48,11 @@ class CreatePropiedadesTable extends Migration
             $table->boolean('casillero')->nullable();
             $table->boolean('bodega')->nullable();
             $table->boolean('oferta');
+            $table->boolean('destacado');
             $table->boolean('arriendo');
             $table->boolean('venta');
             /* Sólo números */
+            $table->integer('numero');
             $table->integer('precio');
             $table->integer('ano_construccion')->nullable();
             $table->integer('metros_cuadrados')->nullable();
@@ -68,11 +70,12 @@ class CreatePropiedadesTable extends Migration
             $table->integer('living')->nullable();
             $table->integer('escritorio')->nullable();
             $table->integer('gastos_comunes')->nullable();
-            $table->integer('salta_privada')->nullable();
+            $table->integer('sala_privada')->nullable();
             /* Alfanuméricos */
             $table->string('direccion')->nullable()->unique();
             $table->string('direcciion_referencial')->nullable();
             $table->string('descripcion', 2000);
+            $table->string('descripcion_breve', 200);
             $table->string('tipo_oficina')->nullable();
             $table->string('tipo_casa')->nullable();
             $table->string('orientacion')->nullable();

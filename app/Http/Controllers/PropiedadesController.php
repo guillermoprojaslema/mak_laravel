@@ -7,6 +7,7 @@ use App\Http\Requests\BusquedaPropiedadRequest;
 use App\Pagina;
 use App\Propiedad;
 use Illuminate\Http\Request;
+use DB;
 
 class PropiedadesController extends Controller
 {
@@ -17,10 +18,13 @@ class PropiedadesController extends Controller
      */
     public function index()
     {
+
         $data['paginas'] = Pagina::all();
-        $data['propiedades'] = Propiedad::orderBy('updated_at','asc')->take(4)->get();
-        $data['ofertas'] = Propiedad::oferta()->get();
+        $data['destacados'] = Propiedad::disponibles()->destacados()->get();
+        $data['ofertas'] = Propiedad::disponibles()->ofertas()->get();
         $data['comunas'] = Comuna::all();
+
+
         return view('propiedades.index', $data);
     }
 
@@ -93,8 +97,41 @@ class PropiedadesController extends Controller
         //
     }
 
-    public function busqueda (Request $request)
+    public function busqueda(Request $request)
     {
-        dd($request->all());
+//        dd($request->all());
+
+        $data['paginas'] = Pagina::all();
+        $data['destacados'] = Propiedad::disponibles()->destacados()->get();
+        $data['comunas'] = Comuna::all();
+
+        $precios = explode(",", $request->precio);
+
+        /*Obtener por rango de precio*/
+
+
+        $propiedades = Propiedad::where('precio', '>=', $precios[0])
+            ->where('precio', '<=', $precios[1])
+            ->where('tipo_propiedad', $request->tipo_propiedad)
+            ->disponibles()->paginate(8);
+
+
+        $data['propiedades'] = $propiedades;
+        return view('propiedades.busqueda', $data);
+
+
+    }
+
+    private function filtrarPorComuna($propiedades, $request)
+    {
+        $propiedades = $propiedades->filter(function ($propiedad, $key) use ($request) {
+            if ($propiedad->edificio_id) {
+                return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+            } else {
+                return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+            }
+
+        });
+        return $propiedades;
     }
 }
