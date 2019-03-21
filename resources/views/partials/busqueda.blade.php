@@ -1,5 +1,5 @@
 <form method="GET" action="{{route('propiedades.busqueda')}}">
-    {!! csrf_field() !!}
+    {{ csrf_field() }}
     <div class="form-group  {{ $errors->has('comuna') ? 'has-error' : ''}}">
         <label for="comuna">Comuna</label>
         <select class="form-control" name="comuna_id" id="comuna" data-required>
@@ -8,7 +8,7 @@
                 <option value="{{ $comuna->id }}"{{ old('comuna') == $comuna->id ? ' selected' : '' }}>{{ $comuna->nombre }}</option>
             @endforeach
         </select>
-        {!! $errors->first('comuna', '<p class="help-block">:message</p>') !!}
+        {{ $errors->first('comuna', '<p class="help-block">:message</p>') }}
     </div>
     <div class="form-group  {{ $errors->has('tipo_propiedad') ? 'has-error' : ''}}">
         <label for="tipo_propiedad">Clase de propiedad</label>
@@ -32,7 +32,7 @@
                 Estacionamiento
             </option>
         </select>
-        {!! $errors->first('tipo_propiedad', '<p class="help-block">:message</p>') !!}
+        {{ $errors->first('tipo_propiedad', '<p class="help-block">:message</p>') }}
     </div>
     <div class="form-group  {{ $errors->has('divisa') ? 'has-error' : ''}} ">
         <label for="divisa">Divisa:</label>
@@ -47,7 +47,7 @@
             <option value="EUR" {{ old('divisa') == 'USD' ? ' selected' : '' }}> EUR
             </option>
         </select>
-        {!! $errors->first('divisa', '<p class="help-block">:message</p>') !!}
+        {{ $errors->first('divisa', '<p class="help-block">:message</p>') }}
     </div>
 
 
@@ -56,8 +56,8 @@
             <input type="checkbox" id="venta"
                    name="venta" data-required>Venta</label>
         <label class="checkbox-inline">
-            <input type="checkbox"  id="arriendo"
-                   name="arriendo" data-required checked>Arriendo</label>
+            <input type="checkbox" id="arriendo"
+                   name="arriendo" data-required>Arriendo</label>
         {{ $errors->first('venta', '<p class="help-block">:message</p>') }}
         {{ $errors->first('arriendo', '<p class="help-block">:message</p>') }}
     </div>
@@ -72,3 +72,4 @@
     <br><br>
     <button type="submit" class="btn btn-primary">Buscar</button>
 </form>
+

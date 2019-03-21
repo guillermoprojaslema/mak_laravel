@@ -8,6 +8,9 @@ use App\Pagina;
 use App\Propiedad;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 
 class PropiedadesController extends Controller
 {
@@ -99,7 +102,6 @@ class PropiedadesController extends Controller
 
     public function busqueda(Request $request)
     {
-//        dd($request->all());
 
         $data['paginas'] = Pagina::all();
         $data['destacados'] = Propiedad::disponibles()->destacados()->get();
@@ -113,25 +115,39 @@ class PropiedadesController extends Controller
         $propiedades = Propiedad::where('precio', '>=', $precios[0])
             ->where('precio', '<=', $precios[1])
             ->where('tipo_propiedad', $request->tipo_propiedad)
-            ->disponibles()->paginate(8);
 
+            ->disponibles()
 
-        $data['propiedades'] = $propiedades;
+            ->get()
+            ->filter(function ($propiedad) use ($request) {
+                if ($propiedad->edificio_id) {
+                    return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+                } else {
+                    return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+
+                }
+            });;
+
+        $data['propiedades'] = $this->paginate($propiedades);
+
         return view('propiedades.busqueda', $data);
 
 
+
     }
 
-    private function filtrarPorComuna($propiedades, $request)
+
+    public function paginate($items, $perPage = 8, $page = null, $options = [])
     {
-        $propiedades = $propiedades->filter(function ($propiedad, $key) use ($request) {
-            if ($propiedad->edificio_id) {
-                return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
-            } else {
-                return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
-            }
 
-        });
-        return $propiedades;
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+
+        return (new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options))->withPath('');
+
+
     }
+
+
 }
