@@ -7,6 +7,7 @@ use App\Http\Requests\BusquedaPropiedadRequest;
 use App\Pagina;
 use App\Propiedad;
 use Illuminate\Http\Request;
+use Session;
 use DB;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -100,7 +101,7 @@ class PropiedadesController extends Controller
         //
     }
 
-    public function busqueda(Request $request)
+    public function busqueda(BusquedaPropiedadRequest $request)
     {
 
         $data['paginas'] = Pagina::all();
@@ -109,15 +110,11 @@ class PropiedadesController extends Controller
 
         $precios = explode(",", $request->precio);
 
-        /*Obtener por rango de precio*/
-
-
         $propiedades = Propiedad::where('precio', '>=', $precios[0])
             ->where('precio', '<=', $precios[1])
             ->where('tipo_propiedad', $request->tipo_propiedad)
-
+            ->where('negocio', $request->negocio)
             ->disponibles()
-
             ->get()
             ->filter(function ($propiedad) use ($request) {
                 if ($propiedad->edificio_id) {
@@ -126,12 +123,12 @@ class PropiedadesController extends Controller
                     return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
 
                 }
-            });;
+            });
+
 
         $data['propiedades'] = $this->paginate($propiedades);
 
         return view('propiedades.busqueda', $data);
-
 
 
     }

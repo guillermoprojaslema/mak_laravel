@@ -19,6 +19,8 @@ class PropiedadTableSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             $property = new Propiedad();
             $property->tipo_propiedad = $faker->randomElement(['casa', 'apartamento', 'oficina', 'tienda_comercial', 'bodega', 'terreno', 'estacionamiento']); // done
+            $property->negocio = $faker->randomElement(['arriendo', 'venta']);
+
             $property->amoblado = $faker->randomElement([true, false]);
             $property->habitacion = $faker->randomElement([true, false]);                      // done
             $property->condominio = $faker->randomElement([true, false]);               // done
@@ -48,13 +50,7 @@ class PropiedadTableSeeder extends Seeder
             $property->bodega = $faker->randomElement([true, false]);
             $property->oferta = $faker->randomElement([true, false]);
             $property->destacado = $faker->randomElement([true, false]);
-            $property->venta = $faker->randomElement([true, false]);
-            $property->arriendo = $faker->randomElement([true, false]);
 
-            while (!$property->arriendo && !$property->venta) {
-                $property->venta = $faker->randomElement([true, false]);
-                $property->arriendo = $faker->randomElement([true, false]);
-            }
 
             $property->numero = $faker->numberBetween(0, 20200);              // done
             $property->precio = $faker->numberBetween(0, 100000);              // done

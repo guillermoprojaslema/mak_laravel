@@ -20,7 +20,7 @@ class BarrioTableSeeder extends Seeder
             DB::table('barrios')->insert([
                 'nombre' => $faker->unique()->name,
                 'comentario' => $faker->text(150),
-                'comuna_id' => $faker->randomElement([31, 14, 32]) // Puente alto, Vitacura, Las Condes
+                'comuna_id' => $faker->randomElement([14, 32, 33]) // Puente alto, Vitacura, Las Condes
             ]);
         }
 
