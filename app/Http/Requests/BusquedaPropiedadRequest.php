@@ -36,7 +36,7 @@ class BusquedaPropiedadRequest extends FormRequest
     public function messages()
     {
         return [
-            'negocio' => 'Debe elegir al menos una opción',
+            'negocio.required' => 'Debe elegir una opción',
             'price.required' => 'Debe elegir un rango de precios',
             'comuna_id.required' => 'Debe elegir una comuna',
             'divisa.required' => 'Debe elegir un tipo de divisa',

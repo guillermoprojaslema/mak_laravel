@@ -55,14 +55,16 @@
 
     <div class="form-group form-check-inline">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="negocio">Venta
+            <input type="radio" class="form-check-input" name="negocio" value="venta" >Venta
         </label>
     </div>
     <div class="form-group form-check-inline">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="negocio">Arriendo
+            <input type="radio" class="form-check-input" name="negocio" value="arriendo">Arriendo
         </label>
     </div>
+    {!! $errors->first('negocio', '<p class="red form-text  text-danger">:message</p>') !!}
+
 
 
     <br><br>
