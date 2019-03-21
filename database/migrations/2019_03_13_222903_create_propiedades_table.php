@@ -19,6 +19,8 @@ class CreatePropiedadesTable extends Migration
             $table->increments('id');
             /*Enums*/
             $table->enum('tipo_propiedad', ['casa', 'apartamento', 'oficina', 'tienda_comercial', 'bodega', 'estacionamiento', 'terreno']);
+            $table->enum('negocio', ['arriendo', 'venta']);
+
             /* Booleans*/
             $table->boolean('amoblado')->nullable();
             $table->boolean('habitacion')->nullable(); // Casa o habitación (?)
@@ -49,8 +51,7 @@ class CreatePropiedadesTable extends Migration
             $table->boolean('bodega')->nullable();
             $table->boolean('oferta');
             $table->boolean('destacado');
-            $table->boolean('arriendo');
-            $table->boolean('venta');
+
             /* Sólo números */
             $table->integer('numero');
             $table->integer('precio');
