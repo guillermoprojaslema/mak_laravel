@@ -1,11 +1,13 @@
 <?php
 
+$dbdriver = env('DB_CONNECTION', 'mysql');
 if (env('APP_ENV') != 'local'){
     $url = parse_url(getenv("DATABASE_URL"));
     $host = $url["host"];
     $username = $url["user"];
     $password = $url["pass"];
     $database = substr($url["path"], 1);
+    $dbdriver = 'pgsql';
 }
 
 return [
@@ -21,7 +23,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => $dbdriver,
 
     /*
     |--------------------------------------------------------------------------
