@@ -25,12 +25,22 @@ class BusquedaPropiedadRequest extends FormRequest
     public function rules()
     {
         return [
-            'arriendo' => 'required_without_all:venta',
-            'venta' => 'required_without_all:arriendo',
+            'negocio' => 'required',
             'precio' => 'required',
             'comuna_id' => 'required|integer',
             'divisa' => 'required',
             'tipo_propiedad' => 'required', Rule::in(['casa', 'apartamento', 'oficina', 'local_comercial', 'bodega', 'terreno', 'estacionamiento']),
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'negocio' => 'Debe elegir al menos una opción',
+            'price.required' => 'Debe elegir un rango de precios',
+            'comuna_id.required' => 'Debe elegir una comuna',
+            'divisa.required' => 'Debe elegir un tipo de divisa',
+            'tipo_propiedad.required' => 'Debe elegir al menos un tipo de propiedad',
         ];
     }
 }

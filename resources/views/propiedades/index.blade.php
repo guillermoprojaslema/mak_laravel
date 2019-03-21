@@ -8,8 +8,6 @@
 @endpush
 
 @section('content')
-    {{$errors}}
-
     <div class="row">
         <div class="col-md-9 col-sm-12">
             <h3>Nuestras ofertas</h3>
@@ -59,11 +57,9 @@
                             <p class="desc">{{$destacado->barrio()->first()->nombre}}</p>
                         @endif
                         <p class="desc">
-                            @if($destacado->venta)
+                            @if($destacado->negocio = 'venta')
                                 <span class="badge badge-secondary">Venta</span>
-                            @endif
-
-                            @if($destacado->arriendo)
+                            @else
                                 <span class="badge badge-secondary">Arriendo</span>
                             @endif
 
