@@ -1,6 +1,6 @@
 <?php
 
-if (env('APP_ENV' != local)){
+if (env('APP_ENV' != 'local')){
     $url = parse_url(getenv("DATABASE_URL"));
     $host = $url["host"];
     $username = $url["user"];
