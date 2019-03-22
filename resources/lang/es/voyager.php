@@ -345,7 +345,7 @@ return [
         'user_text' => 'Tiene :count :string en su base de datos. Haga clic en el botón de abajo para ver todos los usuarios. ',
 
         'apartamento' => 'Apartamento|Apartamentos',
-        'apartamento_link_text' => 'Ver todos los apartamentos disponibles',
+        'apartamento_link_text' => 'Ver todos los apartamentos',
         'apartamento_text' => 'Tiene :count :string disponibles en su base de datos. Haga clic en el botón de abajo para ver todos los apartamentos. ',
 
         'barrio' => 'Barrio|Barrios',
@@ -385,7 +385,7 @@ return [
         'propietario_text' => 'Tiene :count :string en su base de datos. Haga clic en el botón de abajo para ver todos los propietarios. ',
 
         'terreno' => 'Terreno|Terrenos',
-        'terreno_link_text' => 'Ver todos los terrenos disponibles',
+        'terreno_link_text' => 'Ver todos los terrenos',
         'terreno_text' => 'Tiene :count :string disponibles en su base de datos. Haga clic en el botón de abajo para ver todos los terrenos disponibles. ',
 
     ],
