@@ -46,9 +46,11 @@
         <div class="container">
 
             <div class="row">
+                <div class="col-md-2"> Indicadores Económicos
+                </div>
                 <div class="col-md-2"> Dólar: $ {{number_format($sbif->dolar, 0, ',', '.')}}
                 </div>
-                <div class="col-md-2"> Dólar: $ {{number_format($sbif->euro, 0, ',', '.')}}
+                <div class="col-md-2"> Euro: $ {{number_format($sbif->euro, 0, ',', '.')}}
                 </div>
                 <div class="col-md-2"> UF: $ {{number_format($sbif->uf, 0, ',', '.')}}
                 </div>
@@ -60,3 +62,4 @@
         </div>
     </div>
 </div>
+<br>
