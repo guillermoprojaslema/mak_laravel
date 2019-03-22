@@ -72,6 +72,8 @@ class PropiedadesController extends Controller
     {
         $data['paginas'] = Pagina::all();
         $data['propiedad'] = Propiedad::findOrFail($id);
+        $data['sbif'] = Sbif::first();
+
         return view('propiedades.show', $data);
 
     }
@@ -116,8 +118,28 @@ class PropiedadesController extends Controller
         $data['paginas'] = Pagina::all();
         $data['destacados'] = Propiedad::disponibles()->destacados()->get();
         $data['comunas'] = Comuna::all();
+        $data['sbif'] = Sbif::first();
 
         $precios = explode(",", $request->precio);
+
+        switch ($request->divisa) {
+            case "CLP":
+                break;
+            case "USD":
+                $precios[0] = $precios[0] * $data['sbif']->dolar;
+                $precios[1] = $precios[1] * $data['sbif']->dolar;
+                break;
+            case "UF":
+                $precios[0] = $precios[0] * $data['sbif']->uf;
+                $precios[1] = $precios[1] * $data['sbif']->uf;
+                break;
+            case "EUR":
+                $precios[0] = $precios[0] * $data['sbif']->euro ;
+                $precios[1] = $precios[1] * $data['sbif']->euro;
+                break;
+        }
+
+
 
         $propiedades = Propiedad::where('precio', '>=', $precios[0])
             ->where('precio', '<=', $precios[1])
@@ -143,7 +165,8 @@ class PropiedadesController extends Controller
     }
 
 
-    public function paginate($items, $perPage = 8, $page = null, $options = [])
+    public
+    function paginate($items, $perPage = 8, $page = null, $options = [])
     {
 
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
@@ -154,11 +177,10 @@ class PropiedadesController extends Controller
 
     }
 
-    private function updateSbifValues()
+    private
+    function updateSbifValues()
     {
-
         $now = Carbon::now();
-
 
         if (!Carbon::parse(Sbif::first()->updated_at)->isSameDay($now)) {
 
@@ -176,7 +198,7 @@ class PropiedadesController extends Controller
             ]);
             $response = $client->request('GET', '');
             $res = $response->getBody()->getContents();
-            $sbif->dolar = (float)str_replace(',' ,'.',str_replace('.', '', json_decode($res)->Dolares[0]->Valor));
+            $sbif->dolar = (float)str_replace(',', '.', str_replace('.', '', json_decode($res)->Dolares[0]->Valor));
 
 
             /*Euro*/
@@ -186,7 +208,7 @@ class PropiedadesController extends Controller
             ]);
             $response = $client->request('GET', '');
             $res = $response->getBody()->getContents();
-            $sbif->euro = (float)str_replace(',' ,'.',str_replace('.', '', json_decode($res)->Euros[0]->Valor));
+            $sbif->euro = (float)str_replace(',', '.', str_replace('.', '', json_decode($res)->Euros[0]->Valor));
 
 
             /*UF*/
@@ -196,8 +218,7 @@ class PropiedadesController extends Controller
             ]);
             $response = $client->request('GET', '');
             $res = $response->getBody()->getContents();
-            $sbif->uf = (float)str_replace(',' ,'.',str_replace('.', '', json_decode($res)->UFs[0]->Valor));
-
+            $sbif->uf = (float)str_replace(',', '.', str_replace('.', '', json_decode($res)->UFs[0]->Valor));
 
 
             /*UF*/
@@ -207,7 +228,7 @@ class PropiedadesController extends Controller
             ]);
             $response = $client->request('GET', '');
             $res = $response->getBody()->getContents();
-            $sbif->ipc = (float)str_replace(',' ,'.',str_replace('.', '', json_decode($res)->IPCs[0]->Valor));
+            $sbif->ipc = (float)str_replace(',', '.', str_replace('.', '', json_decode($res)->IPCs[0]->Valor));
 
 
             /*UF*/
@@ -218,7 +239,7 @@ class PropiedadesController extends Controller
 
             $response = $client->request('GET', '');
             $res = $response->getBody()->getContents();
-            $sbif->utm = (int)str_replace(',' ,'.',str_replace('.', '', json_decode($res)->UTMs[0]->Valor));
+            $sbif->utm = (int)str_replace(',', '.', str_replace('.', '', json_decode($res)->UTMs[0]->Valor));
             $sbif->save();
         }
     }

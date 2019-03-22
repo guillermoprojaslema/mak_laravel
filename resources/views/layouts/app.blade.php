@@ -73,7 +73,7 @@
     </script>
 @endif
 
-{{--<script src="/js/app.js"></script>--}}
+<script src="/js/app.js"></script>
 <script src="/js/jquery.js"></script>
 @stack('scripts')
 

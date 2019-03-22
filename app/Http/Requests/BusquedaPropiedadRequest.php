@@ -28,7 +28,7 @@ class BusquedaPropiedadRequest extends FormRequest
             'negocio' => 'required',
             'precio' => 'required',
             'comuna_id' => 'required|integer',
-            'divisa' => 'required',
+            'divisa' => 'required', Rule::in(['CLP', 'USD', 'EUR', 'UF']),
             'tipo_propiedad' => 'required', Rule::in(['casa', 'apartamento', 'oficina', 'local_comercial', 'bodega', 'terreno', 'estacionamiento']),
         ];
     }

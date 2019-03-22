@@ -51,9 +51,13 @@
                             <div class="label-rating"><b>Sup: </b>{{$propiedad->metros_cuadrados}} m<sup>2</sup></div>
                             <div class="label-rating"><b>Cons: </b>{{$propiedad->metros_cuadrados_construidos}}
                                 m<sup>2</sup></div>
-                            <div class="label-rating"><i
-                                        class="fa fa-dollar"></i> {{number_format($propiedad->precio, 0, ',', '.')}}
-                            </div>
+                            <div class="label-rating precio_clp">{{'$ '.number_format($oferta->precio  , 0, ',', '.')}} CLP</div>
+                            <div class="label-rating precio_uf">
+                                {{'$ '. number_format((float)$propiedad->precio / $sbif->uf, 2, ',', '.')}} UF</div>
+                            <div class="label-rating precio_usd">
+                                {{'$ '. number_format((float)$propiedad->precio / $sbif->dolar, 2, ',', '.')}} USD</div>
+                            <div class="label-rating precio_eur">
+                                {{'€ '. number_format((float)$propiedad ->precio / $sbif->euro,  2, ',', '.')}} EUR</div>
                         </div> <!-- rating-wrap.// -->
                     </figcaption>
                     <div class="bottom-wrap">
@@ -87,6 +91,14 @@
 
     <script>
         $(document).ready(function () {
+
+
+            $('.precio_clp').show();
+            $('.precio_usd').hide();
+            $('.precio_eur').hide();
+            $('.precio_uf').hide();
+
+
             $(".owl-carousel").owlCarousel({
                 items: 1,
                 loop: true,
@@ -109,6 +121,34 @@
                 width: 300,
                 showLabels: true,
                 isRange: true
+            });
+
+            $('#divisa').change(function () {
+                var divisa = $("#divisa option:selected").val();
+                if (divisa == 'CLP') {
+                    $('.precio_clp').show();
+                    $('.precio_usd').hide();
+                    $('.precio_eur').hide();
+                    $('.precio_uf').hide();
+                } else if (divisa == 'USD') {
+                    $('.precio_usd').show();
+                    $('.precio_clp').hide();
+                    $('.precio_eur').hide();
+                    $('.precio_uf').hide();
+
+                } else if (divisa == 'EUR') {
+                    $('.precio_eur').show();
+                    $('.precio_usd').hide();
+                    $('.precio_uf').hide();
+                    $('.precio_clp').hide();
+
+                } else if (divisa == 'UF') {
+                    $('.precio_uf').show();
+                    $('.precio_clp').hide();
+                    $('.precio_usd').hide();
+                    $('.precio_eur').hide();
+
+                }
             });
         });
 

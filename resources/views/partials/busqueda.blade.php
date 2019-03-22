@@ -41,12 +41,12 @@
         <select class="form-control" name="divisa" id="divisa" data-required>
 
             <option value="">Seleccione una divisa</option>
-            <option value="UF" {{ old('divisa') == 'UF' ? ' selected' : '' }}> UF</option>
-            <option value="CLP" {{ old('divisa') == 'CLP'? ' selected' : '' }}> CLP
+            <option value="CLP" {{ old('divisa') == 'CLP'? ' selected' : '' }}>$ CLP
             </option>
-            <option value="USD" {{ old('divisa') == 'USD'? ' selected' : '' }}> USD
+            <option value="UF" {{ old('divisa') == 'UF' ? ' selected' : '' }}>$ UF</option>
+            <option value="USD" {{ old('divisa') == 'USD'? ' selected' : '' }}>$ USD
             </option>
-            <option value="EUR" {{ old('divisa') == 'USD' ? ' selected' : '' }}> EUR
+            <option value="EUR" {{ old('divisa') == 'EUR' ? ' selected' : '' }}>€ EUR
             </option>
         </select>
         {!! $errors->first('divisa', '<p class="form-text  text-danger">:message</p>') !!}

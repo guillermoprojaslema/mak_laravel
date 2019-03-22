@@ -44,7 +44,6 @@
 <div class="card">
     <div class="card-body">
         <div class="container">
-
             <div class="row">
                 <div class="col-md-2"> Indicadores Económicos
                 </div>
