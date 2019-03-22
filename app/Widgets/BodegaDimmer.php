@@ -27,14 +27,14 @@ class BodegaDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.bodega', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-documentation',
+            'icon' => 'voyager-archive',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.bodega_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.bodega_link_text'),
                 'link' => route('voyager.propiedades.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/09.jpg'),
         ]));
     }
 

@@ -29,14 +29,14 @@ class BarrioDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.barrio', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-documentation',
+            'icon' => 'voyager-location',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.barrio_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.barrio_link_text'),
                 'link' => route('voyager.barrios.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/12.jpg'),
         ]));
     }
 

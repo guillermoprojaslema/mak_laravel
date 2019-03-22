@@ -27,14 +27,14 @@ class PropietarioDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.propietario', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-documentation',
+            'icon' => 'voyager-certificate',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.propietario_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.propietario_link_text'),
                 'link' => route('voyager.clientes.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/14.jpg'),
         ]));
     }
 

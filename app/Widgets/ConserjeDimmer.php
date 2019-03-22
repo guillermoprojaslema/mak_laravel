@@ -28,14 +28,14 @@ class ConserjeDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.conserje', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-documentation',
+            'icon' => 'voyager-pirate',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.conserje_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.conserje_link_text'),
                 'link' => route('voyager.conserjes.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/11.jpg'),
         ]));
     }
 

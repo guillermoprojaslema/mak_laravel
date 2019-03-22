@@ -28,14 +28,14 @@ class EdificioDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.edificio', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-documentation',
+            'icon' => 'voyager-company',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.edificio_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.edificio_link_text'),
                 'link' => route('voyager.edificios.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/10.jpg'),
         ]));
     }
 

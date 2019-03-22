@@ -29,14 +29,14 @@ class ClienteDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.cliente', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-documentation',
+            'icon' => 'voyager-key',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.cliente_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.cliente_link_text'),
                 'link' => route('voyager.clientes.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
+            'image' => voyager_asset('images/widget-backgrounds/13.jpg'),
         ]));
     }
 
