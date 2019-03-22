@@ -36,7 +36,7 @@ class ClienteDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.cliente_link_text'),
                 'link' => route('voyager.clientes.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/13.jpg'),
+            'image' => asset('images/widget-backgrounds/13.jpg'),
         ]));
     }
 

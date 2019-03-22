@@ -35,7 +35,7 @@ class LocalComercialDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.local_comercial_link_text'),
                 'link' => route('voyager.propiedades.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/07.jpg'),
+            'image' => asset('images/widget-backgrounds/07.jpg'),
         ]));
     }
 

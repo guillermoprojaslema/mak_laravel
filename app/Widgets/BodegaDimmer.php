@@ -34,7 +34,7 @@ class BodegaDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.bodega_link_text'),
                 'link' => route('voyager.propiedades.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/09.jpg'),
+            'image' => asset('images/widget-backgrounds/09.jpg'),
         ]));
     }
 

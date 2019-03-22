@@ -36,7 +36,7 @@ class BarrioDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.barrio_link_text'),
                 'link' => route('voyager.barrios.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/12.jpg'),
+            'image' => asset('images/widget-backgrounds/12.jpg'),
         ]));
     }
 

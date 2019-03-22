@@ -34,7 +34,7 @@ class ApartamentoDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.apartamento_link_text'),
                 'link' => route('voyager.propiedades.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/05.jpg'),
+            'image' => asset('images/widget-backgrounds/05.jpg'),
         ]));
     }
 
