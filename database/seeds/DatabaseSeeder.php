@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             $this->call(PropiedadTableSeeder::class);
         }
         $this->call(EmpleadosTableSeeder::class);
+        $this->call(SbifTableSeeder::class);
 
     }
 }
