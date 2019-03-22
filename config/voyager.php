@@ -146,8 +146,19 @@ return [
 
         'widgets' => [
             'TCG\\Voyager\\Widgets\\UserDimmer',
-            'TCG\\Voyager\\Widgets\\PostDimmer',
-            'TCG\\Voyager\\Widgets\\PageDimmer',
+            'App\\Widgets\\CasaDimmer',
+            'App\\Widgets\\ApartamentoDimmer',
+            'App\\Widgets\\TerrenoDimmer',
+            'App\\Widgets\\LocalComercialDimmer',
+            'App\\Widgets\\EstacionamientoDimmer',
+            'App\\Widgets\\BodegaDimmer',
+            'App\\Widgets\\PaginaDimmer',
+            'App\\Widgets\\EdificioDimmer',
+            'App\\Widgets\\BarrioDimmer',
+            'App\\Widgets\\ConserjeDimmer',
+            'App\\Widgets\\ClienteDimmer',
+            'App\\Widgets\\PropietarioDimmer',
+
         ],
 
     ],
