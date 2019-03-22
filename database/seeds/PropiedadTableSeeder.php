@@ -72,7 +72,7 @@ class PropiedadTableSeeder extends Seeder
             $property->gastos_comunes = $faker->numberBetween(0, 100000);              // done
             $property->sala_privada = $faker->numberBetween(0, 10);                     // done
             $property->direccion = $faker->streetName . ' # ' . $faker->buildingNumber;                                 // done
-            $property->direcciion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
+            $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
             $property->descripcion_breve= $faker->text(200);
