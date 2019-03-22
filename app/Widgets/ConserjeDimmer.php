@@ -35,7 +35,7 @@ class ConserjeDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.conserje_link_text'),
                 'link' => route('voyager.conserjes.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/11.jpg'),
+            'image' => asset('images/widget-backgrounds/11.jpg'),
         ]));
     }
 

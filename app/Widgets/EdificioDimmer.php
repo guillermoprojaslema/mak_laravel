@@ -35,7 +35,7 @@ class EdificioDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.edificio_link_text'),
                 'link' => route('voyager.edificios.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/10.jpg'),
+            'image' => asset('images/widget-backgrounds/10.jpg'),
         ]));
     }
 

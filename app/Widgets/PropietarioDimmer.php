@@ -34,7 +34,7 @@ class PropietarioDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.propietario_link_text'),
                 'link' => route('voyager.clientes.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/14.jpg'),
+            'image' => asset('images/widget-backgrounds/14.jpg'),
         ]));
     }
 

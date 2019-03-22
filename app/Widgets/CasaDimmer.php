@@ -36,7 +36,7 @@ class CasaDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.casa_link_text'),
                 'link' => route('voyager.propiedades.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/04.jpg'),
+            'image' => asset('images/widget-backgrounds/04.jpg'),
         ]));
     }
 

@@ -35,7 +35,7 @@ class EstacionamientoDimmer extends BaseDimmer
                 'text' => __('voyager.dimmer.estacionamiento_link_text'),
                 'link' => route('voyager.propiedades.index'),
             ],
-            'image' => voyager_asset('images/widget-backgrounds/08.jpg'),
+            'image' => asset('images/widget-backgrounds/08.jpg'),
         ]));
     }
 
