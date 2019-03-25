@@ -25,21 +25,23 @@
                 <figure class="card card-product">
                     <div class="img-wrap img-thumbnail"><img src="{{$propiedad->foto}}"></div>
                     <figcaption class="info-wrap">
-                        <h4 class="title">{{$propiedad->direccion}}</h4>
+                        <h4 class="title">@if($destacado->edificio_id) {{$destacado->edificio()->first()->direccion .' #'. $destacado->edificio()->first()->numero. ' Apt '. $destacado->numero }} @else {{$destacado->direccion.' #'. $destacado->numero}} @endif</h4>
 
-                        @if($propiedad->edificio_id)
-                            <p class="desc">{{$propiedad->edificio()->first()->barrio()->first()->nombre}}</p>
+                        @if($destacado->edificio_id)
+                            <p class="desc"><i class="fa fa-building"></i> {{$destacado->edificio()->first()->nombre}},
+                                <i class="fa fa-map-marker"></i> {{$destacado->edificio()->first()->barrio()->first()->nombre}}
+                                , {{$destacado->edificio()->first()->barrio()->first()->comuna->first()->nombre}}</p>
                         @else
-                            <p class="desc">{{$propiedad->barrio()->first()->nombre}}</p>
+                            <p class="desc"><i class="fa fa-map-marker"></i> {{$destacado->barrio()->first()->nombre}}
+                                , {{$destacado->barrio()->first()->comuna()->first()->nombre}}</p>
                         @endif
                         <p class="desc">
-                            @if($propiedad->venta)
+                            @if($destacado->negocio = 'venta')
                                 <span class="badge badge-secondary">Venta</span>
-                            @endif
-
-                            @if($propiedad->arriendo)
+                            @else
                                 <span class="badge badge-secondary">Arriendo</span>
                             @endif
+
 
                         </p>
 
@@ -51,13 +53,18 @@
                             <div class="label-rating"><b>Sup: </b>{{$propiedad->metros_cuadrados}} m<sup>2</sup></div>
                             <div class="label-rating"><b>Cons: </b>{{$propiedad->metros_cuadrados_construidos}}
                                 m<sup>2</sup></div>
-                            <div class="label-rating precio_clp">{{'$ '.number_format($oferta->precio  , 0, ',', '.')}} CLP</div>
+                            <div class="label-rating precio_clp">{{'$ '.number_format($oferta->precio  , 0, ',', '.')}}
+                                CLP
+                            </div>
                             <div class="label-rating precio_uf">
-                                {{'$ '. number_format((float)$propiedad->precio / $sbif->uf, 2, ',', '.')}} UF</div>
+                                {{'$ '. number_format((float)$propiedad->precio / $sbif->uf, 2, ',', '.')}} UF
+                            </div>
                             <div class="label-rating precio_usd">
-                                {{'$ '. number_format((float)$propiedad->precio / $sbif->dolar, 2, ',', '.')}} USD</div>
+                                {{'$ '. number_format((float)$propiedad->precio / $sbif->dolar, 2, ',', '.')}} USD
+                            </div>
                             <div class="label-rating precio_eur">
-                                {{'€ '. number_format((float)$propiedad ->precio / $sbif->euro,  2, ',', '.')}} EUR</div>
+                                {{'€ '. number_format((float)$propiedad ->precio / $sbif->euro,  2, ',', '.')}} EUR
+                            </div>
                         </div> <!-- rating-wrap.// -->
                     </figcaption>
                     <div class="bottom-wrap">

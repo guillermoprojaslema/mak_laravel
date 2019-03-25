@@ -14,7 +14,9 @@
             <div class="owl-carousel owl-theme">
                 @forelse($ofertas as $oferta)
                     <div class="foto-carrusel">
-                        <img src="{{  $oferta->foto  }}" alt="{{$oferta->direccion}}">
+                        <img src="{{  $oferta->foto  }}"
+                             @if($oferta->edificio_id) alt="{{$oferta->edificio()->first()->direccion}}"
+                             @else alt="{{$oferta->direccion}}" @endif>
                         <div>
                             <p>{{$oferta->descripcion_breve}}</p>
                             {{$oferta->tipo_propiedad }}
@@ -58,12 +60,13 @@
                 <figure class="card card-product">
                     <div class="img-wrap img-thumbnail"><img src="{{$destacado->foto}}"></div>
                     <figcaption class="info-wrap">
-                        <h4 class="title">{{$destacado->direccion}}</h4>
+                        <h4 class="title">@if($destacado->edificio_id) {{$destacado->edificio()->first()->direccion .' #'. $destacado->edificio()->first()->numero. ' Apt '. $destacado->numero }} @else {{$destacado->direccion.' #'. $destacado->numero}} @endif</h4>
 
                         @if($destacado->edificio_id)
-                            <p class="desc">{{$destacado->edificio()->first()->barrio()->first()->nombre}}</p>
+                            <p class="desc"> <i class="fa fa-building"></i> {{$destacado->edificio()->first()->nombre}}, <i class="fa fa-map-marker"></i> {{$destacado->edificio()->first()->barrio()->first()->nombre}}
+                                , {{$destacado->edificio()->first()->barrio()->first()->comuna->first()->nombre}}</p>
                         @else
-                            <p class="desc">{{$destacado->barrio()->first()->nombre}}</p>
+                            <p class="desc"><i class="fa fa-map-marker"></i> {{$destacado->barrio()->first()->nombre}}, {{$destacado->barrio()->first()->comuna()->first()->nombre}}</p>
                         @endif
                         <p class="desc">
                             @if($destacado->negocio = 'venta')
@@ -82,45 +85,76 @@
                             <div class="label-rating"><b>Sup: </b>{{$destacado->metros_cuadrados}} m<sup>2</sup></div>
                             <div class="label-rating"><b>Cons: </b>{{$destacado->metros_cuadrados_construidos}}
                                 m<sup>2</sup></div>
-                            <div class="label-rating precio_clp">{{'$ '.number_format($oferta->precio  , 0, ',', '.')}}
+                            <div class="label-rating precio_clp">{{'$ '.number_format($destacado->precio  , 0, ',', '.')}}
                                 CLP
                             </div>
                             <div class="label-rating precio_uf">
-                                {{'$ '. number_format((float)$oferta->precio / $sbif->uf, 2, ',', '.')}} UF
+                                {{'$ '. number_format((float)$destacado->precio / $sbif->uf, 2, ',', '.')}} UF
                             </div>
                             <div class="label-rating precio_usd">
-                                {{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 2, ',', '.')}} USD
+                                {{'$ '. number_format((float)$destacado->precio / $sbif->dolar, 2, ',', '.')}} USD
                             </div>
                             <div class="label-rating precio_eur">
-                                {{'€ '. number_format((float)$oferta->precio / $sbif->euro,  2, ',', '.')}} EUR
+                                {{'€ '. number_format((float)$destacado->precio / $sbif->euro,  2, ',', '.')}} EUR
                             </div>
                         </div> <!-- rating-wrap.// -->
                     </figcaption>
                     <div class="bottom-wrap">
-                        <a href="{{route('propiedades.show', $destacado->id)}}"
-                           class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @if($destacado->ruta == 'casas')
+                            <a href="{{route('casas.show', $destacado->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+                        @if($destacado->ruta == 'apartamentos')
+                            <a href="{{route('apartamentos.show', $destacado->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($destacado->ruta == 'locales_comerciales')
+                            <a href="{{route('locales_comerciales.show', $destacado->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($destacado->ruta == 'bodegas')
+                            <a href="{{route('bodegas.show', $destacado->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($destacado->ruta == 'oficinas')
+                            <a href="{{route('oficinas.show', $destacado->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($destacado->ruta == 'terrenos')
+                            <a href="{{route('terrenos.show', $destacado->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($destacado->ruta == 'estacionamientos')
+                            <a href="{{route('estacionamientos.show', $destacado->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
                         <div class="price-wrap h5">
-                            <span class="price-new precio_clp">{{'$ '.number_format($oferta->precio  , 0, ',', '.')}}
+                            <span class="price-new precio_clp">{{'$ '.number_format($destacado->precio  , 0, ',', '.')}}
                                 CLP</span>
-                            <del class="price-old precio_clp">{{'$ '.number_format($oferta->precio  , 0, ',', '.')}}
+                            <del class="price-old precio_clp">{{'$ '.number_format($destacado->precio  , 0, ',', '.')}}
                                 CLP
                             </del>
 
-                            <span class="price-new precio_uf">{{'$ '. number_format((float)$oferta->precio / $sbif->uf, 2, ',', '.')}}
+                            <span class="price-new precio_uf">{{'$ '. number_format((float)$destacado->precio / $sbif->uf, 2, ',', '.')}}
                                 UF</span>
-                            <del class="price-old precio_uf">{{'$ '. number_format((float)$oferta->precio / $sbif->uf, 2, ',', '.')}}
+                            <del class="price-old precio_uf">{{'$ '. number_format((float)$destacado->precio / $sbif->uf, 2, ',', '.')}}
                                 UF
                             </del>
 
-                            <span class="price-new precio_usd">{{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 2, ',', '.')}}
+                            <span class="price-new precio_usd">{{'$ '. number_format((float)$destacado->precio / $sbif->dolar, 2, ',', '.')}}
                                 USD</span>
-                            <del class="price-old precio_usd">{{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 2, ',', '.')}}
+                            <del class="price-old precio_usd">{{'$ '. number_format((float)$destacado->precio / $sbif->dolar, 2, ',', '.')}}
                                 USD
                             </del>
 
-                            <span class="price-new precio_eur">{{'€ '. number_format((float)$oferta->precio / $sbif->euro,  2, ',', '.')}}
+                            <span class="price-new precio_eur">{{'€ '. number_format((float)$destacado->precio / $sbif->euro,  2, ',', '.')}}
                                 EUR</span>
-                            <del class="price-old precio_eur">{{'€ '. number_format((float)$oferta->precio / $sbif->euro,  2, ',', '.')}}
+                            <del class="price-old precio_eur">{{'€ '. number_format((float)$destacado->precio / $sbif->euro,  2, ',', '.')}}
                                 EUR
                             </del>
                         </div> <!-- price-wrap.// -->

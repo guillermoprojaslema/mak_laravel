@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Apartamento;
+use App\Casa;
 use App\Comuna;
+use App\Estacionamiento;
 use App\Http\Requests\BusquedaPropiedadRequest;
+use App\LocalComercial;
+use App\Oficina;
 use App\Pagina;
 use App\Propiedad;
 use App\Sbif;
+use App\Terreno;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Session;
@@ -15,6 +21,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use GuzzleHttp\Client;
+
 
 
 class PropiedadesController extends Controller
@@ -31,9 +38,48 @@ class PropiedadesController extends Controller
         $this->updateSbifValues();
 
 
+        $propiedades_ofertas = collect();
+        $casas_ofertas = Casa::disponibles()->get();
+        $apartamentos_ofertas = Apartamento::disponibles()->ofertas()->get();
+        $oficinas_ofertas = Oficina::disponibles()->ofertas()->get();
+        $locales_comerciales_ofertas = LocalComercial::disponibles()->ofertas()->get();
+        $terrenos_ofertas = Terreno::disponibles()->ofertas()->get();
+        $estacionamientos_ofertas = Estacionamiento::disponibles()->ofertas()->get();
+
+        $propiedades_ofertas = $propiedades_ofertas->merge($casas_ofertas)
+            ->merge($apartamentos_ofertas)
+            ->merge($oficinas_ofertas)
+            ->merge($locales_comerciales_ofertas)
+            ->merge($terrenos_ofertas)
+            ->merge($estacionamientos_ofertas)
+            ->sortBy('updated_at');
+
+
+
+
+        $propiedades_destacadas = collect();
+        $casas_destacados = Casa::disponibles()->destacados()->get();
+        $apartamentos_destacados = Apartamento::disponibles()->destacados()->get();
+        $oficinas_destacados = Oficina::disponibles()->destacados()->get();
+        $locales_comerciales_destacados = LocalComercial::disponibles()->destacados()->get();
+        $terrenos_destacados = Terreno::disponibles()->destacados()->get();
+        $estacionamientos_destacados = Estacionamiento::disponibles()->destacados()->get();
+
+        $propiedades_destacadas = $propiedades_destacadas->merge($casas_destacados)
+            ->merge($apartamentos_destacados)
+            ->merge($oficinas_destacados)
+            ->merge($locales_comerciales_destacados)
+            ->merge($estacionamientos_destacados)
+            ->merge($terrenos_destacados)
+            ->sortBy('updated_at');
+
+
+
+
+
         $data['paginas'] = Pagina::all();
-        $data['destacados'] = Propiedad::disponibles()->destacados()->get();
-        $data['ofertas'] = Propiedad::disponibles()->ofertas()->get();
+        $data['destacados'] = $propiedades_destacadas->take(4);
+        $data['ofertas'] = $propiedades_ofertas;
         $data['comunas'] = Comuna::all();
         $data['sbif'] = Sbif::first();
 
@@ -71,6 +117,8 @@ class PropiedadesController extends Controller
     public function show($id)
     {
         $data['paginas'] = Pagina::all();
+
+
         $data['propiedad'] = Propiedad::findOrFail($id);
         $data['sbif'] = Sbif::first();
 
@@ -134,11 +182,10 @@ class PropiedadesController extends Controller
                 $precios[1] = $precios[1] * $data['sbif']->uf;
                 break;
             case "EUR":
-                $precios[0] = $precios[0] * $data['sbif']->euro ;
+                $precios[0] = $precios[0] * $data['sbif']->euro;
                 $precios[1] = $precios[1] * $data['sbif']->euro;
                 break;
         }
-
 
 
         $propiedades = Propiedad::where('precio', '>=', $precios[0])
@@ -182,7 +229,7 @@ class PropiedadesController extends Controller
     {
         $now = Carbon::now();
 
-        if (!Carbon::parse(Sbif::first()->updated_at)->isSameDay($now)) {
+        if ($now->isWeekday() && !Carbon::parse(Sbif::first()->updated_at)->isSameDay($now)) {
 
             $base_uri_dolar = 'https://api.sbif.cl/api-sbifv3/recursos_api/dolar?apikey=' . env('SBIF_API_KEY') . '&formato=json';
             $base_uri_euro = 'https://api.sbif.cl/api-sbifv3/recursos_api/euro?apikey=' . env('SBIF_API_KEY') . '&formato=json';
