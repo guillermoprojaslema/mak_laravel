@@ -34,10 +34,6 @@ class PropiedadesController extends Controller
     public function index()
     {
 
-
-        $this->updateSbifValues();
-
-
         $propiedades_ofertas = collect();
         $casas_ofertas = Casa::disponibles()->get();
         $apartamentos_ofertas = Apartamento::disponibles()->ofertas()->get();
