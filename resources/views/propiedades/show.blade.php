@@ -163,24 +163,24 @@
                                 <tbody>
                                 <tr>
                                     <td class="text-left">Precio</td>
-                                    <td class="text-right">${{ number_format($propiedad->price, 2)}}</td>
+                                    <td class="text-right">${{ number_format($propiedad->precio, 2, ',', '.')}}</td>
                                 </tr>
                                 <tr>
                                     <td class="text-left">Gastos comunes</td>
-                                    <td class="text-right">${{ number_format($propiedad->gastos_comunes, 2)}}</td>
+                                    <td class="text-right">${{ number_format($propiedad->gastos_comunes, 2, ',', '.')}}</td>
                                 </tr>
 
                                 @if(Auth::check())
                                     <tr>
                                         <td class="text-left">Avalúo Fiscal
                                         </td>
-                                        <td class="text-right">${{ number_format($propiedad->avaluo_fiscal, 2)}}</td>
+                                        <td class="text-right">${{ number_format($propiedad->avaluo_fiscal, 2, ',', '.')}}</td>
                                     </tr>
 
                                     <tr>
                                         <td class="text-left">Contribuciones
                                         </td>
-                                        <td class="text-right">${{ number_format($propiedad->contribuciones, 2)}}</td>
+                                        <td class="text-right">${{ number_format($propiedad->contribuciones, 2, ',', '.')}}</td>
                                     </tr>
                                 @endif
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Apartamento;
+use App\Bodega;
 use App\Casa;
 use App\Comuna;
 use App\Estacionamiento;
@@ -21,7 +22,6 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use GuzzleHttp\Client;
-
 
 
 class PropiedadesController extends Controller
@@ -55,30 +55,8 @@ class PropiedadesController extends Controller
             ->sortBy('updated_at');
 
 
-
-
-        $propiedades_destacadas = collect();
-        $casas_destacados = Casa::disponibles()->destacados()->get();
-        $apartamentos_destacados = Apartamento::disponibles()->destacados()->get();
-        $oficinas_destacados = Oficina::disponibles()->destacados()->get();
-        $locales_comerciales_destacados = LocalComercial::disponibles()->destacados()->get();
-        $terrenos_destacados = Terreno::disponibles()->destacados()->get();
-        $estacionamientos_destacados = Estacionamiento::disponibles()->destacados()->get();
-
-        $propiedades_destacadas = $propiedades_destacadas->merge($casas_destacados)
-            ->merge($apartamentos_destacados)
-            ->merge($oficinas_destacados)
-            ->merge($locales_comerciales_destacados)
-            ->merge($estacionamientos_destacados)
-            ->merge($terrenos_destacados)
-            ->sortBy('updated_at');
-
-
-
-
-
         $data['paginas'] = Pagina::all();
-        $data['destacados'] = $propiedades_destacadas->take(4);
+        $data['destacados'] = $this->propiedadesDestacadas();
         $data['ofertas'] = $propiedades_ofertas;
         $data['comunas'] = Comuna::all();
         $data['sbif'] = Sbif::first();
@@ -116,14 +94,7 @@ class PropiedadesController extends Controller
      */
     public function show($id)
     {
-        $data['paginas'] = Pagina::all();
-
-
-        $data['propiedad'] = Propiedad::findOrFail($id);
-        $data['sbif'] = Sbif::first();
-
-        return view('propiedades.show', $data);
-
+        //
     }
 
     /**
@@ -164,7 +135,7 @@ class PropiedadesController extends Controller
     {
 
         $data['paginas'] = Pagina::all();
-        $data['destacados'] = Propiedad::disponibles()->destacados()->get();
+        $data['destacados'] = $this->propiedadesDestacadas();
         $data['comunas'] = Comuna::all();
         $data['sbif'] = Sbif::first();
 
@@ -188,20 +159,84 @@ class PropiedadesController extends Controller
         }
 
 
-        $propiedades = Propiedad::where('precio', '>=', $precios[0])
-            ->where('precio', '<=', $precios[1])
-            ->where('tipo_propiedad', $request->tipo_propiedad)
-            ->where('negocio', $request->negocio)
-            ->disponibles()
-            ->get()
-            ->filter(function ($propiedad) use ($request) {
-                if ($propiedad->edificio_id) {
-                    return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
-                } else {
-                    return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+        switch ($request->tipo_propiedad) {
+            case "casa":
 
-                }
-            });
+                $propiedades = Casa::where('precio', '>=', $precios[0])
+                    ->where('precio', '<=', $precios[1])
+                    ->where('negocio', $request->negocio)
+                    ->disponibles()
+                    ->get()
+                    ->filter(function ($propiedad) use ($request) {
+                        return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+                    });
+                break;
+            case "apartamento":
+
+                $propiedades = Apartamento::where('precio', '>=', $precios[0])
+                    ->where('precio', '<=', $precios[1])
+                    ->where('negocio', $request->negocio)
+                    ->disponibles()
+                    ->get()
+                    ->filter(function ($propiedad) use ($request) {
+                        return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+                    });
+                break;
+            case "oficina":
+
+                $propiedades = Oficina::where('precio', '>=', $precios[0])
+                    ->where('precio', '<=', $precios[1])
+                    ->where('negocio', $request->negocio)
+                    ->disponibles()
+                    ->get()
+                    ->filter(function ($propiedad) use ($request) {
+                        return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+                    });
+
+                break;
+            case "tienda_comercial":
+                $propiedades = LocalComercial::where('precio', '>=', $precios[0])
+                    ->where('precio', '<=', $precios[1])
+                    ->where('negocio', $request->negocio)
+                    ->disponibles()
+                    ->get()
+                    ->filter(function ($propiedad) use ($request) {
+                        return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+                    });
+                break;
+
+            case "bodega":
+                $propiedades = Bodega::where('precio', '>=', $precios[0])
+                    ->where('precio', '<=', $precios[1])
+                    ->where('negocio', $request->negocio)
+                    ->disponibles()
+                    ->get()
+                    ->filter(function ($propiedad) use ($request) {
+                        return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+                    });
+                break;
+            case "terreno":
+
+                $propiedades = Terreno::where('precio', '>=', $precios[0])
+                    ->where('precio', '<=', $precios[1])
+                    ->where('negocio', $request->negocio)
+                    ->disponibles()
+                    ->get()
+                    ->filter(function ($propiedad) use ($request) {
+                        return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+                    });
+                break;
+            case "estacionamiento":
+                $propiedades = Estacionamiento::where('precio', '>=', $precios[0])
+                    ->where('precio', '<=', $precios[1])
+                    ->where('negocio', $request->negocio)
+                    ->disponibles()
+                    ->get()
+                    ->filter(function ($propiedad) use ($request) {
+                        return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
+                    });
+                break;
+        }
 
 
         $data['propiedades'] = $this->paginate($propiedades);
@@ -224,8 +259,7 @@ class PropiedadesController extends Controller
 
     }
 
-    private
-    function updateSbifValues()
+    private function updateSbifValues()
     {
         $now = Carbon::now();
 
@@ -289,6 +323,29 @@ class PropiedadesController extends Controller
             $sbif->utm = (int)str_replace(',', '.', str_replace('.', '', json_decode($res)->UTMs[0]->Valor));
             $sbif->save();
         }
+    }
+
+    private function propiedadesDestacadas()
+    {
+        $propiedades_destacadas = collect();
+        $casas_destacados = Casa::disponibles()->destacados()->get();
+        $apartamentos_destacados = Apartamento::disponibles()->destacados()->get();
+        $oficinas_destacados = Oficina::disponibles()->destacados()->get();
+        $locales_comerciales_destacados = LocalComercial::disponibles()->destacados()->get();
+        $terrenos_destacados = Terreno::disponibles()->destacados()->get();
+        $estacionamientos_destacados = Estacionamiento::disponibles()->destacados()->get();
+
+        $propiedades_destacadas->merge($casas_destacados)
+            ->merge($apartamentos_destacados)
+            ->merge($oficinas_destacados)
+            ->merge($locales_comerciales_destacados)
+            ->merge($estacionamientos_destacados)
+            ->merge($terrenos_destacados)
+            ->sortBy('updated_at')
+            ->take(4);;
+
+        return $propiedades_destacadas;
+
     }
 
 
