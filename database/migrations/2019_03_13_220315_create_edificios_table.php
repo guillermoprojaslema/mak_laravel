@@ -22,6 +22,7 @@ class CreateEdificiosTable extends Migration
             $table->string('telefono')->nullable();
             $table->integer('pisos')->nullable();
             $table->integer('estacionamiento_visita')->nullable();
+            $table->boolean('planta_libre')->nullable();
             $table->integer('ano_construccion')->nullable();
             $table->string('comentario')->nullable();
             $table->string('foto')->nullable();

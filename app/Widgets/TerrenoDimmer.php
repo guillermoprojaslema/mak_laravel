@@ -3,6 +3,7 @@
 namespace App\Widgets;
 
 use App\Propiedad;
+use App\Terreno;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Widgets\BaseDimmer;
@@ -23,7 +24,7 @@ class TerrenoDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Propiedad::where('tipo_propiedad', 'terreno')->disponibles()->count();
+        $count = Terreno::disponibles()->count();
 
         $string = trans_choice('voyager.dimmer.terreno', $count);
 

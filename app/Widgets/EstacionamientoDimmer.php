@@ -2,6 +2,7 @@
 
 namespace App\Widgets;
 
+use App\Estacionamiento;
 use App\Pagina;
 use App\Propiedad;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,7 @@ class EstacionamientoDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Propiedad::where('tipo_propiedad', 'estacionamiento')->disponibles()->count();
+        $count = Estacionamiento::disponibles()->count();
         $string = trans_choice('voyager.dimmer.estacionamiento', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [

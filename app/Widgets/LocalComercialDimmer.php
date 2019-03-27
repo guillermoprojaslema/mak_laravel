@@ -2,6 +2,7 @@
 
 namespace App\Widgets;
 
+use App\LocalComercial;
 use App\Pagina;
 use App\Propiedad;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,7 @@ class LocalComercialDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Propiedad::where('tipo_propiedad', 'local_comercial')->disponibles()->count();
+        $count = LocalComercial::disponibles()->count();
         $string = trans_choice('voyager.dimmer.local_comercial', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [

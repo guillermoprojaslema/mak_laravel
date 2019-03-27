@@ -2,6 +2,7 @@
 
 namespace App\Widgets;
 
+use App\Casa;
 use App\Pagina;
 use App\Propiedad;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,7 @@ class CasaDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Propiedad::where('tipo_propiedad', 'casa')->disponibles()->count();
+        $count = Casa::disponibles()->count();
 
         $string = trans_choice('voyager.dimmer.casa', $count);
 

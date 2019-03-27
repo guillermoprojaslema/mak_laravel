@@ -2,6 +2,7 @@
 
 namespace App\Widgets;
 
+use App\Bodega;
 use App\Propiedad;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -23,7 +24,7 @@ class BodegaDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Propiedad::where('tipo_propiedad', 'bodega')->disponibles()->count();
+        $count = Bodega::disponibles()->count();
         $string = trans_choice('voyager.dimmer.bodega', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [

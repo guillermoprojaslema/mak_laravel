@@ -2,6 +2,7 @@
 
 namespace App\Widgets;
 
+use App\Apartamento;
 use App\Propiedad;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -23,7 +24,7 @@ class ApartamentoDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Propiedad::where('tipo_propiedad', 'apartamento')->disponibles()->count();
+        $count = Apartamento::disponibles()->count();
         $string = trans_choice('voyager.dimmer.apartamento', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
