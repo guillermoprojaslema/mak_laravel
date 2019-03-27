@@ -19,6 +19,13 @@ mix.js('resources/js/app.js', 'public/js')
 
     .copy('node_modules/font-awesome/css/font-awesome.css', 'public/css')
 
+    .copy('node_modules/font-awesome/fonts/FontAwesome.otf', 'public/fonts')
+    .copy('node_modules/font-awesome/fonts/fontawesome-webfont.eot', 'public/fonts')
+    .copy('node_modules/font-awesome/fonts/fontawesome-webfont.svg', 'public/fonts')
+    .copy('node_modules/font-awesome/fonts/fontawesome-webfont.ttf', 'public/fonts')
+    .copy('node_modules/font-awesome/fonts/fontawesome-webfont.woff', 'public/fonts')
+    .copy('node_modules/font-awesome/fonts/fontawesome-webfont.woff2', 'public/fonts')
+
     .copy('node_modules/owl.carousel/dist/owl.carousel.js', 'public/js')
     .copy('node_modules/owl.carousel/dist/assets/owl.carousel.css', 'public/css')
     .copy('node_modules/owl.carousel/dist/assets/owl.theme.default.css', 'public/css')
