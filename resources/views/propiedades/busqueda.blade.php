@@ -25,18 +25,22 @@
                 <figure class="card card-product">
                     <div class="img-wrap img-thumbnail"><img src="{{$propiedad->foto}}"></div>
                     <figcaption class="info-wrap">
-                        <h4 class="title">@if($destacado->edificio_id) {{$destacado->edificio()->first()->direccion .' #'. $destacado->edificio()->first()->numero. ' Apt '. $destacado->numero }} @else {{$destacado->direccion.' #'. $destacado->numero}} @endif</h4>
+                        <h4 class="title">
+                            @if($propiedad->edificio_id) {{$propiedad->edificio()->first()->direccion .' #'. $propiedad->edificio()->first()->numero. ' Apt '. $propiedad->numero }}
+                            @else {{$propiedad->direccion.' #'. $propiedad->numero}}
+                            @endif
+                        </h4>
 
-                        @if($destacado->edificio_id)
-                            <p class="desc"><i class="fa fa-building"></i> {{$destacado->edificio()->first()->nombre}},
-                                <i class="fa fa-map-marker"></i> {{$destacado->edificio()->first()->barrio()->first()->nombre}}
-                                , {{$destacado->edificio()->first()->barrio()->first()->comuna->first()->nombre}}</p>
+                        @if($propiedad->edificio_id)
+                            <p class="desc"><i class="fa fa-building"></i> {{$propiedad->edificio()->first()->nombre}},
+                                <i class="fa fa-map-marker"></i> {{$propiedad->edificio()->first()->barrio()->first()->nombre}}
+                                , {{$propiedad->edificio()->first()->barrio()->first()->comuna->first()->nombre}}</p>
                         @else
-                            <p class="desc"><i class="fa fa-map-marker"></i> {{$destacado->barrio()->first()->nombre}}
-                                , {{$destacado->barrio()->first()->comuna()->first()->nombre}}</p>
+                            <p class="desc"><i class="fa fa-map-marker"></i> {{$propiedad->barrio()->first()->nombre}}
+                                , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}</p>
                         @endif
                         <p class="desc">
-                            @if($destacado->negocio = 'venta')
+                            @if($propiedad->negocio = 'venta')
                                 <span class="badge badge-secondary">Venta</span>
                             @else
                                 <span class="badge badge-secondary">Arriendo</span>
@@ -53,7 +57,7 @@
                             <div class="label-rating"><b>Sup: </b>{{$propiedad->metros_cuadrados}} m<sup>2</sup></div>
                             <div class="label-rating"><b>Cons: </b>{{$propiedad->metros_cuadrados_construidos}}
                                 m<sup>2</sup></div>
-                            <div class="label-rating precio_clp">{{'$ '.number_format($oferta->precio  , 0, ',', '.')}}
+                            <div class="label-rating precio_clp">{{'$ '.number_format($propiedad->precio  , 0, ',', '.')}}
                                 CLP
                             </div>
                             <div class="label-rating precio_uf">
@@ -68,8 +72,41 @@
                         </div> <!-- rating-wrap.// -->
                     </figcaption>
                     <div class="bottom-wrap">
-                        <a href="{{route('propiedades.show', $propiedad->id)}}"
-                           class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @if($propiedad->ruta == 'casas')
+                            <a href="{{route('casas.show', $propiedad->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+                        @if($propiedad->ruta == 'apartamentos')
+                            <a href="{{route('apartamentos.show', $propiedad->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($propiedad->ruta == 'locales_comerciales')
+                            <a href="{{route('locales_comerciales.show', $propiedad->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($propiedad->ruta == 'bodegas')
+                            <a href="{{route('bodegas.show', $propiedad->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($propiedad->ruta == 'oficinas')
+                            <a href="{{route('oficinas.show', $propiedad->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($propiedad->ruta == 'terrenos')
+                            <a href="{{route('terrenos.show', $propiedad->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+                        @if($propiedad->ruta == 'estacionamientos')
+                            <a href="{{route('estacionamientos.show', $propiedad->id)}}"
+                               class="btn btn-sm btn-danger float-right">Detalles</a>
+                        @endif
+
+
                         <div class="price-wrap h5">
                             <span class="price-new">${{$propiedad->precio}}</span>
                             <del class="price-old">${{$propiedad->precio}}</del>
@@ -78,7 +115,7 @@
                 </figure>
             </div> <!-- col // -->
         @empty
-            No hay propiedades para mostrar
+            Su búsqueda no generó ningun resultado
         @endforelse
 
 
