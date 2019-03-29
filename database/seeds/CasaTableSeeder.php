@@ -56,7 +56,7 @@ class CasaTableSeeder extends Seeder
             $property->gastos_comunes = $faker->numberBetween(0, 100000);
             // done
             $property->rol = $faker->unique()->ean13;
-            $property->direccion = $faker->streetName . ' # ' . $faker->buildingNumber;                                 // done
+            $property->direccion = $faker->streetName . ' #' . $faker->numberBetween(10, 100000);                                 // done
             $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
