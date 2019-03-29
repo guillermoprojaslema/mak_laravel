@@ -34,7 +34,7 @@ class LocalComercialDimmer extends BaseDimmer
             'text' => __('voyager.dimmer.local_comercial_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.local_comercial_link_text'),
-                'link' => route('voyager.propiedades.index'),
+                'link' => route('voyager.locales-comerciales.index'),
             ],
             'image' => asset('images/widget-backgrounds/07.jpg'),
         ]));
@@ -48,6 +48,6 @@ class LocalComercialDimmer extends BaseDimmer
     public function shouldBeDisplayed()
     {
 
-        return Auth::user()->can('browse', app(Propiedad::class));
+        return Auth::user()->can('browse', app(LocalComercial::class));
     }
 }

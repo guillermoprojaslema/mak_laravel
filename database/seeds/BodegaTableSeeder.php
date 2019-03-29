@@ -27,7 +27,6 @@ class BodegaTableSeeder extends Seeder
             $property->destacado = $faker->randomElement([true, false]);
 
 
-            $property->numero = $faker->numberBetween(0, 20200);              // done
             $property->precio = $faker->numberBetween(0, 100000);              // done
             $property->ano_construccion = $faker->year;                                       // done
             $property->metros_cuadrados = $faker->numberBetween(15, 1000);                 // done
@@ -36,7 +35,7 @@ class BodegaTableSeeder extends Seeder
             $property->largo = $faker->numberBetween(1, 100);                          // done
             $property->contribuciones = $faker->numberBetween(10000, 500000);             // done
             $property->gastos_comunes = $faker->numberBetween(0, 100000);              // done
-            $property->direccion = $faker->streetName;                                 // done
+            $property->direccion = $faker->streetAddress;                                 // done
             $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);

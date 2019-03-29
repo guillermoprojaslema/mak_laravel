@@ -60,8 +60,6 @@ class CreateApartamentosTable extends Migration
             $table->integer('gastos_comunes')->nullable();
             /* Alfanuméricos */
             $table->string('rol')->nullable()->unique();
-            $table->string('direccion')->nullable()->unique(); /*TODO: BORRAR*/
-            $table->string('direccion_referencial')->nullable(); /*TODO: BORRAR*/
             $table->string('descripcion', 2000);
             $table->string('descripcion_breve', 200);
             $table->string('tipo_departamento')->nullable();
@@ -74,7 +72,7 @@ class CreateApartamentosTable extends Migration
             $table->string('comentario', 2000)->nullable();
             $table->string('foto')->nullable();
             $table->string('galeria')->nullable();
-            $table->string('ruta')->nullable();
+            $table->string('ruta')->default('apartamentos');
 
             /*Foreign keys*/
 

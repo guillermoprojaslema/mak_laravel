@@ -24,7 +24,6 @@ class CreateBodegasTable extends Migration
         $table->boolean('destacado');
 
         /* Sólo números */
-        $table->integer('numero');
         $table->integer('precio');
         $table->integer('ano_construccion')->nullable();
         $table->integer('metros_cuadrados')->nullable();
@@ -44,7 +43,7 @@ class CreateBodegasTable extends Migration
         $table->string('comentario', 2000)->nullable();
         $table->string('foto')->nullable();
         $table->string('galeria')->nullable();
-        $table->string('ruta')->nullable();
+        $table->string('ruta')->default('bodegas');
 
         /*Foreign keys*/
 

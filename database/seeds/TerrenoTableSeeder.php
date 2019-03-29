@@ -23,12 +23,12 @@ class TerrenoTableSeeder extends Seeder
             $property->precio = $faker->numberBetween(0, 100000);              // done
             $property->ancho = $faker->numberBetween(1, 100);                           // done
             $property->largo = $faker->numberBetween(1, 100);                          // done
+            $property->metros_cuadrados = $faker->numberBetween(1, 100000);                          // done
             $property->contribuciones = $faker->numberBetween(10000, 500000);             // done
-            $property->direccion = $faker->streetName ;                                 // done
+            $property->direccion = $faker->streetName . ' #' . $faker->numberBetween(10, 100000);                                 // done
             $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->descripcion = $faker->text(500);
             $property->descripcion_breve = $faker->text(200);
-            $property->orientacion = $faker->randomElement(['Norte', 'Nororiente', 'Oriente', 'Suroriente', 'Sur', 'Surponiente', 'Poniente', 'Norponiente']); //done
             $property->comentario = $faker->text(500);
             $galeria = [];
             for ($j = 0; $j < 5; $j++) {

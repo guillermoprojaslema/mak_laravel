@@ -38,7 +38,7 @@ class CasaTableSeeder extends Seeder
             $property->destacado = $faker->randomElement([true, false]);
 
 
-            $property->numero = $faker->numberBetween(0, 20200);              // done
+
             $property->precio = $faker->numberBetween(0, 100000);              // done
             $property->ano_construccion = $faker->year;                                       // done
             $property->metros_cuadrados = $faker->numberBetween(15, 1000);                 // done

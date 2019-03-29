@@ -22,8 +22,6 @@ class OficinaTableSeeder extends Seeder
 
             $property->amoblado = $faker->randomElement([true, false]);
             $property->habitacion = $faker->randomElement([true, false]);                      // done
-            $property->estacionamiento = $faker->randomElement([true, false]);                   // done
-            $property->estacionamiento_visita = $faker->randomElement([true, false]);             // done
             $property->oficina_secretaria = $faker->randomElement([true, false]);          // done
             $property->sala_reunion = $faker->randomElement([true, false]);              // done
             $property->aire_acondicionado = $faker->randomElement([true, false]);          // done
@@ -36,15 +34,12 @@ class OficinaTableSeeder extends Seeder
 
             $property->numero = $faker->numberBetween(0, 20200);              // done
             $property->precio = $faker->numberBetween(0, 100000);              // done
-            $property->ano_construccion = $faker->year;                                       // done
             $property->metros_cuadrados_construidos = $faker->numberBetween(15, 1000);           // done
             $property->contribuciones = $faker->numberBetween(10000, 500000);             // done
             $property->bano = $faker->numberBetween(0, 10);                         // done
             $property->living = $faker->numberBetween(0, 10);                       // done
             $property->gastos_comunes = $faker->numberBetween(0, 100000);              // done
             $property->sala_privada = $faker->numberBetween(0, 10);                     // done
-            $property->direccion = $faker->streetName ;                                 // done
-            $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->descripcion = $faker->text(500);
             $property->descripcion_breve= $faker->text(200);
             $property->tipo_oficina = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done

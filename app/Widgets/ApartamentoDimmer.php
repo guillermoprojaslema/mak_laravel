@@ -28,12 +28,12 @@ class ApartamentoDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.apartamento', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-treasure',
+            'icon' => 'voyager-params',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.apartamento_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.apartamento_link_text'),
-                'link' => route('voyager.propiedades.index'),
+                'link' => route('voyager.apartamentos.index'),
             ],
             'image' => asset('images/widget-backgrounds/05.jpg'),
         ]));
@@ -47,7 +47,7 @@ class ApartamentoDimmer extends BaseDimmer
     public function shouldBeDisplayed()
     {
 
-        return Auth::user()->can('browse', app(Propiedad::class));
+        return Auth::user()->can('browse', app(Apartamento::class));
 
     }
 }

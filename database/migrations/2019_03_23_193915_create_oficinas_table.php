@@ -21,8 +21,6 @@ class CreateOficinasTable extends Migration
             /* Booleans*/
             $table->boolean('amoblado')->nullable();
             $table->boolean('habitacion')->nullable(); // Casa o habitación (?)
-            $table->boolean('estacionamiento')->nullable();
-            $table->boolean('estacionamiento_visita')->nullable();
             $table->boolean('oficina_secretaria')->nullable();
             $table->boolean('sala_reunion')->nullable();
             $table->boolean('aire_acondicionado')->nullable();
@@ -35,7 +33,6 @@ class CreateOficinasTable extends Migration
             /* Sólo números */
             $table->integer('numero');
             $table->integer('precio');
-            $table->integer('ano_construccion')->nullable();
             $table->integer('metros_cuadrados_construidos')->nullable();
             $table->integer('contribuciones')->nullable();
             $table->integer('bano')->nullable();
@@ -43,8 +40,6 @@ class CreateOficinasTable extends Migration
             $table->integer('gastos_comunes')->nullable();
             $table->integer('sala_privada')->nullable();
             /* Alfanuméricos */
-            $table->string('direccion')->nullable()->unique();
-            $table->string('direccion_referencial')->nullable();
             $table->string('descripcion', 2000);
             $table->string('descripcion_breve', 200);
             $table->string('tipo_oficina')->nullable();
