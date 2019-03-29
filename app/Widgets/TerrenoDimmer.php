@@ -34,7 +34,7 @@ class TerrenoDimmer extends BaseDimmer
             'text' => __('voyager.dimmer.terreno_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.terreno_link_text'),
-                'link' => route('voyager.propiedades.index'),
+                'link' => route('voyager.terrenos.index'),
             ],
             'image' => asset('images/widget-backgrounds/06.jpg'),
         ]));

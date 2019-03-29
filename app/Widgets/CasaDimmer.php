@@ -35,7 +35,7 @@ class CasaDimmer extends BaseDimmer
             'text' => __('voyager.dimmer.casa_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.casa_link_text'),
-                'link' => route('voyager.propiedades.index'),
+                'link' => route('voyager.casas.index'),
             ],
             'image' => asset('images/widget-backgrounds/04.jpg'),
         ]));
@@ -49,6 +49,6 @@ class CasaDimmer extends BaseDimmer
     public function shouldBeDisplayed()
     {
 
-        return Auth::user()->can('browse', app(Propiedad::class));
+        return Auth::user()->can('browse', app(Casa::class));
     }
 }

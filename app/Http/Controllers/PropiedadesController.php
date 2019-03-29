@@ -265,14 +265,13 @@ class PropiedadesController extends Controller
         $terrenos_destacados = Terreno::disponibles()->destacados()->get();
         $estacionamientos_destacados = Estacionamiento::disponibles()->destacados()->get();
 
-        $propiedades_destacadas->merge($casas_destacados)
+        $propiedades_destacadas = $propiedades_destacadas->merge($casas_destacados)
             ->merge($apartamentos_destacados)
             ->merge($oficinas_destacados)
             ->merge($locales_comerciales_destacados)
             ->merge($estacionamientos_destacados)
             ->merge($terrenos_destacados)
-            ->sortBy('updated_at')
-            ->take(4);;
+            ->sortBy('updated_at')->take(4);
 
         return $propiedades_destacadas;
 

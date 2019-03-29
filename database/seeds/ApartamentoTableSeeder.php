@@ -60,12 +60,10 @@ class ApartamentoTableSeeder extends Seeder
             $property->sala_estar = $faker->numberBetween(0, 10);                     // done
             $property->gastos_comunes = $faker->numberBetween(0, 100000);              // done
             $property->rol = $faker->unique()->ean13;              // done
-            $property->direccion = $faker->streetName ;                                 // done
-            $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
             $property->descripcion_breve = $faker->text(200);
-            $property->orientacion = $faker->randomElement(['Norte', 'Nororiente', 'Oriente', 'Suroriente', 'Sur', 'Surponiente', 'Poniente', 'Norponiente']); //done
+                $property->orientacion = $faker->randomElement(['Norte', 'Nororiente', 'Oriente', 'Suroriente', 'Sur', 'Surponiente', 'Poniente', 'Norponiente']); //done
             $property->tipo_cocina = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
             $property->tipo_ventana = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
             $property->tipo_agua_caliente = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done

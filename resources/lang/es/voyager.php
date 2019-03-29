@@ -372,7 +372,7 @@ return [
         'edificio_link_text' => 'Ver todos los edificios',
         'edificio_text' => 'Tiene :count :string disponibles en su base de datos. Haga clic en el botón de abajo para ver todos los edificios. ',
 
-        'estacionamiento' => 'Estacionemiento|Estacionemientos',
+        'estacionamiento' => 'Estacionamiento|Estacionamientos',
         'estacionamiento_link_text' => 'Ver todos los estacionamientos ',
         'estacionamiento_text' => 'Tiene :count :string disponibles en su base de datos. Haga clic en el botón de abajo para ver todos los estacionamientos. ',
 

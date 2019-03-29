@@ -20,13 +20,13 @@ class EdificioTableSeeder extends Seeder
                 'nombre' => $faker->name,
                 'direccion' => $faker->unique()->streetName,
                 'direccion_referencial' => $faker->streetName . ' & ' . $faker->streetName,
-                'direccion_numero' => $faker->buildingNumber,
+                'direccion_numero' => $faker->numberBetween(10, 9999),
                 'telefono' => $faker->unique()->phoneNumber,
-                'pisos' => 1,
+                'pisos' => $faker->numberBetween(1, 30),
                 'estacionamiento_visita' => $faker->numberBetween(1, 5),
                 'ano_construccion' => $faker->numberBetween(1900, 2017),
                 'comentario' => $faker->text(100),
-                'barrio_id' => 1
+                'barrio_id' => $faker->numberBetween(1,20)
             ]);
         }
 

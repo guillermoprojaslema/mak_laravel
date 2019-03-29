@@ -34,7 +34,7 @@ class EstacionamientoDimmer extends BaseDimmer
             'text' => __('voyager.dimmer.estacionamiento_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
                 'text' => __('voyager.dimmer.estacionamiento_link_text'),
-                'link' => route('voyager.propiedades.index'),
+                'link' => route('voyager.estacionamientos.index'),
             ],
             'image' => asset('images/widget-backgrounds/08.jpg'),
         ]));
@@ -48,6 +48,6 @@ class EstacionamientoDimmer extends BaseDimmer
     public function shouldBeDisplayed()
     {
 
-        return Auth::user()->can('browse', app(Propiedad::class));
+        return Auth::user()->can('browse', app(Estacionamiento::class));
     }
 }

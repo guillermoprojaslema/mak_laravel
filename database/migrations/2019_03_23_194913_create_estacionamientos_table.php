@@ -23,17 +23,17 @@ class CreateEstacionamientosTable extends Migration
             $table->boolean('destacado');
 
             /* Sólo números */
+            $table->integer('numero');
             $table->integer('precio');
             $table->integer('metros_cuadrados')->nullable();
             $table->integer('contribuciones')->nullable();
             $table->string('foto')->nullable();
             $table->string('galeria')->nullable();
-            $table->string('ruta')->nullable();
+            $table->string('ruta')->default('estacionamientos');
+
 
 
             /*Alfanuméricos*/
-            $table->string('direccion')->nullable()->unique();
-            $table->string('direccion_referencial')->nullable();
             $table->string('descripcion', 2000);
             $table->string('descripcion_breve', 200);
             $table->string('comentario', 2000)->nullable();

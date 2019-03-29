@@ -17,13 +17,13 @@ class CreateBarriosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('comentario');
-            $table->integer('comuna_id')->unsigned();
+            $table->integer('comuna_id')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('barrios', function (Blueprint $table) {
-            $table->foreign('comuna_id')->references('id')->on('comunas')->onDelete('cascade');
+            $table->foreign('comuna_id')->references('id')->on('comunas')->onDelete('set null');
 
         });
     }

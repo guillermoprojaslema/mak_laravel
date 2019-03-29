@@ -50,7 +50,8 @@ class CreateLocalesComercialesTable extends Migration
             $table->string('comentario', 2000)->nullable();
             $table->string('foto')->nullable();
             $table->string('galeria')->nullable();
-            $table->string('ruta')->nullable();
+            $table->string('ruta')->default('locales_comerciales');
+
 
             /*Foreign keys*/
             $table->integer('cliente_id')->unsigned()->nullable();

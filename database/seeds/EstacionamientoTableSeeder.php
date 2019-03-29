@@ -23,11 +23,10 @@ class EstacionamientoTableSeeder extends Seeder
             $property->destacado = $faker->randomElement([true, false]);
 
 
+            $property->numero = $faker->numberBetween(0, 100000);              // done
             $property->precio = $faker->numberBetween(0, 100000);              // done
             $property->metros_cuadrados = $faker->numberBetween(15, 1000);                 // done
             $property->contribuciones = $faker->numberBetween(10000, 500000);             // done
-            $property->direccion = $faker->streetName;                                 // done
-            $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
             $property->descripcion_breve = $faker->text(200);
