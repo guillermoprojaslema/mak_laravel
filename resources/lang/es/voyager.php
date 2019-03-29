@@ -356,6 +356,10 @@ return [
         'bodega_link_text' => 'Ver todas las bodegas',
         'bodega_text' => 'Tiene :count :string disponibles en su base de datos. Haga clic en el botón de abajo para ver todas las bodegas. ',
 
+        'oficina' => 'Oficina|Oficinas',
+        'oficina_link_text' => 'Ver todas las oficinas',
+        'oficina_text' => 'Tiene :count :string disponibles en su base de datos. Haga clic en el botón de abajo para ver todas las oficinas. ',
+
         'casa' => 'Casa|Casas',
         'casa_link_text' => 'Ver todas las casas',
         'casa_text' => 'Tiene :count :string disponibles en su base de datos. Haga clic en el botón de abajo para ver todas las casas. ',
