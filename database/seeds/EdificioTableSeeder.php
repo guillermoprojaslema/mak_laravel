@@ -19,8 +19,7 @@ class EdificioTableSeeder extends Seeder
             DB::table('edificios')->insert([
                 'nombre' => $faker->name,
                 'direccion' => $faker->unique()->streetName,
-                'direccion_referencial' => $faker->streetName . ' & ' . $faker->streetName,
-                'direccion_numero' => $faker->numberBetween(10, 9999),
+                'direccion_referencial' => $faker->streetName. ' & '. $faker->streetName,
                 'telefono' => $faker->unique()->phoneNumber,
                 'pisos' => $faker->numberBetween(1, 30),
                 'estacionamiento_visita' => $faker->numberBetween(1, 5),

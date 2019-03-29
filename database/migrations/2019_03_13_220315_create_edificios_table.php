@@ -17,7 +17,6 @@ class CreateEdificiosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('direccion');
-            $table->string('direccion_numero');
             $table->string('direccion_referencial');
             $table->string('telefono')->nullable();
             $table->integer('pisos')->nullable();
