@@ -22,11 +22,11 @@
                     <br>
                     <h3>Síguenos</h3>
                     <p>
-                        <a href="{{setting('site.facebook')}}"><i class="fa fa-facebook"></i></a>
-                        <a href="{{setting('site.twitter')}}"><i class="fa fa-twitter"></i></a>
-                        <a href="{{setting('site.google')}}"><i class="fa fa-google-plus-g"></i></a>
-                        <a href="{{setting('site.instagram')}}"><i class="fa fa-instagram"></i></a>
-                        <a href="{{setting('site.pinterest')}}"><i class="fa fa-pinterest"></i></a>
+                        <a href="{{setting('site.facebook')}}"><i class="fab fa-facebook"></i></a>
+                        <a href="{{setting('site.twitter')}}"><i class="fab fa-twitter"></i></a>
+                        <a href="{{setting('site.google')}}"><i class="fab fa-google-plus-g"></i></a>
+                        <a href="{{setting('site.instagram')}}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{setting('site.pinterest')}}"><i class="fab fa-pinterest"></i></a>
                     </p>
                 </div>
             </div>

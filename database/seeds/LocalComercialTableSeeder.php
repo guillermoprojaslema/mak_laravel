@@ -43,9 +43,9 @@ class LocalComercialTableSeeder extends Seeder
             $local_comercial->comentario = $faker->text(500);
             $local_comercial->descripcion = $faker->text(500);
             $local_comercial->descripcion_breve = $faker->text(200);
-            $local_comercial->calefaccion = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
-            $local_comercial->tipo_piso = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
-            $local_comercial->tipo_agua_caliente = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
+            $local_comercial->calefaccion = $faker->randomElement(["Losa Radiante", "Radiadores", "Estufas Empotradas", "Termo Eléctrico"]); //done
+            $local_comercial->tipo_piso = $faker->randomElement(["Madera", "Flotante", "Fotolaminado", "Cerámica", "Parqué", "Mármol", "Batuco", "Vinilico", "Otro"]); //done
+
 
 
             $galeria = [];
