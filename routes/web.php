@@ -23,6 +23,9 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/', 'PropiedadesController@index')->name('propiedades.index');
 Route::get('/busqueda', 'PropiedadesController@busqueda')->name('propiedades.busqueda');
 
+Route::get('/contacto', 'ContactoController@index')->name('contacto.index');
+Route::post('/contacto', 'ContactoController@store')->name('contacto.store');
+
 Route::get('/casas/{id}', 'CasasController@show')->name('casas.show');
 Route::get('/bodegas/{id}', 'BodegasController@show')->name('bodegas.show');
 Route::get('/apartamentos/{id}', 'ApartamentosController@show')->name('apartamentos.show');
