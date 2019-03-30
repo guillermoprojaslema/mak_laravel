@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pagina;
+use App\Sbif;
 use Illuminate\Http\Request;
 
 class PaginasController extends Controller
@@ -19,6 +20,7 @@ class PaginasController extends Controller
     {
         $data['pagina'] = Pagina::where('slug', $slug)->first();
         $data['paginas'] = Pagina::all();
+        $data['sbif'] = Sbif::first();
         return view('paginas.show', $data);
     }
 

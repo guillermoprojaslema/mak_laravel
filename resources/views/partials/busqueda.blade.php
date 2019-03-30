@@ -8,8 +8,6 @@
                 <option value="{{ $comuna->id }}"{{ old('comuna') == $comuna->id ? ' selected' : '' }}>{{ $comuna->nombre }}</option>
             @endforeach
         </select>
-        
-
         {!! $errors->first('comuna_id', '<p class="red form-text  text-danger">:message</p>') !!}
     </div>
     <div class="form-group  {{ $errors->has('tipo_propiedad') ? 'has-error' : '' }}">

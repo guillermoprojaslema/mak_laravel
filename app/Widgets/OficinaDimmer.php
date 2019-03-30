@@ -2,14 +2,13 @@
 
 namespace App\Widgets;
 
-use App\Propiedad;
-use App\Terreno;
+use App\Oficina;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Widgets\BaseDimmer;
 use TCG\Voyager\Facades\Voyager;
 
-class TerrenoDimmer extends BaseDimmer
+class OficinaDimmer extends BaseDimmer
 {
     /**
      * The configuration array.
@@ -24,19 +23,18 @@ class TerrenoDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Terreno::disponibles()->count();
-
-        $string = trans_choice('voyager.dimmer.terreno', $count);
+        $count = Oficina::disponibles()->count();
+        $string = trans_choice('voyager.dimmer.oficina', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-milestone',
+            'icon' => 'voyager-laptop',
             'title' => "{$count} {$string}",
-            'text' => __('voyager.dimmer.terreno_text', ['count' => $count, 'string' => Str::lower($string)]),
+            'text' => __('voyager.dimmer.oficina_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
-                'text' => __('voyager.dimmer.terreno_link_text'),
-                'link' => route('voyager.terrenos.index'),
+                'text' => __('voyager.dimmer.oficina_link_text'),
+                'link' => route('voyager.oficinas.index'),
             ],
-            'image' => asset('images/widget-backgrounds/06.jpg'),
+            'image' => asset('images/widget-backgrounds/15.jpg'),
         ]));
     }
 
@@ -48,6 +46,6 @@ class TerrenoDimmer extends BaseDimmer
     public function shouldBeDisplayed()
     {
 
-        return Auth::user()->can('browse', app(Terreno::class));
+        return Auth::user()->can('browse', app(Oficina::class));
     }
 }

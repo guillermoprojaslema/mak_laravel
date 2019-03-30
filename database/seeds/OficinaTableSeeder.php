@@ -42,14 +42,14 @@ class OficinaTableSeeder extends Seeder
             $property->sala_privada = $faker->numberBetween(0, 10);                     // done
             $property->descripcion = $faker->text(500);
             $property->descripcion_breve= $faker->text(200);
-            $property->tipo_oficina = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
             $property->orientacion = $faker->randomElement(['Norte', 'Nororiente', 'Oriente', 'Suroriente', 'Sur', 'Surponiente', 'Poniente', 'Norponiente']); //done
-            $property->tipo_cocina = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
-            $property->tipo_ventana = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
-            $property->calefaccion = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
+            $property->tipo_cocina = $faker->randomElement(["Normal", "Americana", "Isla"]); //done
+            $property->tipo_ventana = $faker->randomElement(["Madera","Aluminio Anonizado", "PVC","Hierro"]); //done
+            $property->calefaccion = $faker->randomElement(["Losa Radiante", "Radiadores", "Estufas Empotradas", "Termo Eléctrico"]); //done
+            $property->tipo_piso = $faker->randomElement(["Madera","Flotante","Fotolaminado","Cerámica","Parqué","Mármol", "Batuco","Vinilico","Otro"]); //done
+            $property->tipo_agua_caliente = $faker->randomElement(["Calefacción Central","Calefont"]); //done
             $property->comentario = $faker->text(500);
-            $property->tipo_piso = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
-            $property->tipo_agua_caliente = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
+
 
 
             $galeria = [];

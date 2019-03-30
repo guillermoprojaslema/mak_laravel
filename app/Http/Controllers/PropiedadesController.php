@@ -11,17 +11,14 @@ use App\Http\Requests\BusquedaPropiedadRequest;
 use App\LocalComercial;
 use App\Oficina;
 use App\Pagina;
-use App\Propiedad;
 use App\Sbif;
 use App\Terreno;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Session;
 use DB;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
-use GuzzleHttp\Client;
 
 
 class PropiedadesController extends Controller
@@ -243,8 +240,7 @@ class PropiedadesController extends Controller
     }
 
 
-    public
-    function paginate($items, $perPage = 8, $page = null, $options = [])
+    public function paginate($items, $perPage = 8, $page = null, $options = [])
     {
 
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
@@ -255,7 +251,9 @@ class PropiedadesController extends Controller
 
     }
 
-    private function propiedadesDestacadas()
+
+
+    public static function propiedadesDestacadas()
     {
         $propiedades_destacadas = collect();
         $casas_destacados = Casa::disponibles()->destacados()->get();

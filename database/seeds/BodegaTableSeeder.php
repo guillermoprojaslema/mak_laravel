@@ -35,13 +35,13 @@ class BodegaTableSeeder extends Seeder
             $property->largo = $faker->numberBetween(1, 100);                          // done
             $property->contribuciones = $faker->numberBetween(10000, 500000);             // done
             $property->gastos_comunes = $faker->numberBetween(0, 100000);              // done
-            $property->direccion = $faker->streetAddress;                                 // done
+            $property->direccion = $faker->streetName . ' #' . $faker->numberBetween(10, 100000);                                 // done
             $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
             $property->descripcion_breve = $faker->text(200);
-            $property->tipo_ventana = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
-            $property->tipo_piso = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
+            $property->tipo_ventana = $faker->randomElement(["Madera","Aluminio Anonizado", "PVC","Hierro"]); //done
+            $property->tipo_piso = $faker->randomElement(["Madera","Flotante","Fotolaminado","Cerámica","Parqué","Mármol", "Batuco","Vinilico","Otro"]); //done
 
 
             $galeria = [];

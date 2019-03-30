@@ -38,14 +38,14 @@ class LocalComercialTableSeeder extends Seeder
             $local_comercial->contribuciones = $faker->numberBetween(10000, 500000);             // done
             $local_comercial->gastos_comunes = $faker->numberBetween(0, 100000);              // done
             $local_comercial->sala_privada = $faker->numberBetween(0, 10);                     // done
-            $local_comercial->direccion = $faker->streetName;                                 // done
+            $local_comercial->direccion = $faker->streetName . ' #' . $faker->numberBetween(10, 100000);                                 // done
             $local_comercial->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $local_comercial->comentario = $faker->text(500);
             $local_comercial->descripcion = $faker->text(500);
             $local_comercial->descripcion_breve = $faker->text(200);
-            $local_comercial->calefaccion = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
-            $local_comercial->tipo_piso = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
-            $local_comercial->tipo_agua_caliente = $faker->randomElement([1, 2, 3, 4, 5, 6, 7, 8]); //done
+            $local_comercial->calefaccion = $faker->randomElement(["Losa Radiante", "Radiadores", "Estufas Empotradas", "Termo Eléctrico"]); //done
+            $local_comercial->tipo_piso = $faker->randomElement(["Madera", "Flotante", "Fotolaminado", "Cerámica", "Parqué", "Mármol", "Batuco", "Vinilico", "Otro"]); //done
+
 
 
             $galeria = [];

@@ -67,7 +67,7 @@
 <body>
 
 @include('partials.nav_bar')
-<div id="app" class="container">
+<div id="app" class="container bg-light">
     @yield('content')
 </div>
 
