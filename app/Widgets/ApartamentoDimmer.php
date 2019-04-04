@@ -28,7 +28,7 @@ class ApartamentoDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.apartamento', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-params',
+            'icon' => 'fas fa-building',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.apartamento_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [

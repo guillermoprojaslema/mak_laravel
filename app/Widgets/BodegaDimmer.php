@@ -28,7 +28,7 @@ class BodegaDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.bodega', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-treasure',
+            'icon' => 'fas fa-warehouse',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.bodega_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [

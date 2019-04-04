@@ -28,7 +28,7 @@ class ConserjeDimmer extends BaseDimmer
         $string = trans_choice('voyager.dimmer.conserje', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon' => 'voyager-pirate',
+            'icon' => 'fas fa-user-tie',
             'title' => "{$count} {$string}",
             'text' => __('voyager.dimmer.conserje_text', ['count' => $count, 'string' => Str::lower($string)]),
             'button' => [
