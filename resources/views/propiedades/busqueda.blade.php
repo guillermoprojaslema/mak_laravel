@@ -130,8 +130,6 @@
 @endsection
 
 @push('scripts')
-    <script src="{{asset('js/owl.carousel.js')}}"></script>
-    <script src="{{asset('js/jquery.range.js')}}"></script>
 
     <script>
         $(document).ready(function () {

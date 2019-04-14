@@ -9,11 +9,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#a20000">
 
-    <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/1713/4549/t/17/assets/favicon.ico?8231455578558435871"
-          type="image/x-icon"/>
-    <meta name="google-site-verification" content="GPuzmdzXQI2A0Dtga7-vwNNg2FwkgE5uj1yyWGYlfGM"/>
+    {{--<meta name="google-site-verification" content="GPuzmdzXQI2A0Dtga7-vwNNg2FwkgE5uj1yyWGYlfGM"/>--}}
 
-    {{--<title>@yield('title') - {{ setting('site.title', config('app.name')) }}</title>--}}
     <title>@yield('title') - {{ setting('site.title', config('app.name')) }}</title>
 
     <meta name="description" content="La propiedad que buscas, está aquí">
@@ -51,11 +48,19 @@
 
 
 
-    @stack('meta_tags_open_graph')
+    {{--@stack('meta_tags_open_graph')--}}
 
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset('css/linearicons.css')}}"> {{-- linearicons --}}
+    <link rel="stylesheet" href="{{asset('css/simplelightbox.css')}}">
+    <link rel="stylesheet" href="{{asset('css/nice-select.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
 
     @stack('styles')
 
@@ -91,7 +96,16 @@
 @endif
 
 {{--<script src="/js/app.js"></script>--}}
-<script src="/js/jquery.js"></script>
+<script src="{{asset('js/jquery.js')    }}"></script>
+<script src="{{asset('js/owl.carousel.js')}}"></script>
+<script src="{{asset('js/jquery.range.js')}}"></script>
+<script src="{{asset('js/jquery.stellar.js')}}"></script>
+<script src="{{asset('js/simple-lightbox.js')}}"></script>
+<script src="{{asset('js/jquery.nice-select.js')}}"></script>
+<script src="{{asset('js/jquery-ui.js')}}"></script>
+<script src="{{asset('js/imagesloaded.pkgd.js')}}"></script>
+<script src="{{asset('js/isotope.js')}}"></script>
+<script src="{{asset('js/theme.js')}}"></script>
 @stack('scripts')
 
 </body>
