@@ -35,7 +35,7 @@
         {!! $errors->first('tipo_propiedad', '<p class="form-text  text-danger">:message</p>') !!}
     </div>
     <div class="form-group  {!! $errors->has('divisa') ? 'has-error' : ''!!} ">
-        <label for="divisa">Divisa:</label>
+            <label for="divisa">Divisa:</label>
         <select class="form-control" name="divisa" id="divisa" data-required>
 
             <option value="">Seleccione una divisa</option>

@@ -1,7 +1,7 @@
 ;(function($){
     "use strict"
-	
-	
+
+
 //	var nav_offset_top = $('header').height(); 
 //    /*-------------------------------------------------------------------------------
 //	  Navbar 
@@ -21,8 +21,8 @@
 //        };
 //    };
 //    navbarFixed();
-	
-	
+
+
 	/*----------------------------------------------------*/
     /*  Parallax Effect js
     /*----------------------------------------------------*/
@@ -30,8 +30,8 @@
     // 	$('.bg-parallax').parallax();
 	// }
 	// parallaxEffect();
-	
-	
+
+
 	/*----------------------------------------------------*/
     /*  Causes Slider
     /*----------------------------------------------------*/
@@ -134,7 +134,7 @@
                 nav: false,
                 autoplay: false,
                 smartSpeed: 1500,
-                dots:false, 
+                dots:false,
                 responsiveClass: true,
                 responsive: {
                     0: {
@@ -157,7 +157,7 @@
         }
     }
     clients_slider();
-	
+
 	/*----------------------------------------------------*/
     /*  Testimonials Slider
     /*----------------------------------------------------*/
@@ -170,7 +170,7 @@
                 nav: false,
                 autoplay: false,
                 smartSpeed: 1500,
-                dots:true, 
+                dots:true,
                 responsiveClass: true,
                 responsive: {
                     0: {
@@ -184,7 +184,7 @@
         }
     }
     testi_slider();
-	
+
 	/*----------------------------------------------------*/
     /*  MailChimp Slider
     /*----------------------------------------------------*/
@@ -195,41 +195,47 @@
 	//
 
     $('select').niceSelect();
-	
+
 	/*----------------------------------------------------*/
     /*  Simple LightBox js
     /*----------------------------------------------------*/
     // $('.imageGallery1 .light').simpleLightbox();
-	
+
 	/*----------------------------------------------------*/
     /*  Jquery Ui slider js
     /*----------------------------------------------------*/
+
+    $("#min-precio").val(300000);
+    $("#max-precio").val(20000000);
+
 	$( "#slider-range, #slider-range2" ).slider({
       range: true,
       min: 0,
-      max: 500,
-      values: [ 80, 500 ],
+      max: 20000000,
+      values: [ 300000, 20000000 ],
       slide: function( event, ui ) {
         $( "#amount, #amount2" ).val( "$" + ui.values[ 0 ] + " $" + ui.values[ 1 ] );
+        $("#min-precio").val(ui.values[ 0 ]);
+        $("#max-precio").val(ui.values[ 1 ]);
       }
     });
     $( "#amount, #amount2" ).val( "$" + $( "#slider-range, #slider-range2" ).slider( "values", 0 )+
       "   $" + $( "#slider-range, #slider-range2" ).slider( "values", 1 ) );
-	
-	
-	
-	$( "#slider-range2" ).slider({
-      range: true,
-      min: 0,
-      max: 500,
-      values: [ 80, 500 ],
-      slide: function( event, ui ) {
-        $( "#amount2" ).val( "$" + ui.values[ 0 ] + " $" + ui.values[ 1 ] );
-      }
-    });
-    $( "#amount2" ).val( "$" + $( "#slider-range2" ).slider( "values", 0 )+
-      "   $" + $( "#slider-range2" ).slider( "values", 1 ) );
-	
+
+
+
+	// $( "#slider-range2" ).slider({
+    //   range: true,
+    //   min: 0,
+    //   max: 500,
+    //   values: [ 80, 500 ],
+    //   slide: function( event, ui ) {
+    //     $( "#amount2" ).val( "$" + ui.values[ 0 ] + " $" + ui.values[ 1 ] );
+    //   }
+    // });
+    // $( "#amount2" ).val( "$" + $( "#slider-range2" ).slider( "values", 0 )+
+    //   "   $" + $( "#slider-range2" ).slider( "values", 1 ) );
+
 //	/*----------------------------------------------------*/
 //    /*  Image Gallery js
 //    /*----------------------------------------------------*/
@@ -250,11 +256,11 @@
 //        }
 //    }
 //    galleryMasonry();
-	
+
 	/*----------------------------------------------------*/
     /*  Google map js
     /*----------------------------------------------------*/
-     
+
     if ( $('#mapBox').length ){
         var $lat = $('#mapBox').data('lat');
         var $lon = $('#mapBox').data('lon');
@@ -461,6 +467,6 @@
             ]
         });
     }
-	
+
 
 })(jQuery)

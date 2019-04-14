@@ -126,28 +126,26 @@ class PropiedadesController extends Controller
 
     public function busqueda(BusquedaPropiedadRequest $request)
     {
-
         $data['paginas'] = Pagina::all();
         $data['destacados'] = $this->propiedadesDestacadas();
         $data['comunas'] = Comuna::all();
         $data['sbif'] = Sbif::first();
 
-        $precios = explode(",", $request->precio);
 
         switch ($request->divisa) {
             case "CLP":
                 break;
             case "USD":
-                $precios[0] = $precios[0] * $data['sbif']->dolar;
-                $precios[1] = $precios[1] * $data['sbif']->dolar;
+                $request->min_precio = $request->min_precio * $data['sbif']->dolar;
+                $request->max_precio = $request->max_precio * $data['sbif']->dolar;
                 break;
             case "UF":
-                $precios[0] = $precios[0] * $data['sbif']->uf;
-                $precios[1] = $precios[1] * $data['sbif']->uf;
+                $request->min_precio = $request->min_precio * $data['sbif']->uf;
+                $request->max_precio = $request->max_precio * $data['sbif']->uf;
                 break;
             case "EUR":
-                $precios[0] = $precios[0] * $data['sbif']->euro;
-                $precios[1] = $precios[1] * $data['sbif']->euro;
+                $request->min_precio = $request->min_precio * $data['sbif']->euro;
+                $request->max_precio = $request->max_precio * $data['sbif']->euro;
                 break;
         }
 
@@ -155,8 +153,8 @@ class PropiedadesController extends Controller
         switch ($request->tipo_propiedad) {
             case "casa":
 
-                $propiedades = Casa::where('precio', '>=', $precios[0])
-                    ->where('precio', '<=', $precios[1])
+                $propiedades = Casa::where('precio', '>=', $request->min_precio)
+                    ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
                     ->disponibles()
                     ->get()
@@ -166,8 +164,8 @@ class PropiedadesController extends Controller
                 break;
             case "apartamento":
 
-                $propiedades = Apartamento::where('precio', '>=', $precios[0])
-                    ->where('precio', '<=', $precios[1])
+                $propiedades = Apartamento::where('precio', '>=', $request->min_precio)
+                    ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
                     ->disponibles()
                     ->get()
@@ -177,8 +175,8 @@ class PropiedadesController extends Controller
                 break;
             case "oficina":
 
-                $propiedades = Oficina::where('precio', '>=', $precios[0])
-                    ->where('precio', '<=', $precios[1])
+                $propiedades = Oficina::where('precio', '>=', $request->min_precio)
+                    ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
                     ->disponibles()
                     ->get()
@@ -188,8 +186,8 @@ class PropiedadesController extends Controller
 
                 break;
             case "tienda_comercial":
-                $propiedades = LocalComercial::where('precio', '>=', $precios[0])
-                    ->where('precio', '<=', $precios[1])
+                $propiedades = LocalComercial::where('precio', '>=', $request->min_precio)
+                    ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
                     ->disponibles()
                     ->get()
@@ -199,8 +197,8 @@ class PropiedadesController extends Controller
                 break;
 
             case "bodega":
-                $propiedades = Bodega::where('precio', '>=', $precios[0])
-                    ->where('precio', '<=', $precios[1])
+                $propiedades = Bodega::where('precio', '>=', $request->min_precio)
+                    ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
                     ->disponibles()
                     ->get()
@@ -210,8 +208,8 @@ class PropiedadesController extends Controller
                 break;
             case "terreno":
 
-                $propiedades = Terreno::where('precio', '>=', $precios[0])
-                    ->where('precio', '<=', $precios[1])
+                $propiedades = Terreno::where('precio', '>=', $request->min_precio)
+                    ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
                     ->disponibles()
                     ->get()
@@ -220,8 +218,8 @@ class PropiedadesController extends Controller
                     });
                 break;
             case "estacionamiento":
-                $propiedades = Estacionamiento::where('precio', '>=', $precios[0])
-                    ->where('precio', '<=', $precios[1])
+                $propiedades = Estacionamiento::where('precio', '>=', $request->min_precio)
+                    ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
                     ->disponibles()
                     ->get()
@@ -269,7 +267,7 @@ class PropiedadesController extends Controller
             ->merge($locales_comerciales_destacados)
             ->merge($estacionamientos_destacados)
             ->merge($terrenos_destacados)
-            ->sortBy('updated_at')->take(4);
+            ->sortBy('updated_at')->take(setting('site.cantidad_destacados', 3));
 
         return $propiedades_destacadas;
 
