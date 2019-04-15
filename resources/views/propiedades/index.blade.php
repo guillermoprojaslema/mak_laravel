@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-
+@include('partials.busqueda')
 
 @section('content')
 

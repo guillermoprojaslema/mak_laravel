@@ -1,24 +1,21 @@
 @extends('layouts.app')
 
+@include('partials.busqueda')
+
 
 @section('content')
 
-    <div class="row">
-        <div class="col-md-12">
-            <h3>Resultados de tu busqueda</h3>
-        </div>
-    </div>
+
     <div class="row">
 
         <!--================Properties Area =================-->
         <section class="properties_area">
             <div class="container">
                 <div class="main_title">
-                    <h2>Nuestras propiedades destacadas</h2>
-                    <p>{{setting('site.propiedades_destacadas', 'Ven a revisar nuestras propiedades destacadas')}}</p>
+                    <h2>Resultados de búsqueda: </h2>
                 </div>
                 <div class="row properties_inner">
-                    @forelse($ofertas as $oferta)
+                    @forelse($propiedades as $propiedad)
                         <div class="col-lg-4">
                             <div class="properties_item">
                                 <div class="pp_img">
@@ -27,46 +24,46 @@
                                 <div class="pp_content">
                                     <a href="{{route('propiedades.show', $oferta->id)}}">
                                         <h4>
-                                            @if(($oferta->edificio_id))
-                                                {{$oferta->edificio()->first()->direccion}},
-                                                #{{$oferta->edificio()->first()->numero}}
-                                                ,  {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                                            @if(($propiedad->edificio_id))
+                                                {{$propiedad->edificio()->first()->direccion}},
+                                                #{{$propiedad->edificio()->first()->numero}}
+                                                ,  {{$propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
                                                 .
                                             @else
-                                                {{$oferta->direccion}}
-                                                , {{$oferta->barrio()->first()->comuna()->first()->nombre}}.
+                                                {{$propiedad->direccion}}
+                                                , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
                                             @endif
                                         </h4>
                                     </a>
                                     <div class="tags">
-                                        <a href="#">{{$oferta->dormitorio}} <i class="fab fa-bed"></i></a>
-                                        <a href="#">{{$oferta->bano}} <i class="fab fa-bath"></i></a>
-                                        <a href="#">{{$oferta->metros_cuadrados}} <i class="fas fa-ruler-combined"></i></a>
-                                        <a href="#"><i class="fa @if($oferta->amoblado) fa-check @else fa-times @endif"
+                                        <a href="#">{{$propiedad->dormitorio}} <i class="fab fa-bed"></i></a>
+                                        <a href="#">{{$propiedad->bano}} <i class="fab fa-bath"></i></a>
+                                        <a href="#">{{$propiedad->metros_cuadrados}} <i class="fas fa-ruler-combined"></i></a>
+                                        <a href="#"><i class="fa @if($propiedad->amoblado) fa-check @else fa-times @endif"
                                                        aria-hidden="true"></i></a>
-                                        <a href="#"><i class="fa @if($oferta->piscina) fa-check @else fa-times @endif"
+                                        <a href="#"><i class="fa @if($propiedad->piscina) fa-check @else fa-times @endif"
                                                        aria-hidden="true"></i></a>
                                         <a href="#"><i
-                                                    class="fa @if($oferta->aire_acondicionado) fa-check @else fa-times @endif"
+                                                    class="fa @if($propiedad->aire_acondicionado) fa-check @else fa-times @endif"
                                                     aria-hidden="true"></i></a>
                                     </div>
                                     <div class="pp_footer">
-                                        <h5 class="precio_clp">{{'$ '.number_format($oferta->precio , 0, ',', '.')}}</h5>
-                                        <h5 class="precio_usd">{{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 2, ',', '.')}}
+                                        <h5 class="precio_clp">{{'$ '.number_format($propiedad->precio , 0, ',', '.')}}</h5>
+                                        <h5 class="precio_usd">{{'$ '. number_format((float)$propiedad->precio / $sbif->dolar, 2, ',', '.')}}
                                             UF</h5>
-                                        <h5 class="precio_eur"> {{'$ '. number_format((float)$oferta->precio / $sbif->eur, 2, ',', '.')}}
+                                        <h5 class="precio_eur"> {{'$ '. number_format((float)$propiedad->precio / $sbif->eur, 2, ',', '.')}}
                                             USD</h5>
-                                        <h5 class="precio_uf">{{'€ '. number_format((float)$oferta->precio / $sbif->uf,  2, ',', '.')}}
+                                        <h5 class="precio_uf">{{'€ '. number_format((float)$propiedad->precio / $sbif->uf,  2, ',', '.')}}
                                             EUR</h5>
 
-                                        <a class="main_btn" href="#">{{$oferta->tipo_negocio}}</a>
+                                        <a class="main_btn" href="#">{{$propiedad->tipo_negocio}}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     @empty
                         <div class="main_title">
-                            <h3>No existen propiedades con esos criterios de búsqueda. </h3>
+                            <h2>No existen propiedades con esos criterios de búsqueda. </h2>
                         </div>
                     @endforelse
                 </div>

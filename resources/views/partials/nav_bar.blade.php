@@ -60,21 +60,4 @@
 </header>
 <!--================Header Menu Area =================-->
 
-<!--================Home Banner Area =================-->
-<section class="home_banner_area">
-    <div class="banner_inner d-flex align-items-center">
-        <div class="container">
-            <div class="banner_content">
-                <h5>{{setting('site.slogan_1', 'Tu slogan acá')}}</h5>
-                <h3>{{setting('site.slogan_2', 'Otra frase acá')}}</h3>
-                <a class="main_btn" href="#">Revisa nuestras ofertas</a>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="advanced_search">
-            @include('partials.busqueda')
-        </div>
-    </div>
-</section>
-<!--================End Home Banner Area =================-->
+
