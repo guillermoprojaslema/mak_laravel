@@ -1,11 +1,5 @@
 @extends('layouts.app')
 
-@push('styles')
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.theme.default.css')}}">
-    <link rel="stylesheet" href="{{asset('css/jquery.range.css')}}">
-    <link rel="stylesheet" href="{{asset('css/custom.css')}}">
-@endpush
 
 @section('content')
 
@@ -16,107 +10,69 @@
     </div>
     <div class="row">
 
-        <div class="col-md-12">
-            @include('partials.busqueda')
-        </div>
+        <!--================Properties Area =================-->
+        <section class="properties_area">
+            <div class="container">
+                <div class="main_title">
+                    <h2>Nuestras propiedades destacadas</h2>
+                    <p>{{setting('site.propiedades_destacadas', 'Ven a revisar nuestras propiedades destacadas')}}</p>
+                </div>
+                <div class="row properties_inner">
+                    @forelse($ofertas as $oferta)
+                        <div class="col-lg-4">
+                            <div class="properties_item">
+                                <div class="pp_img">
+                                    <img class="img-fluid" src="img/properties/pp-1.jpg" alt="">
+                                </div>
+                                <div class="pp_content">
+                                    <a href="{{route('propiedades.show', $oferta->id)}}">
+                                        <h4>
+                                            @if(($oferta->edificio_id))
+                                                {{$oferta->edificio()->first()->direccion}},
+                                                #{{$oferta->edificio()->first()->numero}}
+                                                ,  {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                                                .
+                                            @else
+                                                {{$oferta->direccion}}
+                                                , {{$oferta->barrio()->first()->comuna()->first()->nombre}}.
+                                            @endif
+                                        </h4>
+                                    </a>
+                                    <div class="tags">
+                                        <a href="#">{{$oferta->dormitorio}} <i class="fab fa-bed"></i></a>
+                                        <a href="#">{{$oferta->bano}} <i class="fab fa-bath"></i></a>
+                                        <a href="#">{{$oferta->metros_cuadrados}} <i class="fas fa-ruler-combined"></i></a>
+                                        <a href="#"><i class="fa @if($oferta->amoblado) fa-check @else fa-times @endif"
+                                                       aria-hidden="true"></i></a>
+                                        <a href="#"><i class="fa @if($oferta->piscina) fa-check @else fa-times @endif"
+                                                       aria-hidden="true"></i></a>
+                                        <a href="#"><i
+                                                    class="fa @if($oferta->aire_acondicionado) fa-check @else fa-times @endif"
+                                                    aria-hidden="true"></i></a>
+                                    </div>
+                                    <div class="pp_footer">
+                                        <h5 class="precio_clp">{{'$ '.number_format($oferta->precio , 0, ',', '.')}}</h5>
+                                        <h5 class="precio_usd">{{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 2, ',', '.')}}
+                                            UF</h5>
+                                        <h5 class="precio_eur"> {{'$ '. number_format((float)$oferta->precio / $sbif->eur, 2, ',', '.')}}
+                                            USD</h5>
+                                        <h5 class="precio_uf">{{'€ '. number_format((float)$oferta->precio / $sbif->uf,  2, ',', '.')}}
+                                            EUR</h5>
 
-        @forelse($propiedades as $propiedad)
-            <div class="col-sm-6">
-                <figure class="card card-product">
-                    <div class="img-wrap img-thumbnail"><img src="{{$propiedad->foto}}"></div>
-                    <figcaption class="info-wrap">
-                        <h4 class="title">
-                            @if($propiedad->edificio_id) {{$propiedad->edificio()->first()->direccion .' #'. $propiedad->edificio()->first()->numero. ' Apt '. $propiedad->numero }}
-                            @else {{$propiedad->direccion.' #'. $propiedad->numero}}
-                            @endif
-                        </h4>
-
-                        @if($propiedad->edificio_id)
-                            <p class="desc"><i class="fa fa-building"></i> {{$propiedad->edificio()->first()->nombre}},
-                                <i class="fa fa-map-marker"></i> {{$propiedad->edificio()->first()->barrio()->first()->nombre}}
-                                , {{$propiedad->edificio()->first()->barrio()->first()->comuna->first()->nombre}}</p>
-                        @else
-                            <p class="desc"><i class="fa fa-map-marker"></i> {{$propiedad->barrio()->first()->nombre}}
-                                , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}</p>
-                        @endif
-                        <p class="desc">
-                            @if($propiedad->negocio = 'venta')
-                                <span class="badge badge-secondary">Venta</span>
-                            @else
-                                <span class="badge badge-secondary">Arriendo</span>
-                            @endif
-
-
-                        </p>
-
-                        <div class="rating-wrap">
-                            <div class="label-rating">{{$propiedad->descripcion_breve}}</div>
-                            <div class="label-rating">{{$propiedad->tipo_propiedad }}</div>
-                            <div class="label-rating">{{$propiedad->dormitorio}}<i class="fa fa-bed"></i></div>
-                            <div class="label-rating">{{$propiedad->bano}}<i class="fas fa-bath"></i></div>
-                            <div class="label-rating"><b>Sup: </b>{{$propiedad->metros_cuadrados}} m<sup>2</sup></div>
-                            <div class="label-rating"><b>Cons: </b>{{$propiedad->metros_cuadrados_construidos}}
-                                m<sup>2</sup></div>
-                            <div class="label-rating precio_clp">{{'$ '.number_format($propiedad->precio  , 0, ',', '.')}}
-                                CLP
+                                        <a class="main_btn" href="#">{{$oferta->tipo_negocio}}</a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="label-rating precio_uf">
-                                {{'$ '. number_format((float)$propiedad->precio / $sbif->uf, 2, ',', '.')}} UF
-                            </div>
-                            <div class="label-rating precio_usd">
-                                {{'$ '. number_format((float)$propiedad->precio / $sbif->dolar, 2, ',', '.')}} USD
-                            </div>
-                            <div class="label-rating precio_eur">
-                                {{'€ '. number_format((float)$propiedad ->precio / $sbif->euro,  2, ',', '.')}} EUR
-                            </div>
-                        </div> <!-- rating-wrap.// -->
-                    </figcaption>
-                    <div class="bottom-wrap">
-                        @if($propiedad->ruta == 'casas')
-                            <a href="{{route('casas.show', $propiedad->id)}}"
-                               class="btn btn-sm btn-danger float-right">Detalles</a>
-                        @endif
-                        @if($propiedad->ruta == 'apartamentos')
-                            <a href="{{route('apartamentos.show', $propiedad->id)}}"
-                               class="btn btn-sm btn-danger float-right">Detalles</a>
-                        @endif
-
-                        @if($propiedad->ruta == 'locales_comerciales')
-                            <a href="{{route('locales_comerciales.show', $propiedad->id)}}"
-                               class="btn btn-sm btn-danger float-right">Detalles</a>
-                        @endif
-
-                        @if($propiedad->ruta == 'bodegas')
-                            <a href="{{route('bodegas.show', $propiedad->id)}}"
-                               class="btn btn-sm btn-danger float-right">Detalles</a>
-                        @endif
-
-                        @if($propiedad->ruta == 'oficinas')
-                            <a href="{{route('oficinas.show', $propiedad->id)}}"
-                               class="btn btn-sm btn-danger float-right">Detalles</a>
-                        @endif
-
-                        @if($propiedad->ruta == 'terrenos')
-                            <a href="{{route('terrenos.show', $propiedad->id)}}"
-                               class="btn btn-sm btn-danger float-right">Detalles</a>
-                        @endif
-
-                        @if($propiedad->ruta == 'estacionamientos')
-                            <a href="{{route('estacionamientos.show', $propiedad->id)}}"
-                               class="btn btn-sm btn-danger float-right">Detalles</a>
-                        @endif
-
-
-                        <div class="price-wrap h5">
-                            <span class="price-new">${{$propiedad->precio}}</span>
-                            <del class="price-old">${{$propiedad->precio}}</del>
-                        </div> <!-- price-wrap.// -->
-                    </div> <!-- bottom-wrap.// -->
-                </figure>
-            </div> <!-- col // -->
-        @empty
-            Su búsqueda no generó ningun resultado
-        @endforelse
+                        </div>
+                    @empty
+                        <div class="main_title">
+                            <h3>No existen propiedades con esos criterios de búsqueda. </h3>
+                        </div>
+                    @endforelse
+                </div>
+            </div>
+        </section>
+        <!--================End Properties Area =================-->
 
 
     </div> <!-- row.// -->

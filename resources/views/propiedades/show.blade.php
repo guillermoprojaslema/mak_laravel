@@ -1,3 +1,4 @@
+Buscar propiedades
 @extends('layouts.app')
 
 @if($propiedad->edificio_id)

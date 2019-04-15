@@ -97,6 +97,7 @@
 
 {{--<script src="/js/app.js"></script>--}}
 <script src="{{asset('js/jquery.js')    }}"></script>
+<script src="{{asset('js/bootstrap.js')    }}"></script>
 <script src="{{asset('js/owl.carousel.js')}}"></script>
 <script src="{{asset('js/jquery.range.js')}}"></script>
 <script src="{{asset('js/jquery.stellar.js')}}"></script>
@@ -104,7 +105,8 @@
 <script src="{{asset('js/jquery.nice-select.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
 <script src="{{asset('js/imagesloaded.pkgd.js')}}"></script>
-<script src="{{asset('js/isotope.js')}}"></script>
+{{--<script src="{{asset('js/isotope.js')}}"></script>--}}
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script src="{{asset('js/theme.js')}}"></script>
 @stack('scripts')
 

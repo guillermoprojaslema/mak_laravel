@@ -2,37 +2,37 @@
     "use strict"
 
 
-//	var nav_offset_top = $('header').height(); 
-//    /*-------------------------------------------------------------------------------
-//	  Navbar 
-//	-------------------------------------------------------------------------------*/
-//
-//	//* Navbar Fixed  
-//    function navbarFixed(){
-//        if ( $('.header_area').length ){ 
-//            $(window).scroll(function() {
-//                var scroll = $(window).scrollTop();   
-//                if (scroll >= nav_offset_top ) {
-//                    $(".header_area").addClass("navbar_fixed");
-//                } else {
-//                    $(".header_area").removeClass("navbar_fixed");
-//                }
-//            });
-//        };
-//    };
-//    navbarFixed();
+    var nav_offset_top = $('header').height();
+    /*-------------------------------------------------------------------------------
+       Navbar
+     -------------------------------------------------------------------------------*/
+
+    //* Navbar Fixed
+    function navbarFixed(){
+        if ( $('.header_area').length ){
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if (scroll >= nav_offset_top ) {
+                    $(".header_area").addClass("navbar_fixed");
+                } else {
+                    $(".header_area").removeClass("navbar_fixed");
+                }
+            });
+        };
+    };
+    navbarFixed();
 
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Parallax Effect js
     /*----------------------------------------------------*/
-	// function parallaxEffect() {
+    // function parallaxEffect() {
     // 	$('.bg-parallax').parallax();
-	// }
-	// parallaxEffect();
+    // }
+    // parallaxEffect();
 
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Causes Slider
     /*----------------------------------------------------*/
 //    function causes_slider(){
@@ -44,7 +44,7 @@
 //                nav: false,
 //                autoplay: false,
 //                smartSpeed: 1500,
-//                dots:true, 
+//                dots:true,
 //                responsiveClass: true,
 //                responsive: {
 //                    0: {
@@ -61,7 +61,7 @@
 //        }
 //    }
 //    causes_slider();
-//	
+//
 //	/*----------------------------------------------------*/
 //    /*  Event Slider
 //    /*----------------------------------------------------*/
@@ -74,7 +74,7 @@
 //                nav: false,
 //                autoplay: false,
 //                smartSpeed: 1500,
-//                dots:true, 
+//                dots:true,
 //                responsiveClass: true,
 //                responsive: {
 //                    0: {
@@ -94,7 +94,7 @@
 //        }
 //    }
 //    event_slider();
-//	
+//
 //	/*----------------------------------------------------*/
 //    /*  Testimonials Slider
 //    /*----------------------------------------------------*/
@@ -107,7 +107,7 @@
 //                nav: false,
 //                autoplay: false,
 //                smartSpeed: 1500,
-//                dots:true, 
+//                dots:true,
 //                responsiveClass: true,
 //                responsive: {
 //                    0: {
@@ -121,8 +121,8 @@
 //        }
 //    }
 //    testi_slider();
-//	
-	/*----------------------------------------------------*/
+//
+    /*----------------------------------------------------*/
     /*  Clients Slider
     /*----------------------------------------------------*/
     function clients_slider(){
@@ -158,7 +158,7 @@
     }
     clients_slider();
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Testimonials Slider
     /*----------------------------------------------------*/
     function testi_slider(){
@@ -185,46 +185,46 @@
     }
     testi_slider();
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  MailChimp Slider
     /*----------------------------------------------------*/
     // function mailChimp(){
     //     $('#mc_embed_signup').find('form').ajaxChimp();
     // }
     // mailChimp();
-	//
+    //
 
     $('select').niceSelect();
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Simple LightBox js
     /*----------------------------------------------------*/
     // $('.imageGallery1 .light').simpleLightbox();
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Jquery Ui slider js
     /*----------------------------------------------------*/
 
     $("#min-precio").val(300000);
     $("#max-precio").val(20000000);
 
-	$( "#slider-range, #slider-range2" ).slider({
-      range: true,
-      min: 0,
-      max: 20000000,
-      values: [ 300000, 20000000 ],
-      slide: function( event, ui ) {
-        $( "#amount, #amount2" ).val( "$" + ui.values[ 0 ] + " $" + ui.values[ 1 ] );
-        $("#min-precio").val(ui.values[ 0 ]);
-        $("#max-precio").val(ui.values[ 1 ]);
-      }
+    $( "#slider-range, #slider-range2" ).slider({
+        range: true,
+        min: 0,
+        max: 20000000,
+        values: [ 300000, 20000000 ],
+        slide: function( event, ui ) {
+            $( "#amount, #amount2" ).val( "$" + ui.values[ 0 ] + " $" + ui.values[ 1 ] );
+            $("#min-precio").val(ui.values[ 0 ]);
+            $("#max-precio").val(ui.values[ 1 ]);
+        }
     });
     $( "#amount, #amount2" ).val( "$" + $( "#slider-range, #slider-range2" ).slider( "values", 0 )+
-      "   $" + $( "#slider-range, #slider-range2" ).slider( "values", 1 ) );
+        "   $" + $( "#slider-range, #slider-range2" ).slider( "values", 1 ) );
 
 
 
-	// $( "#slider-range2" ).slider({
+    // $( "#slider-range2" ).slider({
     //   range: true,
     //   min: 0,
     //   max: 500,
@@ -257,7 +257,7 @@
 //    }
 //    galleryMasonry();
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Google map js
     /*----------------------------------------------------*/
 
@@ -270,16 +270,16 @@
         var $markerLat = $('#mapBox').data('mlat');
         var $markerLon = $('#mapBox').data('mlon');
         var map = new GMaps({
-        el: '#mapBox',
-        lat: $lat,
-        lng: $lon,
-        scrollwheel: false,
-        scaleControl: true,
-        streetViewControl: false,
-        panControl: true,
-        disableDoubleClickZoom: true,
-        mapTypeControl: false,
-        zoom: $zoom,
+            el: '#mapBox',
+            lat: $lat,
+            lng: $lon,
+            scrollwheel: false,
+            scaleControl: true,
+            streetViewControl: false,
+            panControl: true,
+            disableDoubleClickZoom: true,
+            mapTypeControl: false,
+            zoom: $zoom,
             styles: [
                 {
                     "featureType": "water",

@@ -25,7 +25,7 @@ class BusquedaPropiedadRequest extends FormRequest
     public function rules()
     {
         return [
-            'negocio' => 'required',
+            'negocio' => 'required', Rule::in(['arriendo', 'venta']),
             'min_precio' => 'required|integer',
             'max_precio' => 'required|integer',
             'comuna_id' => 'required|integer',

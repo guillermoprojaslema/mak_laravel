@@ -15,6 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/custom.scss', 'public/css')
 
+    .copy('node_modules/bootstrap/dist/js/bootstrap.js', 'public/js')
+
+
     .copy('node_modules/jquery/dist/jquery.js', 'public/js')
 
     .copy('node_modules/font-awesome/css/font-awesome.css', 'public/css')
