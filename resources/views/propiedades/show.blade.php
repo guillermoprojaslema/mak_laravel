@@ -1,3 +1,4 @@
+Buscar propiedades
 @extends('layouts.app')
 
 @if($propiedad->edificio_id)
@@ -633,7 +634,6 @@
 @endsection
 
 @push('scripts')
-    <script src="{{asset('js/owl.carousel.js')}}"></script>
     <script>
         $(document).ready(function () {
             $(".owl-carousel").owlCarousel({

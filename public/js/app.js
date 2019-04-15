@@ -36750,6 +36750,17 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/simplelightbox/dist/simplelightbox.scss":
+/*!**************************************************************!*\
+  !*** ./node_modules/simplelightbox/dist/simplelightbox.scss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ "./node_modules/timers-browserify/main.js":
 /*!************************************************!*\
   !*** ./node_modules/timers-browserify/main.js ***!
@@ -49177,17 +49188,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/sass/responsive.scss":
+/*!****************************************!*\
+  !*** ./resources/sass/responsive.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/sass/style.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/style.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!****************************************************************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./node_modules/jquery-range/jquery.range.less ./resources/sass/app.scss ./resources/sass/custom.scss ***!
-  \****************************************************************************************************************************************/
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./node_modules/jquery-range/jquery.range.less ./resources/sass/app.scss ./resources/sass/custom.scss ./node_modules/simplelightbox/dist/simplelightbox.scss ./resources/sass/style.scss ./resources/sass/responsive.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/mito/Proyectos/mak_laravel/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /home/mito/Proyectos/mak_laravel/node_modules/jquery-range/jquery.range.less */"./node_modules/jquery-range/jquery.range.less");
 __webpack_require__(/*! /home/mito/Proyectos/mak_laravel/resources/sass/app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! /home/mito/Proyectos/mak_laravel/resources/sass/custom.scss */"./resources/sass/custom.scss");
+__webpack_require__(/*! /home/mito/Proyectos/mak_laravel/resources/sass/custom.scss */"./resources/sass/custom.scss");
+__webpack_require__(/*! /home/mito/Proyectos/mak_laravel/node_modules/simplelightbox/dist/simplelightbox.scss */"./node_modules/simplelightbox/dist/simplelightbox.scss");
+__webpack_require__(/*! /home/mito/Proyectos/mak_laravel/resources/sass/style.scss */"./resources/sass/style.scss");
+module.exports = __webpack_require__(/*! /home/mito/Proyectos/mak_laravel/resources/sass/responsive.scss */"./resources/sass/responsive.scss");
 
 
 /***/ })
