@@ -46,7 +46,7 @@ class ApartamentoTableSeeder extends Seeder
 
 
             $property->numero = $faker->numberBetween(0, 20200);              // done
-            $property->precio = $faker->numberBetween(0, 100000);              // done
+            $property->precio = $faker->numberBetween(1, 100000);              // done
             $property->metros_cuadrados = $faker->numberBetween(15, 1000);                 // done
             $property->avaluo_fiscal = $faker->numberBetween(10000000, 500000000);      // done
             $property->contribuciones = $faker->numberBetween(10000, 500000);             // done
