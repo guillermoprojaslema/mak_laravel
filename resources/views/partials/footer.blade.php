@@ -14,7 +14,7 @@
                     <h6 class="footer_title">Instagram Feed</h6>
                     <ul class="list instafeed d-flex flex-wrap">
                         @forelse($paginas as $pagina)
-                            <li><a href="{{route('pagina.show', $pagina->slug)}}">{{$pagina->titulo}}</a></li>
+                            <li><a href="{{route('paginas.show', $pagina->slug)}}">{{$pagina->titulo}}</a></li>
                         @empty
                         @endforelse
                     </ul>

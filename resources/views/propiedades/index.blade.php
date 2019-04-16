@@ -90,27 +90,42 @@
                                 @endif
 
                                 <div class="tags">
-                                    <a href="#">{{$oferta->dormitorio}} <i class="fab fa-bed"></i></a>
-                                    <a href="#">{{$oferta->bano}} <i class="fab fa-bath"></i></a>
+                                    <a href="#">{{$oferta->dormitorio}} <i class="fas fa-bed"></i></a>
+
+                                    <a href="#">{{$oferta->bano}} <i class="fas fa-bath"></i></a>
+
                                     <a href="#">{{$oferta->metros_cuadrados}} <i class="fas fa-ruler-combined"></i></a>
-                                    <a href="#"><i class="fa @if($oferta->amoblado) fa-check @else fa-times @endif"
-                                                   aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa @if($oferta->piscina) fa-check @else fa-times @endif"
-                                                   aria-hidden="true"></i></a>
-                                    <a href="#"><i
-                                                class="fa @if($oferta->aire_acondicionado) fa-check @else fa-times @endif"
-                                                aria-hidden="true"></i></a>
+
+                                    <a href="#">
+                                        <i class="fas @if($oferta->amoblado) fa-check @else fa-times @endif"
+                                           aria-hidden="true"></i>
+                                        <i class="fas fa-couch"></i>
+                                    </a>
+
+                                    <a href="#">
+                                        <i class="fas @if($oferta->piscina) fa-check @else fa-times @endif"
+                                           aria-hidden="true"></i>
+                                        <i class="fas fa-swimmer"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa @if($oferta->aire_acondicionado) fa-check @else fa-times @endif"
+                                           aria-hidden="true"></i>
+                                        <i class="fas fa-temperature-low"></i>
+                                    </a>
+                                    <a href="#">
+                                        {{ucfirst($oferta->negocio)}}
+                                    </a>
                                 </div>
                                 <div class="pp_footer">
                                     <h5 class="precio_clp">{{'$ '.number_format($oferta->precio , 0, ',', '.')}}</h5>
                                     <h5 class="precio_usd">{{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 2, ',', '.')}}
                                         UF</h5>
-                                    <h5 class="precio_eur"> {{'$ '. number_format((float)$oferta->precio / $sbif->eur, 2, ',', '.')}}
+                                    <h5 class="precio_eur"> {{'$ '. number_format((float)$oferta->precio / $sbif->euro, 2, ',', '.')}}
                                         USD</h5>
                                     <h5 class="precio_uf">{{'€ '. number_format((float)$oferta->precio / $sbif->uf,  2, ',', '.')}}
                                         EUR</h5>
 
-                                    <a class="main_btn" href="#">{{$oferta->tipo_negocio}}</a>
+                                    <a class="main_btn" href="#">Detalles</a>
                                 </div>
                             </div>
                         </div>
