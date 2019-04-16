@@ -31,26 +31,11 @@ class PropiedadesController extends Controller
     public function index()
     {
 
-        $propiedades_ofertas = collect();
-        $casas_ofertas = Casa::disponibles()->get();
-        $apartamentos_ofertas = Apartamento::disponibles()->ofertas()->get();
-        $oficinas_ofertas = Oficina::disponibles()->ofertas()->get();
-        $locales_comerciales_ofertas = LocalComercial::disponibles()->ofertas()->get();
-        $terrenos_ofertas = Terreno::disponibles()->ofertas()->get();
-        $estacionamientos_ofertas = Estacionamiento::disponibles()->ofertas()->get();
 
-        $propiedades_ofertas = $propiedades_ofertas->merge($casas_ofertas)
-            ->merge($apartamentos_ofertas)
-            ->merge($oficinas_ofertas)
-            ->merge($locales_comerciales_ofertas)
-            ->merge($terrenos_ofertas)
-            ->merge($estacionamientos_ofertas)
-            ->sortBy('updated_at');
 
 
         $data['paginas'] = Pagina::all();
-        $data['destacados'] = $this->propiedadesDestacadas();
-        $data['ofertas'] = $propiedades_ofertas;
+        $data['ofertas'] = $this->propiedadesOfertas();
         $data['comunas'] = Comuna::all();
         $data['sbif'] = Sbif::first();
 
@@ -251,25 +236,25 @@ class PropiedadesController extends Controller
 
 
 
-    public static function propiedadesDestacadas()
+    public static function propiedadesOfertas()
     {
-        $propiedades_destacadas = collect();
-        $casas_destacados = Casa::disponibles()->destacados()->get();
-        $apartamentos_destacados = Apartamento::disponibles()->destacados()->get();
-        $oficinas_destacados = Oficina::disponibles()->destacados()->get();
-        $locales_comerciales_destacados = LocalComercial::disponibles()->destacados()->get();
-        $terrenos_destacados = Terreno::disponibles()->destacados()->get();
-        $estacionamientos_destacados = Estacionamiento::disponibles()->destacados()->get();
+        $propiedades_ofertas = collect();
+        $casas_ofertas = Casa::disponibles()->get();
+        $apartamentos_ofertas = Apartamento::disponibles()->ofertas()->get();
+        $oficinas_ofertas = Oficina::disponibles()->ofertas()->get();
+        $locales_comerciales_ofertas = LocalComercial::disponibles()->ofertas()->get();
+        $terrenos_ofertas = Terreno::disponibles()->ofertas()->get();
+        $estacionamientos_ofertas = Estacionamiento::disponibles()->ofertas()->get();
 
-        $propiedades_destacadas = $propiedades_destacadas->merge($casas_destacados)
-            ->merge($apartamentos_destacados)
-            ->merge($oficinas_destacados)
-            ->merge($locales_comerciales_destacados)
-            ->merge($estacionamientos_destacados)
-            ->merge($terrenos_destacados)
+        $propiedades_ofertas = $propiedades_ofertas->merge($casas_ofertas)
+            ->merge($apartamentos_ofertas)
+            ->merge($oficinas_ofertas)
+            ->merge($locales_comerciales_ofertas)
+            ->merge($terrenos_ofertas)
+            ->merge($estacionamientos_ofertas)
             ->sortBy('updated_at')->take(setting('site.cantidad_destacados', 3));
 
-        return $propiedades_destacadas;
+        return $propiedades_ofertas;
 
     }
 
