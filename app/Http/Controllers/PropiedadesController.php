@@ -108,7 +108,7 @@ class PropiedadesController extends Controller
     public function busqueda(BusquedaPropiedadRequest $request)
     {
         $data['paginas'] = Pagina::all();
-        $data['destacados'] = $this->propiedadesDestacadas();
+        $data['ofertas'] = $this->propiedadesOfertas();
         $data['comunas'] = Comuna::all();
         $data['sbif'] = Sbif::first();
 

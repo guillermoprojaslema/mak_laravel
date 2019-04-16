@@ -11,7 +11,7 @@
 
     {{--<meta name="google-site-verification" content="GPuzmdzXQI2A0Dtga7-vwNNg2FwkgE5uj1yyWGYlfGM"/>--}}
 
-    <title>@yield('title') - {{ setting('site.title', config('app.name')) }}</title>
+    <title>{{ setting('site.title', config('app.name')) }}</title>
 
     <meta name="description" content="La propiedad que buscas, está aquí">
     <meta name="author" content="Mak Propiedades">

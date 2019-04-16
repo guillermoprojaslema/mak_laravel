@@ -5,13 +5,13 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6 class="footer_title">Acerca de nosotros</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore dolore magna aliqua.</p>
+                    <p>{{setting('site.acerca_nosotros', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore dolore magna aliqua')}}</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget instafeed">
-                    <h6 class="footer_title">Instagram Feed</h6>
+                    <h6 class="footer_title">Nuestras secciones</h6>
                     <ul class="list instafeed d-flex flex-wrap">
                         @forelse($paginas as $pagina)
                             <li><a href="{{route('paginas.show', $pagina->slug)}}">{{$pagina->titulo}}</a></li>
@@ -34,7 +34,7 @@
 
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget f_social_wd">
-                    <h6 class="footer_title">Follow Us</h6>
+                    <h6 class="footer_title">Síguenos</h6>
                     <p>Visita nuestras redes sociales</p>
                     <div class="f_social">
                         <a href="{{setting('site.facebook_url')}}"><i class="fab fa-facebook"></i></a>

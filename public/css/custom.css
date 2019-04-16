@@ -51,3 +51,15 @@
   border-style: none;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #A20000;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show > .nav-link {
+  color: #A20000;
+  background-color: #F8F9FA;
+}
+

@@ -117,7 +117,8 @@
                                     </a>
                                 </div>
                                 <div class="pp_footer">
-                                    <h5 class="precio_clp">{{'$ '.number_format($oferta->precio , 0, ',', '.')}} CLP </h5>
+                                    <h5 class="precio_clp">{{'$ '.number_format($oferta->precio , 0, ',', '.')}}
+                                        CLP </h5>
                                     <h5 class="precio_usd">{{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 0, ',', '.')}}
                                         USD</h5>
                                     <h5 class="precio_eur"> {{'€ '. number_format((float)$oferta->precio / $sbif->euro, 0, ',', '.')}}
@@ -125,7 +126,8 @@
                                     <h5 class="precio_uf">{{'$ '. number_format((float)$oferta->precio / $sbif->uf,  2, ',', '.')}}
                                         UF</h5>
 
-                                    <a class="main_btn" href="#">Detalles</a>
+                                    <a class="main_btn" href="{{route($oferta->ruta.'.show', $oferta->id)}}">Detalles</a>
+
                                 </div>
                             </div>
                         </div>
