@@ -57,7 +57,9 @@
             </div>
         </nav>
     </div>
+    @include('partials.sbif')
 </header>
+
 <!--================Header Menu Area =================-->
 
 
