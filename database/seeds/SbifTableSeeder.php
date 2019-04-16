@@ -14,6 +14,8 @@ class SbifTableSeeder extends Seeder
     public function run()
     {
 
+        DB::table('sbif_values')->truncate();
+
         $base_uri_dolar = 'https://api.sbif.cl/api-sbifv3/recursos_api/dolar?apikey=' . env('SBIF_API_KEY') . '&formato=json';
         $base_uri_euro = 'https://api.sbif.cl/api-sbifv3/recursos_api/euro?apikey=' . env('SBIF_API_KEY') . '&formato=json';
         $base_uri_uf = 'https://api.sbif.cl/api-sbifv3/recursos_api/uf?apikey=' . env('SBIF_API_KEY') . '&formato=json';
