@@ -21,7 +21,7 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        $data['destacados'] = PropiedadesController::propiedadesDestacadas();
+        $data['destacados'] = PropiedadesController::propiedadesOfertas();
         $data['paginas'] = Pagina::all();
         $data['sbif'] = Sbif::first();
 
