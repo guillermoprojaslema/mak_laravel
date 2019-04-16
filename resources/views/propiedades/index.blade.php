@@ -20,22 +20,86 @@
                                 <img class="img-fluid" src="img/properties/pp-1.jpg" alt="">
                             </div>
                             <div class="pp_content">
-                                <a href="{{route('propiedades.show', $oferta->id)}}">
-                                    <h4>
-                                        @if(($oferta->edificio_id))
-                                            {{$oferta->edificio()->first()->direccion}}, #{{$oferta->edificio()->first()->numero}},  {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}.
-                                        @else
-                                            {{$oferta->direccion}}, {{$oferta->barrio()->first()->comuna()->first()->nombre}}.
-                                        @endif
-                                    </h4>
-                                </a>
+                                @if($oferta->ruta == 'casas')
+                                    <a href="{{route('casas.show', $oferta->id)}}">
+                                        <h4>
+                                            {{$oferta->direccion}}
+                                            , {{$oferta->barrio()->first()->comuna()->first()->nombre}}.
+                                        </h4>
+                                    </a>
+                                @endif
+
+                                @if($oferta->ruta == 'bodegas')
+                                    <a href="{{route('bodegas.show', $oferta->id)}}">
+                                        <h4>
+                                            {{$oferta->direccion}}
+                                            , {{$oferta->barrio()->first()->comuna()->first()->nombre}}.
+                                        </h4>
+                                    </a>
+                                @endif
+
+                                @if($oferta->ruta == 'terrenos')
+                                    <a href="{{route('terrenos.show', $oferta->id)}}">
+                                        <h4>
+                                            {{$oferta->direccion}}
+                                            , {{$oferta->barrio()->first()->comuna()->first()->nombre}}.
+                                        </h4>
+                                    </a>
+                                @endif
+
+
+
+
+                                @if($oferta->ruta == 'locales_comerciales')
+                                    <a href="{{route('casas.show', $oferta->id)}}">
+                                        <h4>
+                                            {{$oferta->direccion}}
+                                            , {{$oferta->barrio()->first()->comuna()->first()->nombre}}.
+                                        </h4>
+                                    </a>
+                                @endif
+
+                                @if($oferta->ruta == 'oficinas')
+                                    <a href="{{route('oficinas.show', $oferta->id)}}">
+                                        <h4>
+                                            {{$oferta->edificio()->first()->direccion}}
+                                            , {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                                            .
+                                        </h4>
+                                    </a>
+                                @endif
+
+                                @if($oferta->ruta == 'apartamentos')
+                                    <a href="{{route('apartamentos.show', $oferta->id)}}">
+                                        <h4>
+                                            {{$oferta->edificio()->first()->direccion}}
+                                            , {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                                            .
+                                        </h4>
+                                    </a>
+                                @endif
+
+                                @if($oferta->ruta == 'estacionamientos')
+                                    <a href="{{route('estacionamientos.show', $oferta->id)}}">
+                                        <h4>
+                                            {{$oferta->edificio()->first()->direccion}}
+                                            , {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                                            .
+                                        </h4>
+                                    </a>
+                                @endif
+
                                 <div class="tags">
                                     <a href="#">{{$oferta->dormitorio}} <i class="fab fa-bed"></i></a>
                                     <a href="#">{{$oferta->bano}} <i class="fab fa-bath"></i></a>
                                     <a href="#">{{$oferta->metros_cuadrados}} <i class="fas fa-ruler-combined"></i></a>
-                                    <a href="#"><i class="fa @if($oferta->amoblado) fa-check @else fa-times @endif" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa @if($oferta->piscina) fa-check @else fa-times @endif" aria-hidden="true"></i></a>
-                                    <a href="#"><i class="fa @if($oferta->aire_acondicionado) fa-check @else fa-times @endif" aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa @if($oferta->amoblado) fa-check @else fa-times @endif"
+                                                   aria-hidden="true"></i></a>
+                                    <a href="#"><i class="fa @if($oferta->piscina) fa-check @else fa-times @endif"
+                                                   aria-hidden="true"></i></a>
+                                    <a href="#"><i
+                                                class="fa @if($oferta->aire_acondicionado) fa-check @else fa-times @endif"
+                                                aria-hidden="true"></i></a>
                                 </div>
                                 <div class="pp_footer">
                                     <h5 class="precio_clp">{{'$ '.number_format($oferta->precio , 0, ',', '.')}}</h5>
