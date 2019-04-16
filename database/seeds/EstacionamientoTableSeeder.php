@@ -24,7 +24,7 @@ class EstacionamientoTableSeeder extends Seeder
 
 
             $property->numero = $faker->numberBetween(0, 100000);              // done
-            $property->precio = $faker->numberBetween(0, 100000);              // done
+            $property->precio = $faker->numberBetween(1, 100000);              // done
             $property->metros_cuadrados = $faker->numberBetween(15, 1000);                 // done
             $property->contribuciones = $faker->numberBetween(10000, 500000);             // done
             $property->comentario = $faker->text(500);

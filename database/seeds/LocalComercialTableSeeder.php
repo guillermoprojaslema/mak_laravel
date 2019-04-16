@@ -28,7 +28,7 @@ class LocalComercialTableSeeder extends Seeder
 
 
             $local_comercial->numero = $faker->numberBetween(0, 20200);              // done
-            $local_comercial->precio = $faker->numberBetween(0, 100000);              // done
+            $local_comercial->precio = $faker->numberBetween(1, 100000);              // done
             $local_comercial->ano_construccion = $faker->year;                                       // done
             $local_comercial->metros_cuadrados = $faker->numberBetween(15, 1000);                 // done
             $local_comercial->metros_cuadrados_construidos = $faker->numberBetween(15, 1000);           // done

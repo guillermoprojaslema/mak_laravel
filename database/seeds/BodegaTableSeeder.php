@@ -27,7 +27,7 @@ class BodegaTableSeeder extends Seeder
             $property->destacado = $faker->randomElement([true, false]);
 
 
-            $property->precio = $faker->numberBetween(0, 100000);              // done
+            $property->precio = $faker->numberBetween(1, 100000);              // done
             $property->ano_construccion = $faker->year;                                       // done
             $property->metros_cuadrados = $faker->numberBetween(15, 1000);                 // done
             $property->alto = $faker->numberBetween(1, 100);                          // done
