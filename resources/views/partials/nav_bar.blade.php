@@ -46,11 +46,6 @@
                             </li>
                             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                         @endforelse
-                            <li class="nav-item @if(Request::is('contacto')) active @endif ">
-                                <a class="nav-link" href="{{route('paginas.show', 'contacto')}}">
-                                    Contacto
-                                </a>
-                            </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">
