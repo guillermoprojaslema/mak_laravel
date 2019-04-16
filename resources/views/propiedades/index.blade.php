@@ -94,7 +94,7 @@
 
                                     <a href="#">{{$oferta->bano}} <i class="fas fa-bath"></i></a>
 
-                                    <a href="#">{{$oferta->metros_cuadrados}} <i class="fas fa-ruler-combined"></i></a>
+                                    <a href="#">{{$oferta->metros_cuadrados}} m2 </a>
 
                                     <a href="#">
                                         <i class="fas @if($oferta->amoblado) fa-check @else fa-times @endif"
@@ -110,22 +110,24 @@
                                     <a href="#">
                                         <i class="fa @if($oferta->aire_acondicionado) fa-check @else fa-times @endif"
                                            aria-hidden="true"></i>
-                                        <i class="fas fa-temperature-low"></i>
+                                        <i class="fas fa-snowflake"></i>
                                     </a>
                                     <a href="#">
                                         {{ucfirst($oferta->negocio)}}
                                     </a>
                                 </div>
                                 <div class="pp_footer">
-                                    <h5 class="precio_clp">{{'$ '.number_format($oferta->precio , 0, ',', '.')}}</h5>
-                                    <h5 class="precio_usd">{{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 2, ',', '.')}}
-                                        UF</h5>
-                                    <h5 class="precio_eur"> {{'$ '. number_format((float)$oferta->precio / $sbif->euro, 2, ',', '.')}}
+                                    <h5 class="precio_clp">{{'$ '.number_format($oferta->precio , 0, ',', '.')}}
+                                        CLP </h5>
+                                    <h5 class="precio_usd">{{'$ '. number_format((float)$oferta->precio / $sbif->dolar, 0, ',', '.')}}
                                         USD</h5>
-                                    <h5 class="precio_uf">{{'€ '. number_format((float)$oferta->precio / $sbif->uf,  2, ',', '.')}}
+                                    <h5 class="precio_eur"> {{'€ '. number_format((float)$oferta->precio / $sbif->euro, 0, ',', '.')}}
                                         EUR</h5>
+                                    <h5 class="precio_uf">{{'$ '. number_format((float)$oferta->precio / $sbif->uf,  2, ',', '.')}}
+                                        UF</h5>
 
-                                    <a class="main_btn" href="#">Detalles</a>
+                                    <a class="main_btn" href="{{route($oferta->ruta.'.show', $oferta->id)}}">Detalles</a>
+
                                 </div>
                             </div>
                         </div>

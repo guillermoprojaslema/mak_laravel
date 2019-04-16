@@ -1,16 +1,33 @@
-Buscar propiedades
 @extends('layouts.app')
 
 @if($propiedad->edificio_id)
-    @section('title', $propiedad->direccion. ', '. $propiedad->edificio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre)
+    @section(setting('site.title', config('app.name')) ,  $propiedad->direccion. ', '. $propiedad->edificio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre)
 @else
-    @section('title', $propiedad->direccion. ', '. $propiedad->barrio()->first()->nombre .', ' . $propiedad->barrio()->first()->comuna()->first()->nombre)
+    @section(setting('site.title', config('app.name')) , $propiedad->direccion. ', '. $propiedad->barrio()->first()->nombre .', ' . $propiedad->barrio()->first()->comuna()->first()->nombre)
 @endif
 
 @push('styles')
     <link rel="stylesheet" href="{{asset('css/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.theme.default.css')}}">
 @endpush
+
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0"
+             data-background=""></div>
+        <div class="container">
+            <div class="banner_content">
+                <div class="page_link">
+                    <a href="{{route('propiedades.index')}}">Inicio</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
 
 @section('content')
     <div class="row">
@@ -138,10 +155,6 @@ Buscar propiedades
                                     <td class="text-right">{{ $propiedad->ano_construccion }}</td>
                                 </tr>
 
-                                <tr>
-                                    <td class="text-left">Clase de Oficina</td>
-                                    <td class="text-right">{{ $propiedad->tipo_oficina }}</td>
-                                </tr>
 
                                 <tr>
                                     <td class="text-left">Clase de Casa</td>
@@ -558,11 +571,6 @@ Buscar propiedades
                                 </tr>
 
                                 <tr>
-                                    <td class="text-left">Sala Privada</td>
-                                    <td class="text-right">{{ $propiedad->sala_privada }}</td>
-                                </tr>
-
-                                <tr>
                                     <td class="text-left">Clase de Ventana</td>
                                     <td class="text-right">{{ $propiedad->tipo_ventana }}</td>
                                 </tr>
@@ -649,4 +657,7 @@ Buscar propiedades
             });
         });
     </script>
+@endpush
+
+@push('javascripts')
 @endpush
