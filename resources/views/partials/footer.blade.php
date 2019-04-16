@@ -1,35 +1,38 @@
-<footer class="bg-dark" style="color: rgba(255, 255, 255, 0.5)">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-lg-4">
-                    <br>
-                    <img class="logo-footer" src="{{asset('images/logos/logo_200x100.png')}}" alt="logo-footer"
-                         data-at2x="assets/img/logo.png">
-                    <p>
-                        {{ setting('site.description')}}
-                    </p>
+<!--================ start footer Area  =================-->
+<footer class="footer-area p_120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6 class="footer_title">Acerca de nosotros</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore dolore magna aliqua.</p>
                 </div>
-                <div class="col-md-4 col-lg-4 offset-lg-1">
-                    <br>
-                    <h3>Contact</h3>
-                    <p><i class="fa fa-map-marker-alt"></i>Dirección: {{setting('site.direccion')}}</p>
-                    <p><i class="fa fa-phone"></i> Teléfono: {{setting('site.telefono')}}</p>
-                    <p><i class="fa fa-envelope"></i> Email: <a
-                                href="mailto:{{setting('site.correo')}}">{{setting('site.correo')}}</a></p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-footer-widget instafeed">
+                    <h6 class="footer_title">Instagram Feed</h6>
+                    <ul class="list instafeed d-flex flex-wrap">
+                        @forelse($paginas as $pagina)
+                            <li><a href="{{route('pagina.show', $pagina->slug)}}">{{$pagina->titulo}}</a></li>
+                        @empty
+                        @endforelse
+                    </ul>
                 </div>
-                <div class="col-md-4 col-lg-3">
-                    <br>
-                    <h3>Síguenos</h3>
-                    <p>
-                        <a href="{{setting('site.facebook')}}"><i class="fab fa-facebook"></i></a>
-                        <a href="{{setting('site.twitter')}}"><i class="fab fa-twitter"></i></a>
-                        <a href="{{setting('site.google')}}"><i class="fab fa-google-plus-g"></i></a>
-                        <a href="{{setting('site.instagram')}}"><i class="fab fa-instagram"></i></a>
-                        <a href="{{setting('site.pinterest')}}"><i class="fab fa-pinterest"></i></a>
-                    </p>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-footer-widget f_social_wd">
+                    <h6 class="footer_title">Follow Us</h6>
+                    <p>Visita nuestras redes sociales</p>
+                    <div class="f_social">
+                        <a href="{{setting('site.facebook_url')}}"><i class="fab fa-facebook"></i></a>
+                        <a href="{{setting('site.twitter_url')}}"><i class="fab fa-twitter"></i></a>
+                        <a href="{{setting('site.instagram_url')}}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{setting('site.pinterest_url')}}"><i class="fab fa-pinterest"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </footer>
+<!--================ End footer Area  =================-->

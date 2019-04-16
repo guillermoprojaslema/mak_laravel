@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
             $this->call(EstacionamientoTableSeeder::class);
             $this->call(BodegaTableSeeder::class);
             $this->call(TerrenoTableSeeder::class);
-            $this->call(PaginasTableSeeder::class);
         }
+        $this->call(PaginasTableSeeder::class);
         $this->call(EmpleadosTableSeeder::class);
         $this->call(SbifTableSeeder::class);
 
