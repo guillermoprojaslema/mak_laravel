@@ -31,6 +31,7 @@ class PropiedadesController extends Controller
     public function index()
     {
         $data['paginas'] = Pagina::all();
+        $data['ofertas'] = $this->propiedadesOfertas();
         $data['comunas'] = Comuna::all();
         $data['sbif'] = Sbif::first();
 
