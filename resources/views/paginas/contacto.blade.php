@@ -10,10 +10,10 @@
         <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
         <div class="container">
             <div class="banner_content">
-                {{--<div class="page_link">--}}
-                    {{--<a href="{{route('propiedades.index')}}">Inicio</a>--}}
-                    {{--<a href="{{route('paginas.show', 'contacto')}}">Contacto</a>--}}
-                {{--</div>--}}
+                <div class="page_link">
+                    <a href="{{route('propiedades.index')}}">Inicio</a>
+                    <a href="{{route('paginas.show', 'contacto')}}">Contacto</a>
+                </div>
             </div>
         </div>
     </div>

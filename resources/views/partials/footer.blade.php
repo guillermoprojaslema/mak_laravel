@@ -2,14 +2,14 @@
 <footer class="footer-area p_120">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4  col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget">
                     <h6 class="footer_title">Acerca de nosotros</h6>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                         labore dolore magna aliqua.</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget instafeed">
                     <h6 class="footer_title">Instagram Feed</h6>
                     <ul class="list instafeed d-flex flex-wrap">
@@ -20,7 +20,19 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6 class="footer_title">Indicadores Económicos</h6>
+                    <p>Dólar: ${{number_format($sbif->dolar, 0, ',', '.')}}</p>
+                    <p>Euro: ${{number_format($sbif->euro, 0, ',', '.')}}</p>
+                    <p>UF: ${{number_format($sbif->uf, 0, ',', '.')}}</p>
+                    <p>UTM: ${{number_format($sbif->utm, 0, ',', '.')}}</p>
+                    <p>IPC: ${{number_format($sbif->ipc, 2, ',', '.')}}</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-footer-widget f_social_wd">
                     <h6 class="footer_title">Follow Us</h6>
                     <p>Visita nuestras redes sociales</p>

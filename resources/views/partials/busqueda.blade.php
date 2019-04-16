@@ -48,7 +48,7 @@
                         </option>
                     </select>
                     {!! $errors->first('tipo_propiedad', '<p class="form-text  text-danger">:message</p>') !!}
-                    <select class="s_select" name="divisa">
+                    <select class="s_select" name="divisa" id="divisa">
                         <option value="">Seleccione una divisa</option>
                         <option value="CLP" {{ old('divisa') == 'CLP'? ' selected' : '' }}>$ CLP
                         </option>
