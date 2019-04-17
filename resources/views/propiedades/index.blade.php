@@ -17,7 +17,7 @@
                     <div class="col-lg-4">
                         <div class="properties_item">
                             <div class="pp_img">
-                                <img class="img-fluid" src="img/properties/pp-1.jpg" alt="">
+                                <img class="img-fluid" src="https://via.placeholder.com/360x212" alt="">
                             </div>
                             <div class="pp_content">
                                 @if($oferta->ruta == 'casas')

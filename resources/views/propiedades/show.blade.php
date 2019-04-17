@@ -21,6 +21,63 @@
                 <div class="page_link">
                     <a href="{{route('propiedades.index')}}">Inicio</a>
 
+
+                    @if($propiedad->ruta == 'casas')
+                        <a href="{{route('casas.show', $propiedad->id)}}">
+                            {{$propiedad->direccion}}
+                            , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
+                        </a>
+                    @endif
+
+                    @if($propiedad->ruta == 'bodegas')
+                        <a href="{{route('bodegas.show', $propiedad->id)}}">
+                            {{$propiedad->direccion}}
+                            , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
+
+                        </a>
+                    @endif
+
+                    @if($propiedad->ruta == 'terrenos')
+                        <a href="{{route('terrenos.show', $propiedad->id)}}">
+                            {{$propiedad->direccion}}
+                            , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
+                        </a>
+                    @endif
+
+
+
+
+                    @if($propiedad->ruta == 'locales_comerciales')
+                        <a href="{{route('casas.show', $propiedad->id)}}">
+                            {{$propiedad->direccion}}
+                            , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
+                        </a>
+                    @endif
+
+                    @if($propiedad->ruta == 'oficinas')
+                        <a href="{{route('oficinas.show', $propiedad->id)}}">
+                            {{$propiedad->edificio()->first()->direccion}}
+                            , {{$propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                            .
+                        </a>
+                    @endif
+
+                    @if($propiedad->ruta == 'apartamentos')
+                        <a href="{{route('apartamentos.show', $propiedad->id)}}">
+                            {{$propiedad->edificio()->first()->direccion}}
+                            , {{$propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                            .
+                        </a>
+                    @endif
+
+                    @if($propiedad->ruta == 'estacionamientos')
+                        <a href="{{route('estacionamientos.show', $propiedad->id)}}">
+                            {{$propiedad->edificio()->first()->direccion}}
+                            , {{$propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                            .
+                        </a>
+                    @endif
+
                 </div>
             </div>
         </div>
@@ -47,7 +104,10 @@
                              alt="{{$propiedad->direccion}}">
                     </div>
                 @empty
-                    No hay fotos
+                    <div>
+                        <img class="img-fluid img-thumbnail" src="https://via.placeholder.com/1280x720"
+                             alt="No existe la foto, o ésta fue removida">
+                    </div>
                 @endif
             </div>
         </div>
@@ -97,11 +157,6 @@
                         <div class="col-md-12">
                             <table class="table table-borderless table-hover">
                                 <tbody>
-                                <tr>
-                                    <td class="text-left">Clase de Propiedad</td>
-                                    <td class="text-right">{{$propiedad->tipo_propiedad}}</td>
-                                </tr>
-
                                 <tr>
                                     <td class="text-left">Dirección</td>
 
@@ -157,7 +212,7 @@
 
 
                                 <tr>
-                                    <td class="text-left">Clase de Casa</td>
+                                    <td class="text-left">Estilo</td>
                                     <td class="text-right">{{ $propiedad->tipo_casa  }}</td>
                                 </tr>
 
@@ -181,20 +236,23 @@
                                 </tr>
                                 <tr>
                                     <td class="text-left">Gastos comunes</td>
-                                    <td class="text-right">${{ number_format($propiedad->gastos_comunes, 2, ',', '.')}}</td>
+                                    <td class="text-right">
+                                        ${{ number_format($propiedad->gastos_comunes, 2, ',', '.')}}</td>
                                 </tr>
 
                                 @if(Auth::check())
                                     <tr>
                                         <td class="text-left">Avalúo Fiscal
                                         </td>
-                                        <td class="text-right">${{ number_format($propiedad->avaluo_fiscal, 2, ',', '.')}}</td>
+                                        <td class="text-right">
+                                            ${{ number_format($propiedad->avaluo_fiscal, 2, ',', '.')}}</td>
                                     </tr>
 
                                     <tr>
                                         <td class="text-left">Contribuciones
                                         </td>
-                                        <td class="text-right">${{ number_format($propiedad->contribuciones, 2, ',', '.')}}</td>
+                                        <td class="text-right">
+                                            ${{ number_format($propiedad->contribuciones, 2, ',', '.')}}</td>
                                     </tr>
                                 @endif
 
@@ -568,11 +626,6 @@
                                 <tr>
                                     <td class="text-left">Escritorios</td>
                                     <td class="text-right">{{ $propiedad->escritorio }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td class="text-left">Clase de Ventana</td>
-                                    <td class="text-right">{{ $propiedad->tipo_ventana }}</td>
                                 </tr>
 
                                 <tr>
