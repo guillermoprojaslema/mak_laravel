@@ -20,7 +20,7 @@ class TerrenoTableSeeder extends Seeder
             $property->negocio = $faker->randomElement(['arriendo', 'venta']);
             $property->oferta = $faker->randomElement([true, false]);
             $property->mostrar = $faker->randomElement([true, false]);
-            
+
             $property->precio = $faker->numberBetween(1, 100000);              // done
             $property->ancho = $faker->numberBetween(1, 100);                           // done
             $property->largo = $faker->numberBetween(1, 100);                          // done
@@ -29,7 +29,7 @@ class TerrenoTableSeeder extends Seeder
             $property->direccion = $faker->streetName . ' #' . $faker->numberBetween(10, 100000);                                 // done
             $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->descripcion = $faker->text(500);
-            $property->descripcion_breve = $faker->text(200);
+
             $property->comentario = $faker->text(500);
             $galeria = [];
             for ($j = 0; $j < 5; $j++) {

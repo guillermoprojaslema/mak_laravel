@@ -30,7 +30,7 @@ class EstacionamientoTableSeeder extends Seeder
             $property->contribuciones = $faker->numberBetween(10000, 500000);             // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
-            $property->descripcion_breve = $faker->text(200);
+
 
 
             $galeria = [];
