@@ -41,7 +41,6 @@ class OficinaTableSeeder extends Seeder
             $property->gastos_comunes = $faker->numberBetween(0, 100000);              // done
             $property->sala_privada = $faker->numberBetween(0, 10);                     // done
             $property->descripcion = $faker->text(500);
-            $property->descripcion_breve= $faker->text(200);
             $property->orientacion = $faker->randomElement(['Norte', 'Nororiente', 'Oriente', 'Suroriente', 'Sur', 'Surponiente', 'Poniente', 'Norponiente']); //done
             $property->tipo_cocina = $faker->randomElement(["Normal", "Americana", "Isla"]); //done
             $property->tipo_ventana = $faker->randomElement(["Madera","Aluminio Anonizado", "PVC","Hierro"]); //done

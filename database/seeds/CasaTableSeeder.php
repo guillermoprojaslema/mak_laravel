@@ -60,7 +60,7 @@ class CasaTableSeeder extends Seeder
             $property->direccion_referencial = $faker->streetAddress . ' & ' . $faker->streetAddress; // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
-            $property->descripcion_breve = $faker->text(200);
+
             $property->orientacion = $faker->randomElement(['Norte', 'Nororiente', 'Oriente', 'Suroriente', 'Sur', 'Surponiente', 'Poniente', 'Norponiente']); //done
             $property->tipo_casa = $faker->randomElement(["Chilena","Mediterránea", "Georgiana", "Mexicana", "Canadiense", "Ingles", "Francés"]); //done
             $property->tipo_cocina = $faker->randomElement(["Normal", "Americana", "Isla"]); //done
