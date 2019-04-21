@@ -21,7 +21,7 @@ class CreateBodegasTable extends Migration
         $table->boolean('iluminacion')->nullable(); // iluminación de bodegas
         $table->boolean('conexion_trifasica')->nullable();
         $table->boolean('oferta');
-        $table->boolean('destacado');
+
 
         /* Sólo números */
         $table->integer('precio');
@@ -36,7 +36,7 @@ class CreateBodegasTable extends Migration
         $table->string('direccion')->nullable()->unique();
         $table->string('direccion_referencial')->nullable();
         $table->string('descripcion', 2000);
-        $table->string('descripcion_breve', 200);
+
         $table->string('orientacion')->nullable();
         $table->string('tipo_ventana')->nullable();
         $table->string('tipo_piso')->nullable();

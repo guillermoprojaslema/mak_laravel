@@ -38,7 +38,7 @@
                     <p>Visita nuestras redes sociales</p>
                     <div class="f_social">
                         <a href="{{setting('site.facebook_url')}}"><i class="fab fa-facebook"></i></a>
-                        <a href="{{setting('site.twitter_url')}}"><i class="fab fa-twitter"></i></a>
+                            <a href="{{setting('site.twitter_url')}}"><i class="fab fa-twitter"></i></a>
                         <a href="{{setting('site.instagram_url')}}"><i class="fab fa-instagram"></i></a>
                         <a href="{{setting('site.pinterest_url')}}"><i class="fab fa-pinterest"></i></a>
                     </div>

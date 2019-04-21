@@ -1,9 +1,12 @@
 @extends('layouts.app')
-
-@if($propiedad->edificio_id)
-    @section(setting('site.title', config('app.name')) ,  $propiedad->direccion. ', '. $propiedad->edificio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre)
+@if(Auth::check())
+    @if($propiedad->edificio_id)
+        @section(setting('site.title'.  $propiedad->direccion. ', '. $propiedad->edificio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre, config('app.name')) )
+    @else
+    @section(setting('site.title'. $propiedad->direccion. ', '. $propiedad->barrio()->first()->nombre .', ' . $propiedad->barrio()->first()->comuna()->first()->nombre, config('app.name')) )
+    @endif
 @else
-    @section(setting('site.title', config('app.name')) , $propiedad->direccion. ', '. $propiedad->barrio()->first()->nombre .', ' . $propiedad->barrio()->first()->comuna()->first()->nombre)
+    @section(setting('site.title'.' ' .$propiedad->direccion_referencial, config('app.name')))
 @endif
 
 @push('styles')
@@ -20,64 +23,19 @@
             <div class="banner_content">
                 <div class="page_link">
                     <a href="{{route('propiedades.index')}}">Inicio</a>
-
-
-                    @if($propiedad->ruta == 'casas')
+                    @if($propiedad->ruta == 'casas' || $propiedad->ruta == 'bodegas' || $propiedad->ruta == 'terrenos' || $propiedad->ruta == 'locales_comerciales')
                         <a href="{{route('casas.show', $propiedad->id)}}">
-                            {{$propiedad->direccion}}
+                            {{$propiedad->direccion_referencial}}
                             , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
                         </a>
-                    @endif
 
-                    @if($propiedad->ruta == 'bodegas')
-                        <a href="{{route('bodegas.show', $propiedad->id)}}">
-                            {{$propiedad->direccion}}
-                            , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
-
-                        </a>
-                    @endif
-
-                    @if($propiedad->ruta == 'terrenos')
-                        <a href="{{route('terrenos.show', $propiedad->id)}}">
-                            {{$propiedad->direccion}}
-                            , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
-                        </a>
-                    @endif
-
-
-
-
-                    @if($propiedad->ruta == 'locales_comerciales')
-                        <a href="{{route('casas.show', $propiedad->id)}}">
-                            {{$propiedad->direccion}}
-                            , {{$propiedad->barrio()->first()->comuna()->first()->nombre}}.
-                        </a>
-                    @endif
-
-                    @if($propiedad->ruta == 'oficinas')
+                    @else
                         <a href="{{route('oficinas.show', $propiedad->id)}}">
-                            {{$propiedad->edificio()->first()->direccion}}
+                            {{$propiedad->edificio()->first()->direccion_referencial}}
                             , {{$propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
                             .
                         </a>
                     @endif
-
-                    @if($propiedad->ruta == 'apartamentos')
-                        <a href="{{route('apartamentos.show', $propiedad->id)}}">
-                            {{$propiedad->edificio()->first()->direccion}}
-                            , {{$propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
-                            .
-                        </a>
-                    @endif
-
-                    @if($propiedad->ruta == 'estacionamientos')
-                        <a href="{{route('estacionamientos.show', $propiedad->id)}}">
-                            {{$propiedad->edificio()->first()->direccion}}
-                            , {{$propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
-                            .
-                        </a>
-                    @endif
-
                 </div>
             </div>
         </div>
@@ -89,18 +47,15 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            @if($propiedad->edificio_id)
-                <h4>{{$propiedad->direccion. ', '. $propiedad->edificio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->nombre .', ' . $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}</h4>
-            @else
-                <h4>{{$propiedad->direccion. ', '. $propiedad->barrio()->first()->nombre .', ' . $propiedad->barrio()->first()->comuna()->first()->nombre}}</h4>
-            @endif
+            <h4>{{$propiedad->direccion_referencial}}</h4>
         </div>
 
         <div class="col-md-12">
             <div class="owl-carousel owl-theme">
                 @forelse(json_decode($propiedad->galeria) as $foto)
+
                     <div>
-                        <img class="img-fluid img-thumbnail" src="{{$foto }}"
+                        <img class="img-fluid img-thumbnail" src="{{storage_path($foto)}}"
                              alt="{{$propiedad->direccion}}">
                     </div>
                 @empty
@@ -157,18 +112,21 @@
                         <div class="col-md-12">
                             <table class="table table-borderless table-hover">
                                 <tbody>
-                                <tr>
-                                    <td class="text-left">Dirección</td>
 
-                                    <td class="text-right">
-                                        @if($propiedad->edificio_id)
-                                            {{ $propiedad->edificio->direccion}}
-                                        @else
-                                            {{ $propiedad->direccion }}
-                                        @endif
-                                    </td>
+                                @if(Auth::check())
+                                    <tr>
+                                        <td class="text-left">Dirección</td>
 
-                                </tr>
+                                        <td class="text-right">
+                                            @if($propiedad->edificio_id)
+                                                {{ $propiedad->edificio->direccion}}
+                                            @else
+                                                {{ $propiedad->direccion }}
+                                            @endif
+                                        </td>
+
+                                    </tr>
+                                @endif
 
                                 <tr>
                                     <td class="text-left">Dirección referencial</td>

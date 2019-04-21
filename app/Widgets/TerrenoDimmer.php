@@ -24,7 +24,7 @@ class TerrenoDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Terreno::disponibles()->count();
+        $count = Terreno::mostrar()->count();
 
         $string = trans_choice('voyager.dimmer.terreno', $count);
 

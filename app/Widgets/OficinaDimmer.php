@@ -23,7 +23,7 @@ class OficinaDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Oficina::disponibles()->count();
+        $count = Oficina::mostrar()->count();
         $string = trans_choice('voyager.dimmer.oficina', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [

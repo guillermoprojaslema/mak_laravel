@@ -25,7 +25,7 @@ class EstacionamientoDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Estacionamiento::disponibles()->count();
+        $count = Estacionamiento::mostrar()->count();
         $string = trans_choice('voyager.dimmer.estacionamiento', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [

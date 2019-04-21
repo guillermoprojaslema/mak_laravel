@@ -25,7 +25,7 @@ class CasaDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Casa::disponibles()->count();
+        $count = Casa::mostrar()->count();
 
         $string = trans_choice('voyager.dimmer.casa', $count);
 

@@ -20,6 +20,8 @@ class CreateCasasTable extends Migration
 
             /* Booleans*/
             $table->boolean('amoblado')->nullable();
+            $table->boolean('mostrar')->nullable();
+
             $table->boolean('habitacion')->nullable(); // Casa o habitación (?)
             $table->boolean('condominio')->nullable();
             $table->boolean('hall')->nullable();
@@ -36,7 +38,7 @@ class CreateCasasTable extends Migration
             $table->boolean('piscina')->nullable();
             $table->boolean('bodega')->nullable();
             $table->boolean('oferta');
-            $table->boolean('destacado');
+
 
             /* Sólo números */
             $table->integer('precio');
@@ -59,7 +61,7 @@ class CreateCasasTable extends Migration
             $table->string('direccion')->nullable()->unique();
             $table->string('direccion_referencial')->nullable();
             $table->string('descripcion', 2000);
-            $table->string('descripcion_breve', 200);
+
             $table->string('tipo_casa')->nullable();
             $table->string('orientacion')->nullable();
             $table->string('tipo_cocina')->nullable();

@@ -19,6 +19,7 @@ class CreateApartamentosTable extends Migration
             $table->enum('negocio', ['arriendo', 'venta']);
 
             /* Booleans*/
+            $table->boolean('mostrar')->nullable();
             $table->boolean('amoblado')->nullable();
             $table->boolean('habitacion')->nullable(); // Casa o habitación (?)
             $table->boolean('condominio')->nullable();
@@ -41,7 +42,7 @@ class CreateApartamentosTable extends Migration
             $table->boolean('casillero')->nullable();
             $table->boolean('bodega')->nullable();
             $table->boolean('oferta');
-            $table->boolean('destacado');
+            
 
             /* Sólo números */
             $table->integer('numero');
@@ -61,7 +62,7 @@ class CreateApartamentosTable extends Migration
             /* Alfanuméricos */
             $table->string('rol')->nullable()->unique();
             $table->string('descripcion', 2000);
-            $table->string('descripcion_breve', 200);
+
             $table->string('tipo_departamento')->nullable();
             $table->string('orientacion')->nullable();
             $table->string('tipo_cocina')->nullable();

@@ -36,14 +36,9 @@ class Terreno extends Model
         return $query->where('oferta', true);
     }
 
-    public function scopeDestacados($query)
+    public function scopeMostrar($query)
     {
-        return $query->where('destacado', true)->orderBy('updated_at', 'desc')->take(4);
-    }
-
-    public function scopeDisponibles($query)
-    {
-        return $query->where('cliente_id', null);
+        return $query->where('mostrar', true);
     }
 
     protected $dates = ['deleted_at'];

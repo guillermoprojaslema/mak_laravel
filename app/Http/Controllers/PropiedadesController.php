@@ -137,7 +137,7 @@ class PropiedadesController extends Controller
                 $propiedades = Casa::where('precio', '>=', $request->min_precio)
                     ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
-                    ->disponibles()
+                    ->mostrar()
                     ->get()
                     ->filter(function ($propiedad) use ($request) {
                         return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
@@ -148,7 +148,7 @@ class PropiedadesController extends Controller
                 $propiedades = Apartamento::where('precio', '>=', $request->min_precio)
                     ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
-                    ->disponibles()
+                    ->mostrar()
                     ->get()
                     ->filter(function ($propiedad) use ($request) {
                         return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
@@ -159,7 +159,7 @@ class PropiedadesController extends Controller
                 $propiedades = Oficina::where('precio', '>=', $request->min_precio)
                     ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
-                    ->disponibles()
+                    ->mostrar()
                     ->get()
                     ->filter(function ($propiedad) use ($request) {
                         return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
@@ -170,7 +170,7 @@ class PropiedadesController extends Controller
                 $propiedades = LocalComercial::where('precio', '>=', $request->min_precio)
                     ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
-                    ->disponibles()
+                    ->mostrar()
                     ->get()
                     ->filter(function ($propiedad) use ($request) {
                         return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
@@ -181,7 +181,7 @@ class PropiedadesController extends Controller
                 $propiedades = Bodega::where('precio', '>=', $request->min_precio)
                     ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
-                    ->disponibles()
+                    ->mostrar()
                     ->get()
                     ->filter(function ($propiedad) use ($request) {
                         return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
@@ -192,7 +192,7 @@ class PropiedadesController extends Controller
                 $propiedades = Terreno::where('precio', '>=', $request->min_precio)
                     ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
-                    ->disponibles()
+                    ->mostrar()
                     ->get()
                     ->filter(function ($propiedad) use ($request) {
                         return $propiedad->barrio()->first()->comuna()->first()->id == $request->comuna_id;
@@ -202,7 +202,7 @@ class PropiedadesController extends Controller
                 $propiedades = Estacionamiento::where('precio', '>=', $request->min_precio)
                     ->where('precio', '<=', $request->max_precio)
                     ->where('negocio', $request->negocio)
-                    ->disponibles()
+                    ->mostrar()
                     ->get()
                     ->filter(function ($propiedad) use ($request) {
                         return $propiedad->edificio()->first()->barrio()->first()->comuna()->first()->id == $request->comuna_id;
@@ -235,12 +235,12 @@ class PropiedadesController extends Controller
     public static function propiedadesOfertas()
     {
         $propiedades_ofertas = collect();
-        $casas_ofertas = Casa::disponibles()->get();
-        $apartamentos_ofertas = Apartamento::disponibles()->ofertas()->get();
-        $oficinas_ofertas = Oficina::disponibles()->ofertas()->get();
-        $locales_comerciales_ofertas = LocalComercial::disponibles()->ofertas()->get();
-        $terrenos_ofertas = Terreno::disponibles()->ofertas()->get();
-        $estacionamientos_ofertas = Estacionamiento::disponibles()->ofertas()->get();
+        $casas_ofertas = Casa::mostrar()->get();
+        $apartamentos_ofertas = Apartamento::mostrar()->ofertas()->get();
+        $oficinas_ofertas = Oficina::mostrar()->ofertas()->get();
+        $locales_comerciales_ofertas = LocalComercial::mostrar()->ofertas()->get();
+        $terrenos_ofertas = Terreno::mostrar()->ofertas()->get();
+        $estacionamientos_ofertas = Estacionamiento::mostrar()->ofertas()->get();
 
         $propiedades_ofertas = $propiedades_ofertas->merge($casas_ofertas)
             ->merge($apartamentos_ofertas)
