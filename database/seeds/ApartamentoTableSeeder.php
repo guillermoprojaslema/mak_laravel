@@ -63,7 +63,7 @@ class ApartamentoTableSeeder extends Seeder
             $property->rol = $faker->unique()->ean13;              // done
             $property->comentario = $faker->text(500);
             $property->descripcion = $faker->text(500);
-            $property->descripcion_breve = $faker->text(200);
+
             $property->orientacion = $faker->randomElement(['Norte', 'Nororiente', 'Oriente', 'Suroriente', 'Sur', 'Surponiente', 'Poniente', 'Norponiente']); //done
             $property->tipo_cocina = $faker->randomElement(["Normal", "Americana", "Isla"]); //done
             $property->tipo_ventana = $faker->randomElement(["Madera", "Aluminio Anonizado", "PVC", "Hierro"]); //done
