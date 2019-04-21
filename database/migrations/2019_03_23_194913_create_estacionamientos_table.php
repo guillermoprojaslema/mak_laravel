@@ -20,6 +20,7 @@ class CreateEstacionamientosTable extends Migration
 
             /* Booleans*/
             $table->boolean('oferta');
+            $table->boolean('mostrar');
 
 
             /* Sólo números */
