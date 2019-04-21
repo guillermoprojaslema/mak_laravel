@@ -21,6 +21,8 @@ class CreateBodegasTable extends Migration
         $table->boolean('iluminacion')->nullable(); // iluminación de bodegas
         $table->boolean('conexion_trifasica')->nullable();
         $table->boolean('oferta');
+        $table->boolean('mostrar');
+
 
 
         /* Sólo números */
