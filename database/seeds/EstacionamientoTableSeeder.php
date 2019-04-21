@@ -18,9 +18,10 @@ class EstacionamientoTableSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             $property = new Estacionamiento();
             $property->negocio = $faker->randomElement(['arriendo', 'venta']);
+            $property->mostrar = $faker->randomElement([true, false]);
 
             $property->oferta = $faker->randomElement([true, false]);
-            $property->destacado = $faker->randomElement([true, false]);
+
 
 
             $property->numero = $faker->numberBetween(0, 100000);              // done

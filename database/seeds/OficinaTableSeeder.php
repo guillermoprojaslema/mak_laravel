@@ -19,7 +19,7 @@ class OficinaTableSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             $property = new Oficina();
             $property->negocio = $faker->randomElement(['arriendo', 'venta']);
-
+            $property->mostrar = $faker->randomElement([true, false]);
             $property->amoblado = $faker->randomElement([true, false]);
             $property->habitacion = $faker->randomElement([true, false]);                      // done
             $property->oficina_secretaria = $faker->randomElement([true, false]);          // done
@@ -29,7 +29,7 @@ class OficinaTableSeeder extends Seeder
             $property->alarma_incendio = $faker->randomElement([true, false]);                // done
             $property->alarma = $faker->randomElement([true, false]);                     // done
             $property->oferta = $faker->randomElement([true, false]);
-            $property->destacado = $faker->randomElement([true, false]);
+
 
 
             $property->numero = $faker->numberBetween(0, 20200);              // done

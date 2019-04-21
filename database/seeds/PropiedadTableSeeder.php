@@ -49,7 +49,7 @@ class PropiedadTableSeeder extends Seeder
             $property->casillero = $faker->randomElement([true, false]);                   // done
             $property->bodega = $faker->randomElement([true, false]);
             $property->oferta = $faker->randomElement([true, false]);
-            $property->destacado = $faker->randomElement([true, false]);
+
 
 
             $property->numero = $faker->numberBetween(0, 20200);              // done

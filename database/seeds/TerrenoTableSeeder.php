@@ -19,7 +19,8 @@ class TerrenoTableSeeder extends Seeder
             $property = new Terreno();
             $property->negocio = $faker->randomElement(['arriendo', 'venta']);
             $property->oferta = $faker->randomElement([true, false]);
-            $property->destacado = $faker->randomElement([true, false]);
+            $property->mostrar = $faker->randomElement([true, false]);
+            
             $property->precio = $faker->numberBetween(1, 100000);              // done
             $property->ancho = $faker->numberBetween(1, 100);                           // done
             $property->largo = $faker->numberBetween(1, 100);                          // done

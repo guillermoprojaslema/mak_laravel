@@ -21,6 +21,7 @@ class ApartamentoTableSeeder extends Seeder
             $property->negocio = $faker->randomElement(['arriendo', 'venta']);
 
             $property->amoblado = $faker->randomElement([true, false]);
+            $property->mostrar = $faker->randomElement([true, false]);
             $property->habitacion = $faker->randomElement([true, false]);                      // done
             $property->condominio = $faker->randomElement([true, false]);               // done
             $property->hall = $faker->randomElement([true, false]);                      // done
@@ -42,7 +43,7 @@ class ApartamentoTableSeeder extends Seeder
             $property->casillero = $faker->randomElement([true, false]);                   // done
             $property->bodega = $faker->randomElement([true, false]);
             $property->oferta = $faker->randomElement([true, false]);
-            $property->destacado = $faker->randomElement([true, false]);
+
 
 
             $property->numero = $faker->numberBetween(0, 20200);              // done
