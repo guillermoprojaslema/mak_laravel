@@ -19,12 +19,12 @@ class BodegaTableSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             $property = new Bodega();
             $property->negocio = $faker->randomElement(['arriendo', 'venta']);
-
+            $property->mostrar = $faker->randomElement([true, false]);
             $property->alarma = $faker->randomElement([true, false]);                     // done
             $property->iluminacion = $faker->randomElement([true, false]);
             $property->conexion_trifasica = $faker->randomElement([true, false]);// done
             $property->oferta = $faker->randomElement([true, false]);
-            $property->destacado = $faker->randomElement([true, false]);
+
 
 
             $property->precio = $faker->numberBetween(1, 100000);              // done

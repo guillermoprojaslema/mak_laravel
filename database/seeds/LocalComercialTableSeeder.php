@@ -19,7 +19,7 @@ class LocalComercialTableSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             $local_comercial = new LocalComercial();
             $local_comercial->negocio = $faker->randomElement(['arriendo', 'venta']);
-
+            $local_comercial->mostrar = $faker->randomElement([true, false]);
             $local_comercial->alarma_incendio = $faker->randomElement([true, false]);                // done
             $local_comercial->iluminacion = $faker->randomElement([true, false]);
             $local_comercial->conexion_trifasica = $faker->randomElement([true, false]);// done

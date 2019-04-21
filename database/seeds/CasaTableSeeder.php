@@ -18,7 +18,7 @@ class CasaTableSeeder extends Seeder
         for ($i = 0; $i < 30; $i++) {
             $property = new Casa();
             $property->negocio = $faker->randomElement(['arriendo', 'venta']);
-
+            $property->mostrar = $faker->randomElement([true, false]);
             $property->amoblado = $faker->randomElement([true, false]);
             $property->habitacion = $faker->randomElement([true, false]);                      // done
             $property->condominio = $faker->randomElement([true, false]);               // done
@@ -35,7 +35,7 @@ class CasaTableSeeder extends Seeder
             $property->piscina = $faker->randomElement([true, false]);             // done
             $property->bodega = $faker->randomElement([true, false]);
             $property->oferta = $faker->randomElement([true, false]);
-            $property->destacado = $faker->randomElement([true, false]);
+
 
 
 
