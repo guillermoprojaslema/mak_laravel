@@ -19,12 +19,13 @@ class CreateLocalesComercialesTable extends Migration
             $table->enum('negocio', ['arriendo', 'venta']);
 
             /* Booleans*/
+            $table->boolean('mostrar')->nullable();
             $table->boolean('alarma')->nullable();
             $table->boolean('alarma_incendio')->nullable();
             $table->boolean('iluminacion')->nullable(); // iluminación de bodegas
             $table->boolean('conexion_trifasica')->nullable();
             $table->boolean('oferta');
-            $table->boolean('destacado');
+
 
             /* Sólo números */
             $table->integer('numero');
@@ -43,7 +44,7 @@ class CreateLocalesComercialesTable extends Migration
             $table->string('direccion')->nullable()->unique();
             $table->string('direccion_referencial')->nullable();
             $table->string('descripcion', 2000);
-            $table->string('descripcion_breve', 200);
+
             $table->string('calefaccion')->nullable();
             $table->string('tipo_piso')->nullable();
             $table->string('tipo_agua_caliente')->nullable();

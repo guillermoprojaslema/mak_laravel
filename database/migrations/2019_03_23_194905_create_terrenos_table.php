@@ -20,7 +20,8 @@ class CreateTerrenosTable extends Migration
 
             /* Booleans*/
             $table->boolean('oferta');
-            $table->boolean('destacado');
+
+            $table->boolean('mostrar')->nullable();
 
             /* Sólo números */
             $table->integer('precio');
@@ -32,7 +33,7 @@ class CreateTerrenosTable extends Migration
             $table->string('direccion')->nullable()->unique();
             $table->string('direccion_referencial')->nullable();
             $table->string('descripcion', 2000);
-            $table->string('descripcion_breve', 200);
+
             $table->string('comentario', 2000)->nullable();
             $table->string('foto')->nullable();
             $table->string('galeria')->nullable();

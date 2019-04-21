@@ -24,7 +24,7 @@ class ApartamentoDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Apartamento::disponibles()->count();
+        $count = Apartamento::mostrar()->count();
         $string = trans_choice('voyager.dimmer.apartamento', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [

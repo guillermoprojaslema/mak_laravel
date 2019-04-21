@@ -23,7 +23,7 @@
                                 @if($oferta->ruta == 'casas')
                                     <a href="{{route('casas.show', $oferta->id)}}">
                                         <h4>
-                                            {{$oferta->direccion}}
+                                            {{$oferta->direccion_referencial}}
                                             , {{$oferta->barrio()->first()->comuna()->first()->nombre}}.
                                         </h4>
                                     </a>
@@ -62,7 +62,7 @@
                                 @if($oferta->ruta == 'oficinas')
                                     <a href="{{route('oficinas.show', $oferta->id)}}">
                                         <h4>
-                                            {{$oferta->edificio()->first()->direccion}}
+                                            {{$oferta->edificio()->first()->direccion_referencial}}
                                             , {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
                                             .
                                         </h4>
@@ -72,7 +72,7 @@
                                 @if($oferta->ruta == 'apartamentos')
                                     <a href="{{route('apartamentos.show', $oferta->id)}}">
                                         <h4>
-                                            {{$oferta->edificio()->first()->direccion}}
+                                            {{$oferta->edificio()->first()->direccion_referencial}}
                                             , {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
                                             .
                                         </h4>
@@ -82,8 +82,9 @@
                                 @if($oferta->ruta == 'estacionamientos')
                                     <a href="{{route('estacionamientos.show', $oferta->id)}}">
                                         <h4>
-                                            {{$oferta->edificio()->first()->direccion}}
+                                            {{$oferta->edificio()->first()->direccion_referencial}}
                                             , {{$oferta->edificio()->first()->barrio()->first()->comuna()->first()->nombre}}
+                                            .
                                             .
                                         </h4>
                                     </a>
@@ -126,7 +127,8 @@
                                     <h5 class="precio_uf">{{'$ '. number_format((float)$oferta->precio / $sbif->uf,  2, ',', '.')}}
                                         UF</h5>
 
-                                    <a class="main_btn" href="{{route($oferta->ruta.'.show', $oferta->id)}}">Detalles</a>
+                                    <a class="main_btn"
+                                       href="{{route($oferta->ruta.'.show', $oferta->id)}}">Detalles</a>
 
                                 </div>
                             </div>

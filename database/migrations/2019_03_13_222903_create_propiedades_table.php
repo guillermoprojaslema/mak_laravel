@@ -50,7 +50,7 @@ class CreatePropiedadesTable extends Migration
             $table->boolean('casillero')->nullable();
             $table->boolean('bodega')->nullable();
             $table->boolean('oferta');
-            $table->boolean('destacado');
+
 
             /* Sólo números */
             $table->integer('numero');

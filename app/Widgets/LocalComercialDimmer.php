@@ -25,7 +25,7 @@ class LocalComercialDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = LocalComercial::disponibles()->count();
+        $count = LocalComercial::mostrar()->count();
         $string = trans_choice('voyager.dimmer.local_comercial', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [

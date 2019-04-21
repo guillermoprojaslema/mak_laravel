@@ -24,7 +24,7 @@ class BodegaDimmer extends BaseDimmer
      */
     public function run()
     {
-        $count = Bodega::disponibles()->count();
+        $count = Bodega::mostrar()->count();
         $string = trans_choice('voyager.dimmer.bodega', $count);
 
         return view('voyager::dimmer', array_merge($this->config, [

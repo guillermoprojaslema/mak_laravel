@@ -20,7 +20,7 @@ class CreateEstacionamientosTable extends Migration
 
             /* Booleans*/
             $table->boolean('oferta');
-            $table->boolean('destacado');
+
 
             /* Sólo números */
             $table->integer('numero');
@@ -35,7 +35,7 @@ class CreateEstacionamientosTable extends Migration
 
             /*Alfanuméricos*/
             $table->string('descripcion', 2000);
-            $table->string('descripcion_breve', 200);
+
             $table->string('comentario', 2000)->nullable();
 
             /*Foreign keys*/

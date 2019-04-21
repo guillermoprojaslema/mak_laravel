@@ -19,6 +19,7 @@ class CreateOficinasTable extends Migration
             $table->enum('negocio', ['arriendo', 'venta']);
 
             /* Booleans*/
+            $table->boolean('mostrar')->nullable();
             $table->boolean('amoblado')->nullable();
             $table->boolean('habitacion')->nullable(); // Casa o habitación (?)
             $table->boolean('oficina_secretaria')->nullable();
@@ -28,7 +29,7 @@ class CreateOficinasTable extends Migration
             $table->boolean('alarma_incendio')->nullable();
             $table->boolean('alarma')->nullable();
             $table->boolean('oferta');
-            $table->boolean('destacado');
+
 
             /* Sólo números */
             $table->integer('numero');
@@ -41,7 +42,7 @@ class CreateOficinasTable extends Migration
             $table->integer('sala_privada')->nullable();
             /* Alfanuméricos */
             $table->string('descripcion', 2000);
-            $table->string('descripcion_breve', 200);
+
             $table->string('tipo_oficina')->nullable();
             $table->string('orientacion')->nullable();
             $table->string('tipo_cocina')->nullable();
