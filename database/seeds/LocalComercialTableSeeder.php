@@ -24,7 +24,6 @@ class LocalComercialTableSeeder extends Seeder
             $property->iluminacion = $faker->randomElement([true, false]);
             $property->conexion_trifasica = $faker->randomElement([true, false]);// done
             $property->oferta = $faker->randomElement([true, false]);
-            $property->destacado = $faker->randomElement([true, false]);
 
 
             $property->numero = $faker->numberBetween(0, 20200);              // done
